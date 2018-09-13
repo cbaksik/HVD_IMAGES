@@ -1,0 +1,13 @@
+
+prm-favorites > div.layout-row {
+    background:#ffffff;
+}
+
+prm-brief-result-container.list-item {
+    background:#ffffff;
+}
+
+prm-brief-result-container.list-item:hover {
+    background:#c3c3c3 !important;
+}
+

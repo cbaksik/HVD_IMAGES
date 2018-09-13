@@ -1,0 +1,27 @@
+#componentMetadata {
+    padding:15px;
+    background: #ffffff;
+    color:#000000;
+}
+
+
+.hv-toggle {
+    text-align: right;
+}
+
+.hv-toggle > button {
+    margin-bottom:10px !important;
+    margin-top:0px !important;
+}
+
+.whiteBg {
+    background:#ffffff;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bigPadding {
+    padding:30px;
+}
