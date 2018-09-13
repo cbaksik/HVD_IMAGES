@@ -165,7 +165,7 @@
                 focusOnOpen:true,
                 escapeToClose: true,
                 bindToController:true,
-                templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/custom-full-view-dialog.html',
+                templateUrl:'/primo-explore/custom/HVD_IMAGES/html/custom-full-view-dialog.html',
                 controller:'customFullViewDialogController',
                 controllerAs:'vm',
                 fullscreen:true,
@@ -214,7 +214,7 @@
                 focusOnOpen:true,
                 escapeToClose: true,
                 bindToController:true,
-                templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/custom-favorite-action-dialog.html',
+                templateUrl:'/primo-explore/custom/HVD_IMAGES/html/custom-favorite-action-dialog.html',
                 controller:'customFavoriteActionDialogController',
                 controllerAs:'vm',
                 fullscreen:false,
@@ -315,7 +315,7 @@
         bindings: {parentCtrl:'<'},
         controller: 'customFavoriteListController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/01HVD_IMAGES/html/custom-favorite-list.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/custom-favorite-list.html'
     });
 
 })();

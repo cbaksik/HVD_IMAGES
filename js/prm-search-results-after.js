@@ -52,7 +52,7 @@
             }
 
             var params={'addfields':[],'offset':0,'limit':50,'lang':'en_US','inst':'01HVD','getMore':0,'pcAvailability':true,'q':'','rtaLinks':true,
-            'sort':'rank','tab':'default_tab','vid':'01HVD_IMAGES','scope':'default_scope','qExclude':'','qInclude':'','searchString':'','mode':'','multiFacets':''};
+            'sort':'rank','tab':'default_tab','vid':'HVD_IMAGES','scope':'default_scope','qExclude':'','qInclude':'','searchString':'','mode':'','multiFacets':''};
 
 
             params.limit=limit;
@@ -235,7 +235,7 @@
 
         // go to full display state
         vm.goto=function() {
-            let obj={docid:vm.itemData.item.pnx.control.recordid[0],vid:'01HVD_IMAGES',lang:'en_US',search_scope:vm.searchData.scope,tab:vm.searchData.tab, q:vm.searchData['q'],searchString:vm.searchData['searchString'],sortby:vm.searchData.sort,offset:vm.searchData.offset};
+            let obj={docid:vm.itemData.item.pnx.control.recordid[0],vid:'HVD_IMAGES',lang:'en_US',search_scope:vm.searchData.scope,tab:vm.searchData.tab, q:vm.searchData['q'],searchString:vm.searchData['searchString'],sortby:vm.searchData.sort,offset:vm.searchData.offset};
             $state.go('fulldisplay',obj,{location:false, reload:true,notify:false});
         };
 
@@ -248,7 +248,7 @@
                 focusOnOpen:true,
                 escapeToClose: true,
                 bindToController:true,
-                templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/custom-full-view-dialog.html',
+                templateUrl:'/primo-explore/custom/HVD_IMAGES/html/custom-full-view-dialog.html',
                 controller:'customFullViewDialogController',
                 controllerAs:'vm',
                 fullscreen:true,
@@ -297,7 +297,7 @@
     .component('prmSearchResultListAfter', {
         bindings: {parentCtrl: '<'},
         controller: 'prmSearchResultListAfterController',
-        templateUrl: '/primo-explore/custom/01HVD_IMAGES/html/prm-search-results.html'
+        templateUrl: '/primo-explore/custom/HVD_IMAGES/html/prm-search-results.html'
     });
 
 })();

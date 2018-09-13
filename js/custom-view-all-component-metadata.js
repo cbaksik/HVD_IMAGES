@@ -34,7 +34,7 @@
         // ajax call to get data
         vm.getData=function () {
           var restUrl=vm.parentCtrl.searchService.cheetah.restUrl+'/'+vm.context+'/'+vm.docid;
-          var params={'vid':'01HVD_IMAGES','lang':'en_US','search_scope':'default_scope','adaptor':'Local Search Engine'}
+          var params={'vid':'HVD_IMAGES','lang':'en_US','search_scope':'default_scope','adaptor':'Local Search Engine'}
           params.vid=vm.params.vid;
           params.lang=vm.params.lang;
           params.search_scope=vm.params.search_scope;
@@ -142,7 +142,7 @@
         bindings: {parentCtrl: '<'},
         controller: 'customViewAllComponentMetadataController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/01HVD_IMAGES/html/custom-view-all-component-metadata.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/custom-view-all-component-metadata.html'
     });
 
 })();

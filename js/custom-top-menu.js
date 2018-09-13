@@ -5,7 +5,7 @@
 (function () {
     angular.module('viewCustom')
     .component('customTopMenu', {
-        templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/custom-top-menu.html',
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/custom-top-menu.html',
         bindings: {
             parentCtrl:'<',
         },

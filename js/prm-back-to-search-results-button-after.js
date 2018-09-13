@@ -70,7 +70,7 @@
         bindings: {parentCtrl: '<'},
         controller: 'prmBackToSearchResultsButtonAfterController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/01HVD_IMAGES/html/prm-back-to-search-results-button-after.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/prm-back-to-search-results-button-after.html'
     });
 
 })();

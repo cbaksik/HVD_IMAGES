@@ -49,7 +49,7 @@
         // get rest endpoint Url
         vm.getUrl=function () {
             var configFile=sv.getEnv();
-            sv.getAjax('/primo-explore/custom/01HVD_IMAGES/html/'+configFile,'','get')
+            sv.getAjax('/primo-explore/custom/HVD_IMAGES/html/'+configFile,'','get')
                 .then(function (res) {
                         vm.api=res.data;
                         sv.setApi(vm.api);

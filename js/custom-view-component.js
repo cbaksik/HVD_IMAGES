@@ -258,7 +258,7 @@
         bindings: {item: '<',services:'<',params:'<',parentCtrl:'<'},
         controller: 'customViewComponentController',
         controllerAs:'vm',
-        'templateUrl':'/primo-explore/custom/01HVD_IMAGES/html/custom-view-component.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/custom-view-component.html'
     });
 
 

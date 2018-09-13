@@ -14,7 +14,7 @@
         // get item data to display on full view page
         vm.getItem=function () {
           var url=vm.parentCtrl.searchService.cheetah.restBaseURLs.pnxBaseURL+'/'+vm.context+'/'+vm.docid;
-          url+='?vid=01HVD_IMAGES';
+          url+='?vid=HVD_IMAGES';
           cs.getAjax(url,'','get').then(
               function (result) {
               vm.item=result.data;
@@ -38,7 +38,7 @@
             // capture the parameter from UI-Router
             vm.docid=$stateParams.docid;
             vm.context=$stateParams.context;
-            vm.vid='01HVD_IMAGES';
+            vm.vid='HVD_IMAGES';
             vm.getItem();
             $timeout(function () {
                 var el=document.getElementsByTagName('body')[0];
@@ -65,7 +65,7 @@
         bindings:{parentCtrl:'<'},
         controller: 'customPrintPageCtrl',
         controllerAs:'vm',
-        templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/custom-print-page.html'
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/custom-print-page.html'
     });
 
 })();

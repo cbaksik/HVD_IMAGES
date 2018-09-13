@@ -8,7 +8,7 @@
 
     angular.module('viewCustom')
     .component('responsiveImage', {
-        templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/responsiveImage.html',
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/responsiveImage.html',
         bindings: {
           src:'<',
           imgtitle: '<',
@@ -38,7 +38,7 @@
                         // use default image if it is a broken link image
                         var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                         if(pattern.test(vm.src)) {
-                            img.src='/primo-explore/custom/01HVD_IMAGES/img/icon_image.png';
+                            img.src='/primo-explore/custom/HVD_IMAGES/img/icon_image.png';
                         }
                         img.onload=vm.callback;
                         if(img.width > 50) {

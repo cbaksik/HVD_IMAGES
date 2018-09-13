@@ -9,7 +9,7 @@
         // local variables
         var vm = this;
         var sv=prmSearchService;
-        vm.imageUrl='/primo-explore/custom/01HVD_IMAGES/img/ajax-loader.gif';
+        vm.imageUrl='/primo-explore/custom/HVD_IMAGES/img/ajax-loader.gif';
         vm.item = items;
         vm.position=position;
         vm.flexSize=flexsize;
@@ -49,7 +49,7 @@
                 focusOnOpen:true,
                 escapeToClose: true,
                 bindToController:true,
-                templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/custom-full-view-dialog.html',
+                templateUrl:'/primo-explore/custom/HVD_IMAGES/html/custom-full-view-dialog.html',
                 controller:'customFullViewDialogController',
                 controllerAs:'vm',
                 fullscreen:true,

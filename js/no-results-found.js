@@ -6,7 +6,7 @@
 
     angular.module('viewCustom')
     .component('noResultsFound', {
-        templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/no-results-found.html',
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/no-results-found.html',
         bindings: {
             itemlength:'<',
         },

@@ -7,7 +7,7 @@
 
     angular.module('viewCustom')
     .component('thumbnail', {
-        templateUrl:'/primo-explore/custom/01HVD_IMAGES/html/thumbnail.html',
+        templateUrl:'/primo-explore/custom/HVD_IMAGES/html/thumbnail.html',
         bindings: {
             dataitem:'<',
             searchdata:'<'
@@ -18,7 +18,7 @@
             var sv=prmSearchService;
             vm.localScope={'imgclass':'','hideLockIcon':false,'showImageLabel':false};
             vm.modalDialogFlag=false;
-            vm.imageUrl='/primo-explore/custom/01HVD_IMAGES/img/icon_image.png';
+            vm.imageUrl='/primo-explore/custom/HVD_IMAGES/img/icon_image.png';
             vm.linkUrl='';
             vm.params=$location.search();
 
@@ -33,7 +33,7 @@
                         // use default image if it is a broken link image
                         var pattern = /^(onLoad\?)/; // the broken image start with onLoad
                         if(pattern.test(vm.dataitem.pnx.links.thumbnail[0])) {
-                            img.src='/primo-explore/custom/01HVD_IMAGES/img/icon_image.png';
+                            img.src='/primo-explore/custom/HVD_IMAGES/img/icon_image.png';
                         }
                         img.onload = vm.callback;
 
@@ -45,7 +45,7 @@
 
                 }
 
-                var vid='01HVD_IMAGES';
+                var vid='HVD_IMAGES';
                 var searchString='';
                 var q='';
                 var sort='rank';
@@ -128,7 +128,7 @@
             
 
             vm.openWindow=function () {
-                var url='/primo-explore/fulldisplay?vid=01HVD_IMAGES&docid='+vm.dataitem.pnx.control.recordid[0];
+                var url='/primo-explore/fulldisplay?vid=HVD_IMAGES&docid='+vm.dataitem.pnx.control.recordid[0];
                 $window.open(url,'_blank');
             };
 

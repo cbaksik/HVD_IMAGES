@@ -101,7 +101,7 @@
     .component('prmViewOnlineAfter', {
         bindings: {parentCtrl: '<'},
         controller: 'prmViewOnlineAfterController',
-        'templateUrl':'/primo-explore/custom/01HVD_IMAGES/html/prm-view-online-after.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/prm-view-online-after.html'
     });
 
 

@@ -36,7 +36,7 @@
     .component('prmLogoAfter', {
         bindings: {parentCtrl: '<'},
         controller: 'prmLogoAfterController',
-        'templateUrl':'/primo-explore/custom/01HVD_IMAGES/html/prm-logo-after.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/prm-logo-after.html'
     });
 
 })();

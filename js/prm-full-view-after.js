@@ -83,7 +83,7 @@
     .component('prmFullViewAfter', {
         bindings: {parentCtrl: '<'},
         controller: 'prmFullViewAfterController',
-        'templateUrl':'/primo-explore/custom/01HVD_IMAGES/html/prm-full-view-after.html'
+        'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/prm-full-view-after.html'
     });
 
 })();
