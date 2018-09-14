@@ -3,11 +3,22 @@
  * This is a service component and use to store data, get data, ajax call, compare any logic.
  */
 
-(function () {
-
-    angular.module('viewCustom')
-    .service('customService',['$http',function ($http) {
+angular.module('viewCustom')
+    .service('customService',['$http','$sce','$window',function ($http, $sce,$window) {
         var serviceObj={};
+
+        // get environment to run config.html
+        serviceObj.getEnv=function () {
+            var host = $window.location.hostname;
+            var config='config-prod.html';
+            if(host.toLowerCase()==='localhost'){
+                config='config-local.html';
+            } else if(host.toLowerCase()==='harvard-primoalma-stage.hosted.exlibrisgroup.com'||host.toLowerCase()==='qa.hollis.harvard.edu') {
+                config='config-dev.html';
+            }
+
+            return config;
+        };
 
         serviceObj.getAjax=function (url,param,methodType) {
             return $http({
@@ -20,6 +31,14 @@
         serviceObj.postAjax=function (url,jsonObj) {
             // pass primo token to header with value call token
             $http.defaults.headers.common.token=jsonObj.token;
+            return $http({
+                'method':'post',
+                'url':url,
+                'data':jsonObj
+            })
+        };
+
+        serviceObj.postData=function (url,jsonObj) {
             return $http({
                 'method':'post',
                 'url':url,
@@ -231,8 +250,24 @@
            return serviceObj.auth;
         };
 
+        // get url api from config.html file
+        serviceObj.api={};
+        serviceObj.setApi=function (data) {
+            serviceObj.api=data;
+        };
+
+        serviceObj.getApi=function () {
+            return serviceObj.api;
+        };
+
+        // when user click on advanced search from browse page
+        serviceObj.advancedSearch=false;
+        serviceObj.setAdvancedSearch=function (flag) {
+            serviceObj.advancedSearch=flag;
+        };
+        serviceObj.getAdvancedSearch=function () {
+            return serviceObj.advancedSearch;
+        };
 
         return serviceObj;
     }]);
-
-})();
