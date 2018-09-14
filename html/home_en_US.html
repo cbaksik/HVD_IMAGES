@@ -1,6 +1,19 @@
 
 <md-content layout-xs="column" layout="row" id="hvd_home_content">
     <div flex="60" layout="column">
+  <!-- temp section for login problem -->       
+        <md-card class="default-card">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">&#9888; Unable to sign in?</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>Due to temporary technical difficulties, <strong><a href="https://hollis.harvard.edu/primo-explore/search?vid=HVD_IMAGES&sortby=rank&lang=en_US">please access HOLLIS Images via this link</a></strong> where you will be able to sign in successfully. </p>                
+            </md-card-content>
+        </md-card>
+ <!-- end temp section  -->
+
         <!-- add custom alert -->
         <custom-alert parent-ctrl="$ctrl"></custom-alert>
         <!-- end custom alert -->
@@ -13,7 +26,7 @@
             </md-card-title>
             <md-card-content>
                 <p>HOLLIS Images is the Harvard Library's dedicated image catalog. It includes content from archives, museums, libraries, and other collections throughout Harvard University. Access to the catalog is open to the general public.</p>
-                <p><strong>&#9888; NOTICE: </strong> to download images, you may need to adjust your browser settings to allow pop-ups.</p>
+                <!-- <p><strong>&#9888; NOTICE: </strong> to download images, you may need to adjust your browser settings to allow pop-ups.</p> -->
                 <p><a href="http://guides.library.harvard.edu/hollis_images_searchtips" >
                     Search tips
                 </a></p>

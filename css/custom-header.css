@@ -27,6 +27,10 @@
     padding-left:10px;
 }
 
+prm-user-area-expandable .md-button {
+    font-weight:600;
+    font-size:1em;
+}
 
 
 
