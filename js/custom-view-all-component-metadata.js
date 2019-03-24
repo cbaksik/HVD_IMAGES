@@ -33,7 +33,14 @@
 
         // ajax call to get data
         vm.getData=function () {
-          var restUrl=vm.parentCtrl.searchService.cheetah.restUrl+'/'+vm.context+'/'+vm.docid;
+          let api = sv.getApi();
+          let restUrl = '';
+          if(api.pnxbaseurl) {
+             restUrl = api.pnxbaseurl;
+          } else {
+              restUrl = vm.parentCtrl.searchService.restBaseURLs.pnxBaseURL;
+          }
+          restUrl = restUrl + '/' + vm.context + '/' + vm.docid;
           var params={'vid':'HVD_IMAGES','lang':'en_US','search_scope':'default_scope','adaptor':'Local Search Engine'}
           params.vid=vm.params.vid;
           params.lang=vm.params.lang;

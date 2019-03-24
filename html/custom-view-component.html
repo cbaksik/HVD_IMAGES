@@ -5,7 +5,7 @@
 
        <!-- iframe component -->
 
-       <section layout="row" layout-align="center center" class="imageNav" layout-wrap ng-if="vm.total > 1 && vm.imageNav">
+       <section layout="row" layout-align="center center" class="imageNav" layout-wrap ng-if="vm.total > 1">
            <md-button class="md-fab md-raised md-primary" (click)="vm.prevPhoto()" tabindex="0" aria-label="Previous photo button">
                <md-icon md-svg-icon="primo-ui:chevron-left" aria-label="chevron-left-icon"></md-icon>
            </md-button>
@@ -18,7 +18,7 @@
        </section>
 
        <single-image src="vm.photo._attr.href._value" imgtitle="vm.imageTitle"
-                     restricted="vm.photo._attr.restrictedImage._value" jp2="vm.jp2">
+                     restricted="vm.photo._attr.restrictedImage._value">
        </single-image>
 
        <div layout="row" class="spaceTop" layout-sm="column" ng-if="vm.photo.caption">

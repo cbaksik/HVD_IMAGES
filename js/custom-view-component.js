@@ -158,6 +158,7 @@
             vm.isLoggedIn=sv.getLogInID();
             vm.clientIp=sv.getClientIp();
             vm.photo={};
+
             if (vm.xmldata.component && !vm.xmldata.image) {
                 if(!vm.index && vm.index !== 0) {
                     vm.index = vm.findFilenameIndex(vm.xmldata.component, vm.filename);
@@ -177,11 +178,6 @@
                 vm.componentData=vm.xmldata.image[0];
             }
 
-            if(vm.photo._attr && vm.photo._attr.restrictedImage) {
-                if(vm.photo._attr.restrictedImage._value && vm.isLoggedIn===false && !vm.clientIp.status) {
-                    vm.imageNav=false;
-                }
-            }
 
             if(vm.photo) {
                 if(vm.photo._attr) {

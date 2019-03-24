@@ -6,18 +6,20 @@
 (function () {
 
     angular.module('viewCustom')
-    .service('prmSearchService',['$http','$window','$filter',function ($http, $window, $filter) {
+    .service('prmSearchService',['$http','$window','$filter','customConfigEnv',function ($http, $window, $filter, customConfigEnv) {
 
         let serviceObj={};
-
+        const configUrl = customConfigEnv.getEnvUrl();
         // get environment to run config.html
         serviceObj.getEnv=function () {
             var host = $window.location.hostname;
             var config='config-prod.html';
-            if(host.toLowerCase()==='localhost'){
+            if(host.toLowerCase()===configUrl.local){
                 config='config-local.html';
-            } else if(host.toLowerCase()==='harvard-primosb.hosted.exlibrisgroup.com') {
+            } else if(host.toLowerCase()===configUrl.dev) {
                 config='config-dev.html';
+            }  else if(host.toLowerCase()===configUrl.qa) {
+                config='config-qa.html';
             }
 
             return config;
@@ -36,7 +38,7 @@
         };
 
         //http ajax service, pass in URL, parameters, method. The method can be get, post, put, delete
-        serviceObj.getAjax=function (url,param,methodType) {
+        serviceObj.getAjax=function (url, param,methodType) {
           return $http({
               'method':methodType,
               'url':url,

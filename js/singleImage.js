@@ -32,27 +32,13 @@ angular.module('viewCustom')
 
                 if(vm.restricted && !vm.isLoggedIn && !vm.clientIp.status) {
                     vm.showImage=false;
+                    console.log('Restrict image: A user is not login or client IP address is not in  the list');
                 }
                 
                 vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
                 if(vm.src && vm.showImage) {
-                    var url = sv.getHttps(vm.src) + '?buttons=Y';
+                    const url = sv.getHttps(vm.src) + '?buttons=Y';
                     vm.imageUrl = $sce.trustAsResourceUrl(url);
-                } else if(vm.showImage) {
-                    vm.imageUrl='';
-                    $timeout(function () {
-                        var img=$element.find('img')[0];
-                        // use default image if it is a broken link image
-                        var pattern = /^(onLoad\?)/; // the broken image start with onLoad
-                        if(pattern.test(vm.src)) {
-                            img.src='/primo-explore/custom/HVD_IMAGES/img/icon_image.png';
-                        }
-                        img.onload=vm.callback;
-                        if(img.width > 600) {
-                            vm.callback();
-                        }
-                    },500);
-
                 }
                 vm.localScope.loading=false;
 
