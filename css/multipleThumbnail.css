@@ -199,11 +199,12 @@ a.thumbnail > img:focus {
 
 prm-view-online-after md-grid-list {
     padding:0px;
-    margin:0px;
+    margin:0px; 
 }
 
 prm-view-online-after md-grid-list > md-grid-tile {
     box-shadow: none !important;
+    background-color: #ffffff;
 }
 
 @media only screen and (max-width: 800px) {
