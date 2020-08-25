@@ -1,54 +1,31 @@
 /**
  * Created by samsan on 10/13/17.
- * Find out xml value base on xml key. It loop through tree structure
  */
-
-(function () {
-
-    angular.module('viewCustom')
+angular.module('viewCustom')
     .service('customMapXmlValues',[function () {
         var serviceObj = {};
 
         // get relatedInformation value
-        serviceObj.getRelatedInformation=function (nodeValue) {
+        serviceObj.getRelatedInformation=function (elementArray) {
             var str='';
-            var keys = Object.keys(nodeValue);
-            if(keys.length > 0) {
-                for(var i=0; i < keys.length; i++) {
-                    var key=keys[i];
-                    var values=nodeValue[key];
-                    if(values) {
-                        var nodeKeys=Object.keys(values);
-                        var text = '';
-                        var url = '';
-                        var index = nodeKeys.indexOf('_text');
-                        if (index !== -1) {
-                            text = values['_text'];
-                        }
-                        var index2 = nodeKeys.indexOf('_attr');
-                        if (index2 !== -1) {
-                            var href=values['_attr'];
-                            if(href) {
-                                var nodeKeys2 = Object.keys(href);
-                                var index3 = nodeKeys2.indexOf('href');
-                                if (index3 !== -1) {
-                                    url = values['_attr']['href']['_value'];
-                                }
-                            }
-                        }
-                        if (url && text) {
-                            str = '<a href="' + url + '" target="_blank">' + text + '</a><br/>';
-                        }
-                    }
+            var elementInstance = Object.keys(elementArray);
+            if(elementInstance.length > 0) {
+                for(var i=0; i < elementInstance.length; i++) {
+                    var nodeInstance=elementInstance[i];
+                    var nodeObject=elementArray[nodeInstance];
+                    for (let j=0; j<nodeInstance.length; j+=1) {
+                        if( nodeObject.link !== undefined) {
+                            str += "<a href='" + nodeObject.link[0]._text + "' target='_blank' />";
+                            str += str + nodeObject.text[0]._text + "</a>";
+                        } else {
+                            str = str+nodeObject.text[0]._text+"<br />";
+                        }       
+                    }                        
                 }
             }
-            if(str) {
-                str=str.replace(/<br\/>$/,'');
-            }
-
             return str;
-
         };
+
 
         // get associatedName value
         serviceObj.getAssociatedName=function (nodeValue) {
@@ -120,7 +97,7 @@
             return str;
         };
 
-        // get relatedWork
+        // get topic
         serviceObj.getTopic=function (nodeValue) {
             var str='';
             var keys = Object.keys(nodeValue);
@@ -165,7 +142,42 @@
             return str;
         };
 
-        // get relatedWork
+        // get notes and any other elements that don't have subelements, only values
+        serviceObj.getNotesEtc=function (elementArray) {
+            var str='';
+            var elementInstance = Object.keys(elementArray);
+            if(elementInstance.length > 0) {
+                for(var i=0; i < elementInstance.length; i++) {
+                    var nodeInstance=elementInstance[i];
+                    var nodeObject=elementArray[nodeInstance];
+                    for (let j=0; j<nodeInstance.length; j+=1) {
+                            str = str+nodeObject._text+"<br />";
+                    }                        
+                }
+            }
+            return str;
+        };
+
+        // title and multiple values including display of title type if present
+            serviceObj.getTitle=function (elementArray) {
+            var str='';
+            var elementInstance = Object.keys(elementArray);
+            if(elementInstance.length > 0) {
+                for(var i=0; i < elementInstance.length; i++) {
+                    var nodeInstance=elementInstance[i];
+                    var nodeObject=elementArray[nodeInstance];
+                    for (let j=0; j<nodeInstance.length; j+=1) {
+                        if( nodeObject.type !== undefined) {
+                            str += nodeObject.type[0]._text + ": ";
+                        }
+                        str = str+nodeObject.textElement[0]._text+"<br />";
+                    }                        
+                }
+            }
+            return str;
+        };
+
+         // get relatedWork
         serviceObj.getRelatedWork=function (nodeValue) {
             var str='';
             var keys = Object.keys(nodeValue);
@@ -226,10 +238,14 @@
             var text='';
             if(typeof(values)==='object'){
                 switch(key) {
+                    case 'title':    
+                        text = serviceObj.getTitle(values);
+                        break;
                     case 'hvd_relatedInformation':
                     case 'relatedInformation':
                         text = serviceObj.getRelatedInformation(values);
                         break;
+                    case 'creator':
                     case 'hvd_associatedName':
                     case 'associatedName':
                         text = serviceObj.getAssociatedName(values);
@@ -239,14 +255,19 @@
                         break;
                     case 'hvd_relatedWork':
                     case 'relatedWork':
-                            text = serviceObj.getRelatedWork(values);
+                        text = serviceObj.getRelatedWork(values);
                         break;
                     case 'hvd_topic':
                     case 'topic':
-                            text = serviceObj.getTopic(values);
+                        text = serviceObj.getTopic(values);
+                        break;
+                    case 'notes':
+                    case 'workType':    
+                    case 'description':    
+                        text = serviceObj.getNotesEtc(values);
                         break;
                     default:
-                            text = serviceObj.getOtherValue(values,key);
+                        text = serviceObj.getOtherValue(values,key);
                         break;
                 }
 
@@ -400,5 +421,3 @@
 
         return serviceObj;
     }]);
-
-})();
