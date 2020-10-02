@@ -1,13 +1,19 @@
 .iframeClass {
     width:700px;
     height:650px;
-    border: none;
+    border: 1px solid lightgrey;
     margin:0;
     padding:0;
     overflow: hidden;
-
 }
-
+img.hvdSingleImgLock {
+    margin-bottom: -19px;
+    margin-left: -11px;
+    position: relative;
+}
+span.hvdSingleImgRestrictedNote {
+    padding-left:10px;
+}
 @media only print {
     .iframeClass {
         width:600px;

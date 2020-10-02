@@ -1,4 +1,5 @@
-<div ng-if="$ctrl.singleImageFlag">
+<!-- prm-view-online-after.html -->
+<div ng-if="$ctrl.singleImageFlag && !$ctrl.item.pnx.display.lds41 && $ctrl.pnxControlSourceIdFlag">
     <div layout="column" layout-align="center center" ng-if="$ctrl.zoomButtonFlag">
         <md-button class="md-raised md-primary btn-margin-bottom" (click)="$ctrl.gotoFullPhoto($event,item,$index)" tabindex="0">
             <md-icon md-svg-src="/primo-explore/custom/HVD_IMAGES/img/file-find.svg"></md-icon> ZOOM OPTIONS AND FULL RECORD DETAILS
@@ -7,20 +8,29 @@
     <div layout="row">
         <div flex="grow">
             <!-- CB added this line 20200428 so users have another option during restricted image issue -->
-            <div style="margin-bottom:10px;"><a target="_blank" href="{{$ctrl.photo._attr.href._value}}?buttons=Y">Open image in new tab</a></div>
-            <!-- single image -->
-            <single-image src="$ctrl.photo._attr.href._value" imgtitle="$ctrl.imageTitle"
-                          restricted="$ctrl.photo._attr.restrictedImage._value" jp2="$ctrl.jp2"></single-image>
-            <div layout="row" class="spaceTop" layout-sm="column" ng-if="$ctrl.photo.caption">
-                <div flex="20"></div>
-                <div flex="80"><span class="bold-text spaceRight">Caption:</span>  {{$ctrl.photo.caption[0]._text}}</div>
+            <div ng-if="$ctrl.photo._attr.href._value">
+                <div style="margin-bottom:10px;">
+                    <a target="_blank" href="{{$ctrl.photo._attr.href._value}}?buttons=Y">Open image in new tab</a>
+                     <!-- <span class="hvdSingleImgRestrictedNote">(Restricted to HarvardKey)</span> -->
+                    <!-- <img ng-if="$ctrl.photo._attr.restrictedImage._value" src="custom/HVD2/img/icon_lock25.png" class="hvdSingleImgLock" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" />                     -->
+                </div>
+                    <!-- single image -->
+                    <single-image src="$ctrl.photo._attr.href._value" imgtitle="$ctrl.imageTitle" restricted="$ctrl.photo._attr.restrictedImage._value" jp2="$ctrl.jp2"></single-image>
+                    <div layout="row" class="spaceTop" layout-sm="column" ng-if="$ctrl.photo.caption">
+                        <div flex="20"></div>
+                        <div flex="80"><span class="bold-text spaceRight">Caption:</span>  {{$ctrl.photo.caption[0]._text}}</div>
+                    </div>
+                    <!-- end single image -->
             </div>
-            <!-- end single image -->
+            <div ng-if="!$ctrl.photo._attr.href._value">
+                <div class="nophoto" aria-label="{{vm.imgtitle}}" title="{{vm.imgtitle}}">Image not digitized</div>
+            </div>
+
         </div>
     </div>
 </div>
 
-<div ng-if="$ctrl.viewAllComponetMetadataFlag" class="hvfullsize">
+<div ng-if="$ctrl.viewAllComponetMetadataFlag && !$ctrl.item.pnx.display.lds41 && $ctrl.pnxControlSourceIdFlag" class="hvfullsize">
     <div layout="column" layout-align="center center">
      <md-button class="md-raised md-primary btn-margin-bottom" (click)="$ctrl.viewAllComponentMetaData()" tabindex="0">
         VIEW ALL COMPONENT METADATA
@@ -29,12 +39,12 @@
 
     <!-- list thumbnail images -->
     <md-grid-list md-row-height="210px" md-cols="{{$ctrl.gridColumn}}" ng-if="$ctrl.item.mis1Data.length > 1" tabindex="-1">
-        <md-grid-tile ng-if="$ctrl.item.mis1Data.length > 1" ng-repeat="item in $ctrl.item.mis1Data track by $index" ng-click="$ctrl.gotoFullPhoto($event,item,$index)" tabindex="0">
-            <multiple-thumbnail itemdata="item" searchdata="$ctrl.searchData"></multiple-thumbnail>
-        </md-grid-tile>
+    <md-grid-tile ng-if="$ctrl.item.mis1Data.length > 1" ng-repeat="item in $ctrl.item.mis1Data track by $index" ng-click="$ctrl.gotoFullPhoto($event,item,$index)" tabindex="0">
+        <multiple-thumbnail itemdata="item" searchdata="$ctrl.searchData"></multiple-thumbnail>
+    </md-grid-tile>
     </md-grid-list>
-
 </div>
+<!-- end prm-view-online-after.html -->
 
 
 
