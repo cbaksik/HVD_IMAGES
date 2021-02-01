@@ -3,6 +3,9 @@
 <div layout="row" class="whiteBg hvdImgComponentView" ng-if="vm.index !== -1">
    <div flex="{{vm.flexsize}}" class="full-view-inner-container whiteBg">
 
+    <div class="parentImageLinkWrapper" ng-if="vm.componentData">
+        <a href="http://id.lib.harvard.edu/images/{{vm.recordid}}/catalog" class="parentImageLink">Go to main record</a>   
+       </div>
        <!-- iframe component -->
 
        <section layout="row" layout-align="center center" class="imageNav" layout-wrap ng-if="vm.total > 1">
@@ -33,7 +36,7 @@
        <br/>
 
        <div class="hvdImgComponentViewMD">
-           <h3>Group information</h3>
+           <h3>Main information</h3>
             <div layout="row" layout-xs="column" class="layout-block-xs layout-xs-column layout-row space" ng-repeat="key in vm.keys track by $index" ng-if="vm.item.pnx.display[key]">
                 <div flex-gt-sm="20" flex-gt-xs="25" flex class="flex-gt-xs-25 flex-gt-sm-20 flex">
                     <label class="bold-text">{{key|mapXmlFilter}}</label>
