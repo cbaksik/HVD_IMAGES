@@ -55,7 +55,6 @@
                    if (vm.item.mis1Data.title) {
                        vm.imageTitle = vm.item.mis1Data.title[0].textElement[0]._text;
                    }
-                }
                } else {
                    vm.viewAllComponetMetadataFlag = true;
                    vm.singleImageFlag = false;
