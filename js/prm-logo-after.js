@@ -20,6 +20,7 @@
             el2.children[0].remove();
 
             // remove prm-skip-to
+            // 20220720 CB commenting out this section; null error, don't think it's relevant anymore
             var el3=$element[0].parentNode.parentNode;
             if(el3) {
                 el3.children[0].remove();

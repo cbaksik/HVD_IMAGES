@@ -1,7 +1,7 @@
 /**
  * Created by samsan on 5/17/17.
- * This component is to insert images into online section
- * It list different print view size
+ * This component is to insert images into online section and Scanned Key Content.
+ * If pnx.display.lds41 exist, it will display scanned key content. 
  */
 
 (function () {
@@ -18,19 +18,28 @@
         vm.zoomButtonFlag=false;
         vm.viewAllComponetMetadataFlag=false;
         vm.singleImageFlag=false;
-        vm.photo = {}; // single imae
+        vm.photo = {}; // single image
         vm.jp2 = false;
         vm.imageTitle = '';
         vm.auth = sv.getAuth();
         vm.gridColumn='3'; // default print view size
+        vm.pnxControlSourceId='HVD_VIA'; // display only pnx control sourceid of HVD_VIA
+        vm.pnxControlSourceIdFlag=false;
+        //console.log("prm-view-online-after.js");
 
         vm.$onInit=function() {
+            //console.log("prm-view-online-after.js");
             vm.isLoggedIn=sv.getLogInID();
            // get item data from service
            itemData=sv.getItem();
            vm.item=itemData.item;
-           if(vm.item.pnx.addata) {
+           if(vm.item.pnx.addata.mis1) {
                vm.item.mis1Data=sv.getXMLdata(vm.item.pnx.addata.mis1[0]);
+           }
+           if(vm.item.pnx.control.sourceid) {
+               if(vm.item.pnx.control.sourceid.indexOf(vm.pnxControlSourceId) !== -1) {
+                   vm.pnxControlSourceIdFlag = true;
+               }
            }
            vm.searchData=itemData.searchData;
            vm.searchData.sortby=vm.params.sortby;
@@ -43,9 +52,10 @@
                        vm.photo=vm.item.mis1Data.image[0];
                        vm.jp2=sv.findJP2(vm.photo); // check to see if the image is jp2 or not
                    }
-                   if(vm.item.mis1Data.title) {
+                   if (vm.item.mis1Data.title) {
                        vm.imageTitle = vm.item.mis1Data.title[0].textElement[0]._text;
                    }
+                }
                } else {
                    vm.viewAllComponetMetadataFlag = true;
                    vm.singleImageFlag = false;
@@ -53,11 +63,11 @@
                }
            }
 
-           // show print view base on the screen size
+            // show print view base on the screen size
             if($mdMedia('xs')) {
-               vm.gridColumn='1';
+                vm.gridColumn='1';
             } else if($mdMedia('sm')){
-               vm.gridColumn='2';
+                vm.gridColumn='2';
             }
 
         };
@@ -103,6 +113,5 @@
         controller: 'prmViewOnlineAfterController',
         'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/prm-view-online-after.html'
     });
-
 
 })();
