@@ -10,10 +10,16 @@
 
         var sv=prmSearchService;
         var vm = this;
-        vm.item=vm.parentCtrl.item;
+        //vm.item=vm.parentCtrl.item;
         vm.params=$location.search();
         vm.services=[];
 
+
+        vm.$onInit=function() {
+            vm.params=$location.search();
+            vm.item=vm.parentCtrl.item;
+
+        }
 
         vm.showSingImagePage=function () {
             // remove virtual browse shelf and more link
@@ -41,6 +47,8 @@
                vm.parentCtrl.searchService.$stateParams.query=vm.params.query;
                vm.parentCtrl.mainSearchField=vm.params.searchString;
            }
+
+           vm.item=vm.parentCtrl.item;
 
 
            if(vm.item.pnx) {
@@ -70,10 +78,6 @@
 
         };
 
-        vm.$onInit=function() {
-            vm.params=$location.search();
-
-        }
 
 
     }]);

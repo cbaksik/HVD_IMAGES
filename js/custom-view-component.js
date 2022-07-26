@@ -74,10 +74,11 @@
         vm.getData=function () {
             var url=vm.parentCtrl.searchService.cheetah.restBaseURLs.pnxBaseURL+'/'+vm.context+'/'+vm.docid;
             var params={'vid':'','lang':'','search_scope':'','adaptor':''};
-            params.vid=vm.params.vid;
-            params.lang=vm.params.lang;
-            params.search_scope=vm.params.search_scope;
-            params.adaptor=vm.params.adaptor;
+            // CB 20220720 commented out next 4 lines causing ang1.8 error; appear to be unneeded
+            // params.vid=vm.params.vid;
+            // params.lang=vm.params.lang;
+            // params.search_scope=vm.params.search_scope;
+            // params.adaptor=vm.params.adaptor;
             sv.getAjax(url,params,'get')
                 .then(function (result) {
                     vm.item=result.data;
@@ -146,11 +147,32 @@
         };
 
         // display each component value key
+        // 20200824 component display was only picking up only first note b/c it has different data structure than other elements; adding another loop for it
+        // multiple titles weren't not getting rendered either
+        // note: the view all components page uses a different js so changes need to be made there too
         vm.getComponentValue=function(key){
            var text='';
+           var texttype='';
            if(vm.componentData && key) {
-               var data=vm.componentData[key];
-               text = cMapValue.getValue(data,key);
+                /* if (key === 'notes' || key === 'workType' || key === 'description') {
+                    //console.log(vm.componentData[key]);
+                    for (let noteNum= 0; noteNum<vm.componentData[key].length; noteNum+=1) {
+                        text = text+vm.componentData[key][noteNum]._text+"<br />";
+                    }
+                }                
+                else if (key === 'title') {        
+                    for (let ti= 0; ti<vm.componentData[key].length ; ti+=1 ) {
+                        if(vm.componentData[key][ti].type !== undefined) {
+                            texttype += vm.componentData[key][ti].type[0]._text + ": ";    
+                        }                            
+                        texttype += text+vm.componentData[key][ti].textElement[0]._text+"<br />"; 
+                    }
+                    text = texttype;
+                } 
+                else { */
+                    var data=vm.componentData[key];
+                    text = cMapValue.getValue(data,key);
+                //}
            }
            return text;
         };
