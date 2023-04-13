@@ -1,4 +1,7 @@
 /* body font-family tweak b/c Firefox not rendering diacritics properly with OTB Google Font Source Sans Pro -- CB 20180807, eg Urdu title 990093740090203941 */
+/* */
+/* new standard blue #0579b8; on hover #2a5280 */
+/* the teal #187474 */
 body {
     font-family:Source Sans Pro,Arial,sans-serif;
    }
@@ -10,28 +13,52 @@ prm-brief-result-container .list-item-primary-content,
 .full-view-inner-container,
 md-content,
 md-content.md-primoExplore-theme {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
 }
+/* blank area below facet - how to get rid of */
+/* need this, among other things,  to get rid of double-scroll bar */
+body {
+    min-height:auto;
+    height:auto;
+}
+/* end*/
 a {
-    color:#026DB9;
+    color:#0579b8;
+}
+a:hover, a:focus {
+    box-shadow: inset 0 -3px 0 0 rgba(5, 121, 184, 0.3);
+}
+.md-button {
+    border-radius:4px;
 }
 .md-button.button-link {
-    color:#026DB9;
+    color:#0579b8;
+    border-radius: 4px;
 }
-/* this line added b/c Export to Excel action in list had blue background for hover/focus instead of otb black */
-.md-button.md-primary:focus:not([disabled]),.md-button.md-primary:hover:not([disabled]) {
-    background-color:#3a3a3a;
+.md-button.button-confirm,
+.md-button.md-primary,
+.md-button.button-notice {
+    color:#0579b8;
+    font-weight:600;
+    border-radius: 4px;
 }
+.md-button.button-confirm:hover:not([disabled]),
+.md-button.button-confirm:focus:not([disabled]) {
+    color:#fff;
+    background-color:#2a5280;
+}
+.md-button.button-notice:hover:not([disabled]),
+.md-button.button-notice:focus:not([disabled]) {
+    background-color:#2a5280;
+}
+
 /* START search bar area */
 
 /* magnify glass search in search box */
-svg[id^=magnifying-glass] {
-    color:#a51c30 !important;;
+prm-icon md-icon svg[id^=magnifying-glass] {
+    color:#a51c30;
 }
-prm-search-bar .search-actions .md-button.button-confirm:hover:not([disabled]) {
-    color:#fff;
-    background-color:#e9e9e9;
-}
+prm-search-bar .search-actions .md-button.button-confirm:hover:not([disabled]),
 prm-search-bar .search-actions .md-button.button-confirm:focus:not([disabled]) {
     color:#fff;
     background-color:#e9e9e9;
@@ -42,9 +69,7 @@ md-autocomplete-parent-scope md-icon {
 md-autocomplete-parent-scope svg[id^=magnifying-glass] {
     color:#212121 !important;
 }
-/* li md-autocomplete-parent-scope div:hover {
-    background-color:grey;
-} */
+
 .md-autocomplete-suggestions .highlight:hover {
     color:#000;
 }
@@ -60,20 +85,25 @@ ul.md-autocomplete-suggestions li.selected {
     }
 
 }
-prm-tabs-and-scopes-selector:hover {
-    background-color:#F3F3F3;
+prm-tabs-and-scopes-selector md-input-container:hover,
+prm-tabs-and-scopes-selector md-input-container:focus {
+    background-color: #e5e5e5;
 }
-md-select-menu.md-primoExplore-theme md-content md-option:not([disabled]):hover {
+prm-tabs-and-scopes-selector md-input-container:hover .md-text,
+prm-tabs-and-scopes-selector md-input-container:focus .md-text {
     text-decoration: underline;
-    background-color:#fff;
 }
-md-select-menu.md-primoExplore-theme md-content md-option[selected="selcted"]:hover {
-        background-color:#F3F3F3;
+md-option.md-focused {
+    text-decoration: underline;
 }
-/* END search bar area (there may be additional css later in file */
 
+/* END search bar area (there may be additional css later in file */
+/* hide the page number in the upper left corner of the result list; it duplicates page number in toolbar */
+#searchResultsContainer .md-subheader > .md-subheader-inner > .md-subheader-content > span.tiny-uppercase-text {
+    display:none;
+}
 prm-brief-result-container .list-item-primary-content:before {
-    background-color: #F3F3F3;
+    background-color: #f3f3f3;
 }
 md-backdrop.md-opaque {
     background: rgba(56,56,61);
@@ -107,20 +137,10 @@ md-backdrop.md-opaque {
         max-width:100%;
     }
 }
-md-card.default-card {
-    box-shadow;1px 1px 0px 1px rgba(0,0,0,.03), 0px 5px 5px -3px rgba(0,0,0,.07)
+md-card.default-card {    
     padding-bottom: 10px;
 }
-/*** note - 
-this is the OTB blue of the search result title #44707b
-this is the blue of the home page link AA compliant over light grey: #026DB9
-portal basic link: #0579b8 
- */
-
 /* for background of overlay menu from top nav ... */
-/*md-content.md-primoExplore-theme md-dialog.light-on-dark-dialog {
-    background-color: rgba(56,56,61,.5);
- }*/
  @media (max-width: 599px) {
     prm-main-menu[menu-type=full] .overlay-menu-item  {
         padding:0px;
@@ -147,12 +167,15 @@ md-card-title-text .alumhat {
     display: inline;
     vertical-align: bottom;    
 }
-prm-back-to-search-results-button md-toolbar.md-primoExplore-theme.default-toolbar .md-toolbar-tools button.md-button:hover {
+prm-back-to-search-results-button md-toolbar.md-primoExplore-theme.default-toolbar .md-toolbar-tools button.md-button:hover,
+prm-back-to-search-results-button md-toolbar.md-primoExplore-theme.default-toolbar .md-toolbar-tools button.md-button:focus {
     color:#fff;
 }
 /* MY FAVORITES */
 /* my favorites global action icons disabled */
-
+prm-search-bookmark-filter .md-button {
+    color:#187474;
+}
 prm-search-bookmark-filter svg[id^=magnifying-glass]:hover {
     color:#000!important;
 }
@@ -164,7 +187,7 @@ prm-favorites md-tab-item.md-tab:hover {
 prm-favorites md-select {
     padding: 5px;
     border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #fff, 0 1px 0 #fff;
     background-color: white;
 }
 prm-favorites md-checkbox .md-container:hover {
@@ -197,13 +220,22 @@ prm-favorites-tool-bar md-toolbar.md-primoExplore-theme.default-toolbar .md-butt
 }
 prm-favorites-record-labels .md-button {
     font-size: 15px;
-    color:#6E6868;
+    color:#6e6868;
     opacity:1;
     border:1px solid #acabab;
     border-radius:30px;
 }
 prm-favorites-record-labels .media-labels.md-chips .label-item.md-chip {
     font-size: 15px;
+}
+prm-favorites-labels .md-chips .md-chip:not(.chip-toggled-on) .md-chip-content:hover:not([disabled]),
+prm-favorites-labels .md-chips .md-chip.toggleable-chip:not(.chip-toggled-on) .md-chip-content:hover:not([disabled]),
+prm-favorites-labels .md-chips .md-chip:not(.chip-toggled-on) .md-chip-content:focus:not([disabled]),
+prm-favorites-labels .md-chips .md-chip.toggleable-chip:not(.chip-toggled-on) .md-chip-content:focus:not([disabled]),
+.md-chips .md-chip.toggleable-chip .md-chip-content:hover:not([disabled]),
+.md-chips .md-chip.toggleable-chip .md-chip-content:focus:not([disabled]) {
+    background-color:#000;
+    border-radius:4px;
 }
 
 prm-favorites-edit-labels-menu .labels-menu-button.md-button.button-with-icon {
@@ -213,17 +245,14 @@ prm-favorites-edit-labels-menu .labels-menu-button.md-button.button-with-icon {
 prm-saved-queries-list a:hover, prm-saved-queries-list a:focus {
     text-decoration: underline;
 }
+prm-edit-notification-settings form {
+    background-color:#fff;
+}
 /* new "are you sure" prompt before deleting something from favorites */
 prm-favorites md-dialog.in-element-dialog form {
     background-color: white;
     width: 50%;
-    /* height: 50%; */
-    /* min-height: 50%; */
-    /* align-content: end; */
-    /* align-items: end; */
     margin-left: 50%;
-    /* padding-top: 2%; */
-    /* margin-top:45px; */
     border:5px solid #cccbcb;
 }
 prm-favorites md-dialog.in-element-dialog form div.md-dialog-content {
@@ -238,11 +267,142 @@ prm-favorites md-dialog.in-element-dialog span[translate='nui.favorites.removeSi
     background-color:white;
     padding:15px;
 }
-
-/* prm-favorites-tool-bar button.unpin-button::after { 
-    content: "!";
+prm-favorites prm-search-result-list .search-within .search-within-input {
+    border-color:#d5d5d5;
+    border-width:1px;
+    border-style:solid;
+    margin-right:40px;
+    padding:20px;
+    text-transform:uppercase;
+    font-size: 14px;
+    font-weight:500;
+    opacity:.7;
+    border-radius:4px;
+} 
+prm-favorites prm-search-result-list .search-within input {
+    background-image: url('../img/mag-glass.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 6px right 4px;
+    background-size:25px; 
+}
+/* some selectors appear again later; this css necessary to hide mag glass when input is active in any way */
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused input,
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused,
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused .md-input,
+prm-search-result-list .search-within md-input-container.md-input-has-value input {
+    background-image:none;
+}
+prm-favorites prm-search-result-list .search-within md-input-container input {
+    min-width:280px;
+    transition:none;
+}
+prm-favorites prm-search-result-list .search-within md-input-container .md-input {
+    border-width: 1px 1px 1px 1px;
+}
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused input {
+    font-size:14px;
+}
+ /* this stake takes effect when cursor is in box */
+ prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused {
+    font-size:14px;
+ }
+/* this state takes effect when cursor is in box */
+prm-favorites prm-search-result-list .search-within md-input-container.md-input-focused .md-input {
+    font-size:14px;
+    border-width:1px;
+    border-color:grey;
+    border-style:solid;
+    transition:none;
+}
+prm-favorites prm-search-result-list .search-within .search-button {
+    border-width:1px;
+    border-color:grey;
+    border-style:solid;    
+    opacity:1;
+    height:43px;
+    margin-top: 1px;
+    /* display:inline-block; */
+}
+/* this state takes effect when cursor is in box */
+prm-favorites prm-search-result-list .search-within .search-button.is-shifted {
+    min-width:88px;
+    max-width:140px;
+    opacity:1;
+    transition:none;
+    /* margin:10px; */
+    display:inline-block;
+}
+prm-favorites prm-search-result-list .search-within .search-button.is-shifted .search-button-text {
+    opacity:1;
+}
+/* this is the X to erase the text if it exists in input box */
+/* 20230227 hiding because it doesn't work  */
+prm-favorites prm-search-result-list .search-within .clear-button { 
+    right: 5px;
+    top: 2px;
+    display:none;
+}
+prm-favorites prm-search-result-list .search-within .search-button.md-button[disabled=disabled] {
+    color:grey!important;
+}
+prm-favorites prm-search-result-list .search-within .filter-chip {
+    border: 1px solid #acabab;
+    font-weight: 600;
+    letter-spacing: .03em;
+ }
+/* */
+/* prm-favorites prm-search-result-list .search-within .search-button.md-button[disabled=disabled],
+prm-favorites prm-search-result-list .search-within .search-button.is-shifted.md-button[disabled=disabled],
+prm-favorites prm-search-result-list .search-within .search-button.md-button:disabled,
+prm-favorites prm-search-result-list .search-within .search-button.is-shifted:disabled {
+    color:red!important;
+    background-color:aqua!important;
+    background:blue!important;
+    display:inline-block!important;
+    border-width:1px!important;
+    border-style:solid!important;
+    border-color:purple!important;
+    cursor:pointer;
+    min-width:100px!important;
+    min-height:50px!important;
+    position:relative;
+    visibility:visible;
+    box-sizing:border-box;
 } */
+/* prm-favorites prm-search-result-list .search-within .search-button.md-button:disabled {
+    color:pink!important;
+    background-color:yellow!important;
+    background:green!important;
+    display:inline-block!important;
+    border-width:1px!important;
+    border-style:solid!important;
+    border-color:olive!important;
+    cursor:pointer;
+    min-width:100px!important;
+    min-height:50px!important;
+    position:relative;
+    visibility:visible;
+    box-sizing:border-box;    
+    box-shadow: inset 0 0 2px rgb(114, 114, 112);
+    padding:5px 30px 5px 8px;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:initial;
+    background-image: url('../img/pencil.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px right 4px;
+    background-size:25px;
+} */
+/* prm-favorites prm-search-result-list .search-within .search-button.md-button:disabled:after, 
+prm-favorites prm-search-result-list .search-within .search-button.md-button:after {
+    content:"TEST";
+} */
+
 /* END MY FAVORITES */
+/* mobile misc */
+button.mobile-menu-button prm-icon {
+    color:#3a3a3a;
+}
 /* mobile search bar area */
 @media (max-width: 599px) {
     prm-tabs-and-scopes-selector {
@@ -250,138 +410,567 @@ prm-favorites md-dialog.in-element-dialog span[translate='nui.favorites.removeSi
     }
 }
 /* alert bar e.g. sign in prompt above results */
-.bar.alert-bar {
-    letter-spacing: 1px;
-    background-color: #f1f1f1;
-    border-color:#ebe9e9;
+prm-alert-bar .bar.alert-bar {
+    background-color:#fff;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #c0c0c0;
 }
-.bar prm-authentication .md-button {
-    color: #026DB9;
+prm-alert-bar .bar prm-authentication {
+    margin-right:15px;
+}
+prm-alert-bar .bar prm-authentication .md-button {
+    color: #026db9;
     font-weight:bold;
-    padding-bottom: 1px;
+    padding:11px;
+    border-radius:4px;
 }
-.bar.alert-bar span.bar-text {
-    background-color: #d9d7f5;
-    border: 1px solid #6558d2;
+prm-alert-bar .bar prm-authentication .md-button:hover:not([disabled]),
+prm-alert-bar .bar prm-authentication .md-button:focus:not([disabled]) {
+    background-color:#2a5280;
+    padding: 11px;
+}
+prm-alert-bar .bar.alert-bar span.bar-text {    
     padding: 7px 15px;
 }
-prm-search-result-list prm-personalize-results-button .md-button {
-    top:-6px;
+prm-alert-bar prm-authentication .md-button.button-with-icon>prm-icon+span {
+    text-decoration:none;
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:15px;
 }
-prm-personalize-results-button md-switch ._md-thumb:before {
-    border: 1px solid #44707b;
+prm-alert-bar md-divider {
+    display:none;
 }
-prm-search-result-list prm-personalize-results-button .md-button md-switch ._md-bar {
-    background-color: #44707b;
+prm-alert-bar .dismiss-alert-button {
+    font-weight:600;
+    text-transform:uppercase;
+    font-size:15px;
+    border-radius:4px;
+    padding: 0px;
+    display:inline-block;
+    height:37px;
 }
-/* search results */
+prm-alert-bar .dismiss-alert-button.md-button.button-with-icon>prm-icon {
+    display:none;
+}
+/* ************** */
+/* SEARCH RESULTS SECTION */
+/* ************** */
+/* title hover handling */
+prm-brief-result.result-item-details h3.item-title a:hover,
+prm-brief-result.result-item-details h3.item-title a:focus {
+    box-shadow: inset 0 -3px 0 0 rgba(173, 197, 207, 0.8); 
+    border-bottom:0px;
+}
 prm-search-result-list div.result-item-primary-content:focus {
-    border:2px solid #C0C0C0;
+    border:2px solid #c0c0c0;
 }
-
-
-/* title link */
-/* this seemed way to bright; prm-brief-result .item-title span {
-    color: #0579b8;
-} */
-/* ava line */
-[class*="available"] > span, [class*="unavailable"] > span , [class*="check_"] > span {
-    color:#44707b;
+/* hide yellow underline of text that matches search string */
+prm-brief-result-container mark {
+    box-shadow:inset 0 0 0 0 #000;
 }
-/* for "how to get it */
-[class*="no_"] {
-    color:#44707b;
+/* highlight matched text in snippets #F8C21C at 15% opacity */
+prm-brief-result-container prm-snippet mark {
+    background-color:rgb(248, 194, 28, .15);
 }
-/* for: check holdings */
-[class*="check_"], [class*="_unknown"], [class*="may_"], [class*="does_not_exist"]  {
-    color:#716F6F;
+/* hide badges, e.g. peer reviewed and OA */
+prm-brief-result-container div.peer-reviewed-mark, prm-brief-result-container div.open-access-mark {
+    display:none;
 }
-
-prm-search-result-availability-line span {
-    white-space: normal;
-    display: inline;
-    color: #44707b;
+/* button changes per Feb 2022 redesign */
+prm-search-result-availability-line .md-button.neutralized-button {
+    text-transform:uppercase;
 }
-prm-search-result-availability-line a.hvdHathiViewOnline span {
-    color: #0f7d00;
+prm-search-result-availability-line prm-icon {
+    display:none;
 }
-prm-search-result-availability-line .hvdHathiViewOnline_div,.hvd_TOC_link {
-    margin: 5px 0;
+prm-search-result-availability-line .md-button.arrow-link-button .button-content {
+    color:#0579b8;
+    font-weight:600;
 }
-prm-search-result-availability-line .hvdHathiViewOnline_div prm-icon {
-    margin-right:.15em;
+/* this line is needed to prevent tiny right underline from appearing on button hover, focus for online access*/
+prm-search-result-availability-line .md-button.arrow-link-button .button-content:hover,
+prm-search-result-availability-line .md-button.arrow-link-button .button-content:focus,
+prm-search-result-availability-line .md-button.arrow-link-button:hover .button-content,
+prm-search-result-availability-line .md-button.arrow-link-button:focus .button-content,
+prm-search-result-availability-line .fulltext_linktorsrc:hover,
+prm-search-result-availability-line .fulltext_linktorsrc:focus {
+    box-shadow:inset 0 0 0 #fff;
 }
-prm-chapters-results-line span.button-content {
-    color:#44707b;
+/* class*=no_ applies to Check Access Options, i.e. no FT or alma holdings */
+prm-search-result-availability-line .md-button.neutralized-button [class*=no_] {
+    color:#414141;
+    font-weight:600;
+}
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=no_],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=no_] {
+    border-bottom:3px solid rgba(43, 44, 44, 0.3);
+}
+/* applies to Alma holdings = available */
+prm-search-result-availability-line .md-button.neutralized-button [class*=available] {
+    color:#0579b8;
+    font-weight:600;
+}
+prm-search-result-availability-line .md-button.neutralized-button [class*=available]>span {
+    color:#0579b8;
+}
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=available],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=available] {
+    border-bottom:3px solid rgba(5, 121, 184, 0.3);
+}
+prm-search-result-availability-line span[translate*="delivery.and.other.locations"]:hover,
+prm-search-result-availability-line span[translate*="delivery.and.other.locations"]:focus {
+    border-bottom:3px solid rgba(5, 121, 184, 0.3);
+}
+/* alma holdings without items */
+prm-search-result-availability-line .md-button.neutralized-button [class*=check] {
+    color:#0579b8;
+}
+prm-search-result-availability-line .md-button.neutralized-button [class*=check]>span {
+    color:#0579b8;
+}
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=check],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=check] {
+    border-bottom:3px solid rgba(5, 121, 184, 0.3);
+}
+/* applies to Alma holdings = unavailable and other misc statuses that should display as black */
+prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable],
+prm-search-result-availability-line .md-button.neutralized-button [class*=does_not_exist],
+prm-search-result-availability-line .md-button.neutralized-button [class*=may],
+prm-search-result-availability-line .md-button.neutralized-button [class*=unknown] {
+    color:#414141;
+}
+prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable]>span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=does_not_exist]>span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=may]>span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=unknown]>span {
+    color:#414141;
+}
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=unavailable],
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=does_not_exist],
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=may],
+prm-search-result-availability-line .md-button.neutralized-button:hover [class*=unknown],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=unavailable],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=does_not_exist],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=may],
+prm-search-result-availability-line .md-button.neutralized-button:focus [class*=unknown] {
+    border-bottom:3px solid rgba(43, 44, 44, 0.3);
+}
+/* color of button and text when online, for alma content, separate lines below for content from CDI */
+prm-search-result-availability-line button.md-button.neutralized-button span[translate*="delivery.code.not_restricted"] {
+    color:white;
+    padding: 3px 10px 2px 25px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-top:5px;margin-top: 10px;
+    display: inline-block;
+    background-color:#0579b8;
+    background-image: url('../img/link-icon.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px left 6px;
+}
+prm-search-result-availability-line button.md-button.neutralized-button svg {
+    color:white;
+}
+prm-search-result-availability-line button.md-button.neutralized-button:hover span[translate*="delivery.code.not_restricted"],
+prm-search-result-availability-line button.md-button.neutralized-button:focus span[translate*="delivery.code.not_restricted"] {
+    background-color:#2a5280;
+    border-bottom:0px solid transparent;
+}
+/* color of button and text when online, for FT from CDI, doesn't apply to FT from alma records */
+prm-search-result-availability-line button span.button-content .fulltext,
+prm-search-result-availability-line .fulltext_linktorsrc {
+    color:white;
+    background-color:#0579b8;
+    padding: 3px 10px 3px 25px;
+    border-radius: 4px;
+    font-weight:600;
+    background-image: url('../img/link-icon.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px left 6px;
+}
+prm-search-result-availability-line button span.button-content .fulltext:hover,
+prm-search-result-availability-line .fulltext_linktorsrc:hover,
+prm-search-result-availability-line button span.button-content .fulltext:focus,
+prm-search-result-availability-line .fulltext_linktorsrc:focus {
+    background-color:#2a5280;
+    padding: 3px 10px 3px 25px;
+    border-radius: 4px;
+    border-bottom:0px solid transparent;
+}
+prm-search-result-availability-line button prm-icon[icon-definition*="open-in-new"] {
+    display:none;
+}
+prm-search-result-availability-line button prm-icon[icon-definition*="chevron-right"] md-icon {
+    display:none;
+}
+/* ...-after element applies syndetics TOC, hahti limited search */
+prm-search-result-availability-line-after div {
+    margin: 10px 0;
+    padding-bottom: 0em;
+}
+prm-search-result-availability-line-after a {
+    text-transform: uppercase;
+    color:#414141;
+    font-weight:600;
+    padding-bottom:0.2em;
+}
+prm-search-result-availability-line-after a:hover,
+prm-search-result-availability-line-after a:focus {
+    box-shadow: inset 0 -3px 0 0 rgba(43, 44, 44, 0.3);
+}
+/* hathi trurst link, online */
+.hvdHathiViewOnline {
+    color:white;
+    background-color:#0579b8;
+    padding: 3px 10px 2px 25px;
+    border-radius: 4px;
+    font-weight:600;
+    background-image: url('../img/link-icon.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px left 6px;
+    box-shadow:inset 0 0 0 0 #000;
+}
+.hvdHathiViewOnline:hover, .hvdHathiViewOnline:focus {
+    background-color:#2a5280;
+    /* padding: 3px 12px 3px 25px;
+    border-radius: 4px; */
+    border-bottom:0px solid transparent;
+    box-shadow:inset 0 0 0 0 #000;
+}
+/* finding aid link */
+.hvd_EAD_link {
+    margin-top:15px;
+}
+.hvd_EAD_link a {
+    color:white;
+    background-color:#0579b8;
+    padding: 2px 22px 2px 11px;
+    border-radius: 4px;
+    letter-spacing: 0.15px;
+}
+.hvd_EAD_link a:hover,
+.hvd_EAD_link a:focus {
+    background-color:#2a5280;
+    border-bottom:0px; 
+    box-shadow:inset 0 0 0 #fff;
+}
+.hvd_EAD_link img {
+    min-height:20px;
+    height:20px;
+    margin-bottom:-4px;
+    margin-left:-4px;
+    margin-right:5px;
+}
+/* chapters within book, book reviews ... */
+prm-chapters-results-line {
+    margin-top:15px;    
+    margin-bottom:15px;    
+}
+prm-chapters-results-line prm-icon {
+    display:none;
 }
 prm-chapters-results-line .md-button.arrow-link-button .button-content {
-    color:#44707b;
+    color:#0579b8;
 }
-/* syndetics toc link */
-prm-search-result-availability-line div.hvd_TOC_link [external-link] [icon-definition="chapters"] md-icon {
-    height: 25px;
-    width: 20px;
+prm-chapters-results-line .md-button.neutralized-button {
+    padding-bottom:3px;
 }
-/* contextual links, hide chapters per d2d */
-prm-chapters-results-line button[aria-label*="Chapters of this book"], prm-chapters-results-line button[aria-label*="Other chapters"] {
+prm-chapters-results-line .md-button.arrow-link-button:focus .button-content,
+prm-chapters-results-line .md-button.arrow-link-button:hover .button-content {
+    box-shadow: inset 0 -3px 0 0 rgba(5, 121, 184, 0.3);
+}
+prm-chapters-results-line .md-button.arrow-link-button [link-arrow] md-icon {
+    display:none;
+}
+/* contextual links, hide chapters per d2d.  as of 2022/03 doesn't work due to code change, no one has mentioned it so leave it alone  */
+prm-chapters-results-line button[aria-label*="Chapters of this book"],
+ prm-chapters-results-line button[aria-label*="Other chapters"] {
     display:none;
 } 
-/* page navigation search results */
-/* prm-page-nav-menu .counter-main md-fab-trigger .md-button {
-    box-shadow:5px 0 5px -3px rgba(0,0,0,.5), -5px 0 5px -3px rgba(0,0,0,.5);
-    color:#0579b8;
+/* browzine */
+prm-search-result-availability-line a.browzine-direct-to-pdf-link {
+    color:white;
+    background-color: #0579b8;
+    border-radius: 4px;
+    font-weight: 600;
+    background-image: url('../img/browzine-pdf-download-icon.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 5px left 6px;
+    padding:3px 38px 3px 38px;
 }
-prm-page-nav-menu .counter-nav prm-icon md-icon svg {
-    color:#0579b8;
-} */
+prm-search-result-availability-line a.browzine-direct-to-pdf-link svg {
+    color:white;
+}
+prm-search-result-availability-line a.browzine-direct-to-pdf-link img {
+    display:none;
+}
+prm-search-result-availability-line a.browzine-direct-to-pdf-link:hover,
+prm-search-result-availability-line a.browzine-direct-to-pdf-link:focus {
+    background-color: #2a5280;
+    box-shadow:0 0 0 0px;
+    border-bottom: 0px;
+}
+prm-search-result-availability-line a.browzine-direct-to-pdf-link md-icon {
+    display:none;
+}
+prm-search-result-availability-line a.browzine-web-link md-icon {
+    display:none;
+}
+/* END browzine */
+/* page navigation search results, new pagination may 2021 */
+prm-page-nav-menu #resultsPerPage .counter-main a {
+    color:#026db9;
+    font-weight:bold;
+}
+prm-page-nav-menu #resultsPerPage .counter-main a:hover,
+prm-page-nav-menu #resultsPerPage .counter-main a:focus {
+    color:#fff;
+}
+prm-page-nav-menu #resultsPerPage .counter-main .current-page {
+    color:#3a3a3a;
+    box-shadow:0 0 0 0px;
+}
+prm-page-nav-menu #resultsPerPage .counter-main a.current-page:hover,
+prm-page-nav-menu #resultsPerPage .counter-main a.current-page:focus {
+    color:#3a3a3a;
+    background-color:#fff;
+    box-shadow:0 0 0 0px;
+}
+prm-page-nav-menu #resultsPerPage .counter-next a,
+prm-page-nav-menu #resultsPerPage .counter-prev a {
+    color:#026db9;
+    font-weight:bold;
+}
+prm-page-nav-menu #resultsPerPage .counter-next a:hover,
+prm-page-nav-menu #resultsPerPage .counter-prev a:hover,
+prm-page-nav-menu #resultsPerPage .counter-next a:focus,
+prm-page-nav-menu #resultsPerPage .counter-prev a:focus {
+    color:#fff;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page {
+    margin-top:10px;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page button {
+    color:#026db9;
+    font-weight:bold;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page button:hover,
+prm-page-nav-menu #resultsPerPage div.results-per-page button:focus {
+    color:#fff;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk {
+    color:#3a3a3a;
+    box-shadow:0 0 0 0px;
+}
+prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk:hover,
+prm-page-nav-menu #resultsPerPage div.results-per-page button.current-bulk:focus {
+    color:#3a3a3a;
+    background-color:#fff;
+    box-shadow:0 0 0 0px;
+}
+prm-page-nav-menu #resultsPerPage .counter-main a:focus,
+prm-page-nav-menu #resultsPerPage .counter-next a:focus,
+prm-page-nav-menu #resultsPerPage div.results-per-page button:focus {
+    color:#fff;
+}
+prm-page-nav-menu a:focus,
+prm-page-nav-menu button:focus {
+    color:#fff;
+}
 /* snippet quotation mark */
 prm-snippet {
-    margin-left: 15px;
     margin-top: 5px;
 }
+prm-snippet prm-icon.open-quote, prm-snippet prm-icon.close-quote {
+    width:10px;
+}
 prm-snippet prm-icon.open-quote md-icon  {
-    scale(.5) rotate(180deg) translate(6px,4px);
+    transform:scale(.4) rotate(180deg) translate(12px,10px);
     opacity: 0.7;
 }
 prm-snippet prm-icon.close-quote md-icon {
-    transform: scale(.5) translate(-4px,2px);
+    transform: scale(.4) translate(0px,-10px);
     opacity: 0.7;
 }
 
-/* md-toolbar.default-toolbar .md-button, md-toolbar.md-primoExplore-theme.default-toolbar .md-button, md-toolbar:not(.md-menu-toolbar).default-toolbar .md-button {
-    opacity: 1;
+
+/*        FACETS          */
+/* BEGIN FULL TEXT SWITCH (toggle for search inside fulltext CDI) */
+prm-facet .switch-results {
+    transition:none;
 }
-md-toolbar.default-toolbar .md-button:hover, md-toolbar.md-primoExplore-theme.default-toolbar .md-button:hover, md-toolbar:not(.md-menu-toolbar).default-toolbar .md-button:hover {
-    color:#080606;
-}  */
-/* facets */
+prm-facet .switch-results md-switch .md-bar,
+prm-facet .switch-results md-switch.md-checked .md-bar {
+    background-color:transparent;
+}
+prm-facet .switch-results md-switch.md-checked .md-thumb {
+    color:#fff;
+    background-color:#848484;
+    border: 1px solid #848484;
+    border-radius: 4px;
+    padding: 9px;
+    top:-3px;
+    margin-left: -11px;
+}
+prm-facet .switch-results md-switch .md-thumb {
+    color:#fff;
+    background-color:#fff;
+    border: 1px solid #848484;
+    border-radius: 4px;
+    padding: 9px;
+    top:-3px;
+    margin-left: 1px;
+}
+prm-facet .switch-results md-switch:hover .md-bar,
+prm-facet .switch-results md-switch:focus .md-bar,
+prm-facet .switch-results md-switch:hover.md-checked .md-bar,
+prm-facet .switch-results md-switch:focus.md-checked .md-bar {
+    color:#000!important;
+    opacity:0;
+}
+prm-facet .switch-results md-switch:hover.md-checked .md-thumb,
+prm-facet .switch-results md-switch:focus.md-checked .md-thumb {
+    color:#848484!important; 
+}
+
+prm-facet .switch-results md-switch .md-thumb:before {
+    content:"X";
+    font-size: 19px;
+    font-weight: bold;
+    top: -3px;
+    left: 3px;
+    transition:none;
+}
+prm-facet .switch-results md-switch.md-checked .md-thumb:before {
+    content:"✓";
+    font-size: 19px;
+    font-weight: bold;
+    top: -3px;
+    left: 3px;
+    transition:none;
+}
+md-switch:not(.md-dragging) .md-bar, 
+md-switch:not(.md-dragging) .md-thumb,
+md-switch:not(.md-dragging) .md-thumb-container {
+    transition:none;
+}
+prm-facet .switch-results md-switch .md-label,
+prm-facet .switch-results md-switch.md-checked .md-label {
+    color:#3a3a3a;
+    font-weight:600;
+    font-size:14.25px;
+    font-family:"Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-radius:4px;
+    padding-right:8px;
+}
+prm-facet .switch-results md-switch:hover .md-label,
+prm-facet .switch-results md-switch:focus .md-label {
+    color: #fff;
+}
+prm-facet .switch-results md-switch:hover,
+prm-facet .switch-results md-switch:focus,
+prm-facet .switch-results md-switch:hover.active,
+prm-facet .switch-results md-switch:focus.active {
+    background-color:#1e1e1e;
+    border-radius:4px;
+} 
+prm-facet .switch-results md-switch.active:hover:not([disabled]),
+prm-facet .switch-results md-switch.active:focus:not([disabled]) {
+    background-color:#1e1e1e;
+} 
+/* END FULL TEXT SWITCH  */
+
+prm-facet .primo-scrollbar + div {    
+    display:none;
+}
+prm-facet > .primo-scrollbar { position: relative !important }
 prm-facet prm-search-result-sort-by md-select {
     padding: 5px;
     border-radius: 3px;
     border: 1px solid transparent;
     border-top: none;
     border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #fff, 0 1px 0 #fff;
     background-color: white;
 }
 prm-facet md-input-container:after {
     height:0px;
 }
-prm-facet prm-search-result-sort-by md-select:hover {
+prm-facet prm-search-result-sort-by md-select:hover,
+prm-facet prm-search-result-sort-by md-select:focus {
     background-color: #f3f3f3;
 }
-prm-facet-exact .section-title:hover, prm-facet-range .section-title:hover{
-    /* border:1px solid #187474; */
+/* date facet */
+prm-facet-exact .section-title:hover, prm-facet-range .section-title:hover {
     background-color:#ebebeb!important;
 }
 prm-facet-exact .section-title:hover span, prm-facet-range .section-title:hover span {   
     color:#3a3a3a;
 }
-/* prm-facet prm-facet-exact .section-title:hover {
-    border:none;
-} */
-/* active filters */
-
+prm-facet-exact .section-title:focus {
+    background-color:#ebebeb!important;
+}
+prm-facet-exact .section-title.md-button:focus:([disabled]) {
+    background-color:#ebebeb!important;
+}
+prm-facet-range .md-button.button-as-link.link-alt-color {
+    color:#187474;
+    text-transform:uppercase;
+    margin-left: -5px!important;
+    font-size:15px;
+    font-weight:600;
+    height:30px;
+    border-radius:4px;
+    padding:4px 10px;
+}
+prm-facet-range .md-button.button-as-link.link-alt-color:hover:not([disable]) {
+    background-color:#187474;
+    color:#fff;
+}
+prm-facet-range {
+    font-size:130%;
+}
+prm-facet-range md-input-container {
+    margin-right:10px;    
+}
+input[aria-label="From date"] ,input[aria-label="To date"] {
+    padding:5px;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    border-top: none;
+    border-bottom: 1px solid #ddd;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #fff, 0 1px 0 #fff;
+    background-color: white;
+    max-width:70px;
+}
+input[aria-label="From date"]::-webkit-inner-spin-button,input[aria-label="From date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.multiselect-submit .multiselect-submit-inner .md-button.md-primary {
+    background-color:#187474;
+}
+.multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover,
+.multiselect-submit .multiselect-submit-inner .md-button.md-primary:focus {
+    background-color:#000;
+}
+prm-facet md-checkbox.md-checked .md-container .md-icon {
+    background-color:#187474;
+}
+/* BREADCRUMBS (ACTIVE FILTERS) */
+prm-facet .md-button.md-primary {
+    color:#187474;
+}
+prm-facet .md-button.md-primary:hover:not([disabled]),
+prm-facet .md-button.md-primary:focus:not([disabled]) {
+    background-color:#187474;
+}
 prm-facet prm-breadcrumbs .md-chips .md-chip {
     background-color:#f3f3f3;
     box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2);
@@ -416,11 +1005,11 @@ prm-search-result-sort-by {
     margin-bottom:5px;
 }
 prm-breadcrumbs .md-chip.facet-excluded {
-    color:#C93621
+    color:#c93621;
 }
 /* our height of 68px for top-bar makes some of contact: after lines disappear; so making those 0 wide and using proper strikethrough instead */
 prm-breadcrumbs .md-chip.facet-excluded {
-    color:#C93621;
+    color:#c93621;
     text-decoration-line: line-through;
     text-decoration-style:solid;
     text-decoration-color: #524241;
@@ -428,74 +1017,69 @@ prm-breadcrumbs .md-chip.facet-excluded {
 prm-breadcrumbs .md-chip.facet-excluded .md-chip-content:after {
     width:0;
 }
+/* feb 2022 release change for tablets and mobile cause exclude facets to appear on 200% screns; hide them except for hover;focus */
+@media (min-width:960px) {
+    .section-content .md-chips .md-chip .md-chip-remove-container .md-button {
+      opacity: 0 !important;
+    }
+    .section-content .md-chips .md-chip .md-chip-remove-container .md-button:hover, 
+    .section-content .md-chips .md-chip .md-chip-remove-container .md-button:focus {
+        opacity: 1 !important;
+      }
+    .available-facets .section-content .md-chips .md-chip:hover,
+    .available-facets .section-content .md-chips .md-chip:focus {
+        opacity:1;
+    }
+    .available-facets .section-content .md-chips .md-chip:hover .md-button {
+        opacity:1 !important;
+    }
+ }
 /* facet counts in parens */
 .section-content .md-chips .md-chip .md-chip-content {
-	color:#6E6868;
+	color:#6e6868;
 }
-/* date facet */
-prm-facet-range {
-    font-size:130%;
-}
-prm-facet-range md-input-container {
-    margin-right:10px;
-    
-}
-input[aria-label="From date"] ,input[aria-label="To date"] {
-    padding:5px;
-    border-radius: 3px;
-    border: 1px solid transparent;
-    border-top: none;
-    border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
-    background-color: white;
-    max-width:70px;
-
-}
-input[aria-label="From date"]::-webkit-inner-spin-button,input[aria-label="From date"]::-webkit-outer-spin-button {
-    -webkit-appearance: none; 
-    margin: 0; 
-}
-input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date"]::-webkit-outer-spin-button {
-    -webkit-appearance: none; 
-    margin: 0; 
-}
-/* checked facet background color */
-md-checkbox.md-checked ._md-icon {
-    background-color: #44707b;
-}
-/* copied from separate css for prm-facet-range-after.css not sure where it came from */
-/* md-input-container.md-input-focused label:not(.md-no-float), md-input-container.md-input-has-placeholder label:not(.md-no-float), md-input-container.md-input-has-value label:not(.md-no-float) {
-    opacity: 1.0;
-    color: #000000;
-    transform: translate3d(0,6px,0) scale(.85);
-} */
-/* brief results */
+/*  ------------ */
+/* BRIEF RESULTS */
+/*  ------------ */
 prm-search-result-thumbnail-container .fan-img:first-of-type {
-    background-color:#FFF;
+    background-color:#fff;
     transform: translate3d(-12px,12px,0) scale3d(.8,.8,1);
 }
 prm-search-result-thumbnail-container .fan-img:nth-of-type(2) {
-    background-color:#FFF;
+    background-color:#fff;
     transform: translate3d(-2px,6px,0) scale3d(.8,.8,1);
 }
 prm-search-result-thumbnail-container .fan-img:nth-of-type(3) {
-    background-color:#FFF;
+    background-color:#fff;
 }
-/* .md-button.arrow-link-button .button-content:hover {
-    /box-shadow: inset 0 -1px 0 0 #53738c; 
-    /box-shadow:inset 0 -1px 0 0 rgba(21,58,86,.5) 
-} */
 /* full display page */
 /* during overlay of search results, left and right pane */
 .md-dialog-container.fixed-container {
     background-color:rgba(128, 125, 125, 0.1);
 }
 prm-full-view-service-container .arrow-link [link-arrow] md-icon {
-    opacity:1;
-    min-width: 18px;
-    min-height: 18px;
-    width: 18px;
-    height: 18px;
+    display:none;
+}
+/* next line affects all section headers */
+prm-full-view-service-container prm-service-header h4[translate="nui.getit.tab1_onl_norestrict"] {
+    padding-bottom:25px;
+}
+prm-full-view-service-container prm-service-header h4 {
+    padding-bottom:15px;
+}
+prm-full-view-service-container prm-view-online div {
+    padding-bottom:25px;
+}
+prm-full-view-service-container prm-view-online div a {
+    text-transform:uppercase;
+    font-weight:600;
+    padding-bottom:3px;
+}
+prm-full-view-service-container prm-view-online a prm-icon {
+    display:none;
+}
+prm-full-view-service-container prm-view-online a.arrow-link [link-arrow] {
+    display:none;
 }
 /* ava line at top */
 prm-full-view div.full-view-container prm-full-view-service-container prm-search-result-availability-line {
@@ -505,13 +1089,12 @@ prm-full-view div.full-view-container prm-full-view-service-container prm-search
 div#services-index {
     display:none;
 }
-/* action list */
 @media (max-width: 599px) {
     custom-sms {
         width:105px;
     }
     md-nav-bar .md-nav-item:first-of-type {
-        margin-left: 0x;
+        margin-left: 0px;
     }
     .marg-nav-item {
         margin-left: 0;
@@ -555,22 +1138,29 @@ span[translate="nui.aria.fulldisplay.closeButton.short"] {
     margin: 10px;
     display: block;
 }
-button#textsms {
+prm-action-list>md-nav-bar .md-nav-item .md-button {
+    border-radius:4px;
+}
+/* prm-action-list>md-nav-bar .md-nav-item .md-button prm-icon {
+    min-width:100px;
+} */
+button#textsms, button#reportProb {
     font-size: 10px;
     line-height: 14px;
     font-weight: 600;
     letter-spacing: 0.03em;
-    /* color: rgba(58,58,58,.8); */
-    border-radius: 0;
+    /* border-radius: 0; */
     padding-bottom: .75em;
     padding-top: .75em;
     margin: 0;
     white-space: normal;
+    color:rgba(58,58,58,.8);
+    width: 105px;
 }
-/* button#textsms:hover, button#textsms:focus {
-    color: #0579b8;
-    border:1px solid #0579b8;
-} */
+button#textsms:hover,button#textsms:focus,
+button#reportProb:hover,button#reportProb:focus {
+    color:#fff;
+}
 md-card#textsms {
     background-color:#f8f8f8;
 }
@@ -586,70 +1176,24 @@ p.textsms-danger {
     color:red;
     padding-bottom:10px;
 }
-/*md-card#textsms md-list#smsLocation md-list-item {
-    background-color:#fff;
-    padding:10px;
-    line-height:14px;
-}
-#textsms .button-text {
-    font-size:10px;
-    line-height:14px;
-    font-weight:600;
-    cursor: pointer;
-}
-#textsms:hover {
-    background:#e1e1e1;
-    color:rgba(58,58,58,.8)
-}
-#textsms .row:hover {
-    background:#e1e1e1;
-    color:rgba(58,58,58,.8)
-}*/
-/* custom-print button.md-button.md-primary:hover:not([disabled]) {
-    background-color:#3a3a3a1a;
-    color:#0579b8;
-} */
-prm-search-result-list md-checkbox:focus {
-    /* border:2px solid red; */
-    /* box-shadow: 1px 0px grey,-7px 10px 4px -4px grey;  */
-}
-md-checkbox.md-checked .md-container .md-icon {
-    background-color:#44707b;
-}
-div#slideTopMaxAlert .md-button.button-link:hover:not([disabled]) {
-    background-color:#44707b;;
-    color:#fff;
+button#PrintButtonFullView, button#PrintButton {
+    margin-left:10px;
 }
 /* menu with footer is the menu that opens when choosing labels, footer is "add new label" */
 md-menu-content.menu-with-footer .menu-footer form div:hover {
     background-color:rgb(221, 221, 219);
     font-weight:600;
-    /* color:#fff; */
-    /* outline: 2px solid #0579b8; */
-}
-/* prm-action-list .md-button:hover:not([disabled]), prm-action-list .md-button:focus:not([disabled]) {
-    background-color:#3a3a3a1a;
-    color:#0579b8;    
-    outline:1px solid #0579b8;
-}
-.md-button.md-primary:hover:not([disabled]) {
-    background-color:#3a3a3a1a;
-    color:#0579b8;    
-    outline:1px solid #0579b8;
-}
-.md-button:focus:not([disabled]),.md-button.md-primary:focus:not([disabled]) {
-    background-color:#3a3a3a1a;
-    color:#0579b8;     
-    outline:1px solid #0579b8;
-} */
-.result-item-actions .md-icon-button:focus:not([disabled]), .result-item-actions .md-icon-button:hover:not([disabled]){
-    border: 2px solid #44707b;
 }
 /* from prm-permalink-after.css, from contractor work */
 .highlite {
-    background: #FFFCC4;
+    background: #fffCC4;
 }
-/* advanced search */
+prm-permalink div.form-focus{
+    text-align:center;
+}
+/* --------------------    */
+/*    ADVANCED SEARCH      */
+/* --------------------    */
 @media (max-width: 599px) {
     prm-advanced-search md-divider {
         display:none;
@@ -659,23 +1203,52 @@ md-menu-content.menu-with-footer .menu-footer form div:hover {
         display:none;
     }
 }
-md-radio-group.layout-row md-radio-button:hover {
+prm-advanced-search md-tabs.md-dynamic-height md-tabs-content-wrapper {
+    min-width:100%;
+}
+prm-advanced-search md-tabs md-tabs-wrapper md-tabs-canvas md-pagination-wrapper md-tab-item.md-active:not([disabled]) {
+    color:#000;
+}
+prm-advanced-search md-ink-bar {
+    display:none;
+}
+prm-advanced-search md-pagination-wrapper {
+    background-color:#f3f3f3;
+}
+prm-advanced-search .collapsed-button {
+    text-transform: uppercase;
+    background-color:#0579b8;
+    color:#fff;
+    border-radius:4px;
+    left:150px;
+    right:auto;
+    margin-top:-2px;
+    margin-left:5px;
+}
+prm-advanced-search .collapsed-button.md-button:focus:not([disabled]), prm-advanced-search .collapsed-button.md-button:hover:not([disabled])
+{
+    background-color:#2a5280;
+    color:#fff;
+}
+prm-advanced-search .collapsed-button.md-button:hover:not([disabled]) prm-icon,
+prm-advanced-search .collapsed-button.md-button:focus:not([disabled]) prm-icon {
+    color:#fff;
+}
+md-radio-group.layout-row md-radio-button {
+    border-bottom:1px solid transparent;
+}
+md-radio-group.layout-row md-radio-button:hover,
+md-radio-group.layout-row md-radio-button:focus {
     border-bottom:1px solid #44707b;
 }
-/* prm-advanced-search .advanced-search-output input {
-    margin-top:-7px;
-} */
+prm-advanced-search md-tabs.md-dynamic-height md-tab-content.md-active {
+    width:100%;
+}
 prm-advanced-search button:focus {
     outline:1px solid #1e1e1e;
 }
 div.search-switch-buttons .md-button {
     background-color:rgba(58, 58, 58, 0.1);
-}
-div.search-switch-buttons .md-button:hover:not([disabled]) {
-    outline:1px solid #1e1e1e;
-}
-div.search-switch-buttons .md-button:focus:not([disabled]) {
-    outline:1px solid #1e1e1e;
 }
 prm-advanced-search legend {
     transform:scale(1.0);
@@ -685,6 +1258,9 @@ prm-advanced-search md-select:hover, prm-advanced-search md-select:focus {
 }
 prm-advanced-search md-input-container:after {
     height: 0px;
+}
+prm-advanced-search .complex-rows {
+    border-bottom:none;
 }
 prm-advanced-search .search-string input {
     border: 1px solid #6f6e6e;
@@ -698,28 +1274,47 @@ prm-advanced-search md-input-container.string-field md-select:focus {
 }
 prm-advanced-search .search-string md-select span {
     text-decoration:underline;
-    color:#026DB9;
+    color:#026db9;
+}
+prm-search-bar .advanced-search-wrapper prm-advanced-search .search-string .string-field.bold-text input {
+    background-color:white;
+    box-shadow: inset 0 0 2px rgb(114, 114, 112);
+    padding:5px 30px 5px 8px;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:initial;
+    background-image: url('../img/pencil.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 4px right 4px;
+    background-size:25px;
+
 }
 prm-advanced-search .advanced-search-output button.button-confirm {
-    color:#a53c10;
+    color:white;
+    background-color:#0579b8;
+    padding: 3px 10px 3px 25px;
+    border-radius: 4px;
     font-weight:600;
 }
-prm-advanced-search .advanced-search-output button.button-confirm:hover:not([disabled]) {
-    background-color:#f3f3f3;
-    color:#a51c30;
-    outline-width:1px;
-    outline-color:#a51c30;
-    outline-style:solid;
-    /* outline:1px solid #a51c30; */
-    /* can't use outline here b/c there's an !important overriding it in otb code */
+prm-advanced-search .advanced-search-output button.button-confirm:hover:not([disabled]),
+prm-advanced-search .advanced-search-output button.button-confirm:focus:not([disabled]) {
+    background-color:#2a5280;
 }
-prm-advanced-search .advanced-search-output button.button-confirm:focus:not([disabled]), prm-advanced-search .advanced-search-output button.button-confirm:focus {
-    border:1px solid #a51c30;
-    background-color:#f3f3f3;
-    color:#a51c30;
-    /* can't use outline here b/c there's an !important overriding it in otb code */    
+prm-advanced-search .md-button.md-primary:hover:not([disabled]),
+prm-advanced-search .md-button.md-primary:focus:not([disabled]) {
+    background-color:#2a5280;
 }
-/* browse  */
+prm-advanced-search prm-icon md-icon svg[id^=magnifying-glass] {
+    color:#fff;
+}
+prm-advanced-search-after .barcode {
+    margin: 15px 0px;
+    padding: 15px 15px;
+}
+/* BROWSE  */
+prm-browse-search md-list.has-list-nav {
+    margin-bottom:200px;
+}
 prm-browse-search-bar .md-button.button-confirm:hover:not([disabled]) {
     color:#fff;
     background-color:#e9e9e9;
@@ -748,13 +1343,11 @@ prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item .md-list
     background-color:#fff;
     border-bottom:1px solid #b8babb;
     padding: 0em 0.2em;
-    /* color:#0579b8; */
 }
 prm-browse-result md-list-item .md-button {
     line-height:20px;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a {
-    /* color:#0579b8; */
     color:#44707b;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:hover {
@@ -767,12 +1360,33 @@ prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-butt
 prm-browse-search md-list.prm-list.prm-linkable-list-items md-list-item>.md-button > a:focus {
     color:#0579b8;
     text-decoration: underline;
-    /* background-color:#f3f3f3;*/
     border-bottom:2px solid #0579b8;
+}
+
+prm-browse-search prm-page-nav-menu #speedDialWidget,
+.__gt-md prm-page-nav-menu #speedDialWidget,
+.__gt-sm prm-page-nav-menu #speedDialWidget,
+.__gt-xs prm-page-nav-menu #speedDialWidget {
+   left:inherit;
+   right:1.5em;
+   direction:rtl;
+   bottom:1.5em;
 }
 prm-browse-search md-list.prm-list.prm-linkable-list-items.prm-dense-list md-list-item .item-title prm-highlight > span:hover {
     color:#0579b8;
 }
+prm-browse-search  prm-page-nav-menu #speedDialWidget .page-nav-inner:after {
+    background-color:#187474;
+}
+prm-browse-search prm-page-nav-menu #speedDialWidget .md-button.md-fab {
+    background-color:#187474;
+    color:#fff;
+}
+prm-browse-search prm-page-nav-menu #speedDialWidget .md-button.md-fab:focus, 
+prm-browse-search prm-page-nav-menu #speedDialWidget .md-button.md-fab:hover {
+    background-color:#000;
+}
+/* END BROWSE */
 /* my account */
 prm-account-overview md-input-container md-select {
     padding:5px;
@@ -780,7 +1394,7 @@ prm-account-overview md-input-container md-select {
     border: 1px solid transparent;
     border-top: none;
     border-bottom: 1px solid #ddd;
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #FFF, 0 1px 0 #FFF;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.39), 0 -1px 1px #fff, 0 1px 0 #fff;
 }
 /* my personal details after login, hide checkboxes since we don't allow changes */
 prm-personal-info md-card#personalDetails md-checkbox {
@@ -791,13 +1405,13 @@ md-list-item .md-list-item-with-checkbox .item-index {
     opacity:1;
 }
 prm-loans p[style="color: tomato;"] {
-    color:#EB001B!important;
+    color:#eb001b!important;
 }
 prm-loans p.normal-text prm-icon {
     margin-right:5px;
 }
 .prm-warn {
-    color:#EB001B;
+    color:#eb001b;
 }
 prm-account-overview md-tabs-canvas prm-icon {
     padding-left:5px;
@@ -832,9 +1446,6 @@ prm-account-overview md-select#loans-focus {
     margin-top: 16px;
 }
 prm-loans-overview h2 {
-/*     flex-direction:column;
-    flex-basis: 100%;
-    flex:1; */
     flex-direction:column;
 }
 prm-loans-overview button[aria-label="Renew all"] {
@@ -845,21 +1456,46 @@ prm-loans-overview button[aria-label="Renew all"] {
 prm-loans-overview span[translate="nui.loans.renewall"] {
     padding-right:10px;
 }
-prm-loans md-input-container:after {
-    /* display:none; */
-}
 /* END COVID RENEW QUESTION */
 /* END of may account section */
 
 /* frbr groupid clustering */
-div > prm-search-result-frbr-line {
-    margin-top:5px;
-    margin-bottom:5px;
+prm-search-result-frbr-line {
+    margin-top:8px;
+    margin-bottom:10px;
     display:inline-block;
-    font-size:115%;
 }
-div > prm-search-result-frbr-line span {
-    color:#B56001;
+prm-search-result-frbr-line prm-icon { 
+    display:none;
+}
+button:hover {
+    border-bottom:0px;
+}
+/* need both these variations! to overwrite OTB underline */
+prm-search-result-frbr-line .md-button.arrow-link-button:hover .button-content,
+prm-search-result-frbr-line .md-button.arrow-link-button .button-content:hover {    
+    box-shadow:inset 0 0 0 #fff;
+}
+/* instead of button the underline on the element below try putting it on the span within to avoid the underline extending beyond the length of the text */
+prm-search-result-frbr-line span {
+    color:#0579b8;
+    font-size:1em;
+    font-weight:600;
+}
+prm-search-result-frbr-line span[translate='nui.frbrversion.found']:hover {
+    border-bottom:3px solid rgba(5, 121, 184, 0.3); 
+}
+/* shenanigans to prevent period from displaying */
+prm-search-result-frbr-line .button-content span.prm-notice {
+    color:white;
+}
+prm-search-result-frbr-line .button-content span.prm-notice span[translate='nui.frbrversion.found'] {
+    color:#0579b8;
+    text-transform:uppercase;
+}
+/* hide OTB blue chevron */
+prm-search-result-frbr-line button > prm-icon > md-icon {
+    display:none;
 }
 prm-search-result-thumbnail-container img.fan-img-2[src="custom/HVD2/img/icon_versions.png"] {
     display:none;
@@ -867,49 +1503,38 @@ prm-search-result-thumbnail-container img.fan-img-2[src="custom/HVD2/img/icon_ve
 prm-search-result-thumbnail-container img.fan-img-3[src="custom/HVD2/img/icon_versions.png"] {
     display:none;
 }
-/*  div.md-chip > div > strong[translate="facets.facet.facet_frbrgroupid"] {
-    background-color:red;
-    font-size:150%;
-    color:#026DB9;
-    margin:10px 10px;    
-}  */
-prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong[translate="facets.facet.facet_frbrgroupid"] {
-    padding-left:10px;
-} 
-/* hide x after groupid remove facet label; DON'T DO THIS. The X is the only part that's actionalbe; need it to be able to execute return */
-/* button[aria-label*="Return to search results"] prm-icon md-icon.md-primoExplore-theme svg {
-    display:none;    
-}  */
 /* this line has upper case -Versions-, which controls opened cluster list*/
 /* same selectors apply to search result but aria-label is proper case Versions */
-button[aria-label*="Versions"] prm-icon md-icon.md-primoExplore-theme {
-    /* border:solid 5px #026DB9; */
+prm-breadcrumbs button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme {
     background-color:rgb(181, 96, 1);
     padding:2px;
     width:30px;
     height:30px;
-    /* //box-shadow: 0 1px 0 0 rgba(0,0,0,.2), 0 5px 5px -3px rgba(0,0,0,.2); */
     border-radius: 1.2em;
     overflow: hidden;
 } 
+/* this is the icon in the search results right before the text starts for Multiple versions avail */
+prm-search-result-frbr-line button[aria-label*="online"] prm-icon md-icon.md-primoExplore-theme {
+    display:none;
+}
+prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content strong[translate="facets.facet.facet_frbrgroupid"] {
+    padding-left:10px;
+} 
+/* hide x after groupid remove facet label; DON'T DO THIS. The X is the only part that's actionalbe; need it to be able to execute return */
+
 /* this line controls X to close "list of versions" facet in open cluster,  note proper case Versions */
-button[aria-label*="Versions"] prm-icon md-icon.md-primoExplore-theme svg {
+prm-breadcrumbs button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme svg {
     color:white;
     font-size:150%;
 } 
-/* this line controls cluster icon in search results, note lower case versions */
-button[aria-label*="versions"] prm-icon md-icon.md-primoExplore-theme svg {   
-   font-size:150%;
-}  
 /* this handles the weird white hover that seems to happen for no reason */
 prm-breadcrumbs .md-chips .md-chip-content:focus:before, prm-breadcrumbs .md-chips .md-chip-content:hover:before {
     opacity:0;
 } 
-/* icon in front of remove groupid list */
-/* prm-breadcrumbs .md-chips .md-chip-content:before {
- content:"<---";
- color:red;
-} */
+/* space in front of remove groupid list. not needed b/c no padlock in this scenario */
+prm-breadcrumbs .md-chip.wrapping-chip .md-chip-content[aria-label*="List"] strong {
+    padding-left: 5px;
+}
 /* citation trails in search results - hide them so they are only in the Details page */
 prm-citation-trails-indication-container {
     display:none;
@@ -918,78 +1543,138 @@ prm-citation-trails-indication-container {
 div.item-details-element div[ng-show="!value.isLinkable"] {
     padding-bottom:.2em;
 }
-/* main menu - after ellipsis expansion */
+/* main menu - after ellipsis expansion, etc.  */
 md-dialog.md-transition-in {
     background-color: rgba(0,0,0,.2);
 }
-prm-main-menu[menu-type=full] .custom-links-container .main-menu-button .transparent-card:focus {
-    border:2px solid white; 
-}
-prm-main-menu[menu-type=full] .md-button:focus {
-    border:2px solid white; 
-}
-prm-main-menu[menu-type=full] .md-button:focus {
-    border:2px solid white; 
-}
-prm-main-menu[menu-type=full] .overlay-menu-item:focus {
-    border:2px solid white; 
+/* learned in Oct '21 that refworks started appearing in mobile for some reason */
+prm-main-menu .my-refworks-ctm {
+    display:none;
 }
 /* end */
-/* toc */
-prm-search-result-availability-line-after a md-icon {
-    color:#44707B;
-}
-/* browzine */
-prm-search-result-availability-line span.browzine-web-link-text {
-    color:green;
-}
-prm-search-result-availability-line a.browzine-direct-to-pdf-link md-icon {
-    color:rgba(58,58,58,.7);
-}
-prm-search-result-availability-line div.browzine a.browzine-web-link md-icon {
-    color:rgba(58,58,58,.7);
-}
-/* END browzine */
+
 /* bx */
 prm-recomendation-item div > a:focus {
-    border:2px solid #C0C0C0;
- }
-/* save pin */
-prm-save-to-favorites-button button:focus, prm-save-to-favorites-button button:hover {
-    border: 1px solid #1e1e1e;
-    border-radius: 100px;
+    border:2px solid #c0c0c0;
 }
-/* prm-alma-mashup iframe {
-    background-image: url("../img/giphy.gif");
-    background-repeat: no-repeat;
-    background-position: center;
-  } */
+/* next line added b/c Feb release changed background of bx section to be unreadable */
+.full-view-aside.flex-xl-20.flex-md-25.flex-lg-25.flex {
+    background-color:#fefffe;
+}
 /* next line is because bottom of tool-bar is too close to first result */
 prm-search-result-list .search-results-container {
     margin-top: 3.9em;
 }
-prm-search-result-list prm-search-result-tool-bar {
-      border-top:10px solid white;
+/* toolbar above search results */
+prm-search-result-tool-bar .md-toolbar-tools {
+    background-color:#fff;
 }
-prm-search-result-tool-bar .md-toolbar-tools .md-button {
+prm-search-result-tool-bar .md-toolbar-tools md-checkbox {
+    margin-right:0px;
+    margin-left:0px;
+}
+prm-search-result-tool-bar .results-title {
+    font-style:normal;
+}
+prm-search-result-tool-bar  .search-toolbar-title {
+    font-weight:bold;
+    margin-left:30px;
+    text-transform: none;
+    font-size:15px;
+    letter-spacing:0.075px;
+    line-height:20px;
+    text-size-adjust:100%;
+    font-family:"Source Sans Pro", Arial,sans-serfic;
+    top:0px;    
+}
+prm-search-result-tool-bar  .search-toolbar-title .tiny-uppercase-text {
+    text-transform: none;
+    font-size:15px;
+    font-weight:400;
+    letter-spacing:0.075px;
+    line-height:20px;
+    text-size-adjust:100%;
+    font-family:"Source Sans Pro", Arial,sans-serfic;
+    top:0px;
+    margin-right:50px;
+}
+prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color {
+    color:#0579b8;
+    font-family:"Source Sans Pro", Arial,sans-serfic;
     opacity:1;
 }
-prm-search-result-tool-bar .md-toolbar-tools {
-    /* height:55px; */
-    box-shadow:0 1px 0 0 rgba(0,0,0,.03),0 5px 5px -3px rgba(0,0,0,.07);
+prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color:hover:not([disabled]),
+prm-search-result-tool-bar prm-personalize-results-button .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
+    background-color:#2a5280;
+    border-radius: 4px;
+}
+prm-search-result-list prm-personalize-results-button .md-button {
+    top:-6px;
+}
+prm-search-result-list prm-personalize-results-button .md-button md-switch {
+    height:25px;
+}
+prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color {
+    color:#0579b8;
+    opacity:1;
+}
+prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:hover:not([disabled]),
+prm-add-query-to-saved-searches .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
+    background-color:#2a5280;
+    border-radius: 4px;
+}
+/* bulk buttons when activated */
+prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button[disabled=disabled] {
+    color: #ccc!important;
+    cursor: not-allowed;
+    transform: none;
+}
+prm-search-result-tool-bar .md-toolbar-tools .md-button {
+    transition-duration:0ms;
+}
+prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button {
+    color:#187474;
+    transform: rotate(25deg);
+    opacity: 1;
+    transition-duration:0ms;
+}
+prm-search-result-tool-bar .md-toolbar-tools prm-search-result-add-to-favorites-menu .md-button:hover:not([disabled]){
+    color:#000;
+    background-color:transparent;
+}
+/* alert at top when you save a search */
+prm-add-alert-toast md-toast .md-toast-content {
+    color:#000;
+    background-color:#E7E7E7;
+}
+prm-add-alert-toast md-toast .md-button.settings-button {
+    color:#2a5280;
+}
+prm-add-alert-toast md-toast .md-button.settings-button:hover:not([disabled]) {
+    color:#fff;
+    background-color:#026db9;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax {
-    color:#44707b;
+    color:#0579b8;
     font-style: normal;
     padding: 0px 10px;
     font-weight: 600;
+    border-radius: 4px;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:hover {
     color:#fff;
+    background-color:#2a5280;
 }
 prm-search-result-tool-bar #slideTopMaxAlert button#chooseTopMax:focus {
     color:#fff;
-    background-color:#44707b;
+    background-color:#0579b8;
+}
+prm-search-result-tool-bar #slideTopMaxAlert .md-button.button-link:hover:not([disabled]) {
+    background-color:#2a5280;
+    color:#fff;
+}
+md-checkbox.md-checked .md-container .md-icon {
+    background-color:#0579b8;
 }
 prm-search-result-tool-bar .disableActionTool, prm-search-result-tool-bar .disabledFavTool {
     color:#858585;
@@ -1000,6 +1685,7 @@ prm-search-result-tool-bar md-checkbox ._md-icon {
 prm-search-result-tool-bar .md-button.button-link {
   opacity:1;
 }
+/* end toolbar */
 prm-brief-result-container .list-item-primary-content .list-item-count {
     opacity:1;
 }
@@ -1010,8 +1696,22 @@ prm-search-result-tool-bar md-toolbar .main-checkbox {
     margin-left: 7px;
 }
 /* resource recommender */
+md-dialog.prm-resource-recommendations-fullview.md-transition-in {
+    background-color:#fff;
+}
+.prm-recommendations-fullview .resource-item {
+    margin-bottom:30px;
+}
+prm-resource-recommender .md-button.button-as-link.link-alt-color {
+    color:#0579b8;
+}
+prm-resource-recommender .md-button.button-as-link.link-alt-color:hover:not([disabled]),
+prm-resource-recommender .md-button.button-as-link.link-alt-color:focus:not([disabled]) {
+    background-color:#2a5280;
+    border-radius: 4px;
+}
 prm-resource-recommender-card-content a {
-    color:#44707b;
+    color:#0579b8;
     font-weight:bold;
 }
 #resource-recommender img.shield {
@@ -1032,6 +1732,17 @@ div.parentImageLinkWrapper {
 }
 .hvdImgComponentViewMD {
     width:90%;
+}
+/* didn't finish css for below button, class not applied yet in prm-view-online-after.html */
+.hvdImgGroupAllMetadata {
+    color:#fff;
+    background-color:#0579b8;
+    font-weight:600px;
+    border-radius:4px;
+}
+.hvdImgGroupAllMetadata:hover,
+.hvdImgGroupAllMetadata:focus {
+    background-color:#2a5280;
 }
 /* copied from prm-location-after.css; i think this was part of local stack map that contractor looked at  */
 .placeIcon {
@@ -1066,18 +1777,36 @@ prm-tags-list input#own-tags-input {
 prm-tags-list input::placeholder {
     color:#333;
 }
+/* SERVICE LINKS SECTION */
+div#links prm-full-view-service-container prm-service-header div.layout-row md-divider {
+    display:none;
+}
+div.full-view-section#links {
+    margin-top:0;
+}
+div.full-view-section#links .section-head {
+    display:none;
+}
+prm-service-links a {
+    padding-bottom:3px;
+}
+prm-service-links a prm-icon {
+    display:none;
+}
+prm-service-links a.arrow-link [link-arrow] {
+    display:none;
+}
 /* digital bookplates */
 .serviceLinkBox {
     padding:0px;
     background: transparent !important;
+    margin:8px 8px 8px 5px;
 }
-
 .serviceLink {
     list-style: none;
     margin-left:-5px;
     padding-left:0px;
 }
-
 .serviceLink > li {
     display: inline-block;
     width:200px;
@@ -1085,13 +1814,48 @@ prm-tags-list input::placeholder {
     margin-left:0px;
     padding-left:0px;
 }
-
 .serviceLinkPhoto {
-    height:155px;
-    width: auto;
+    max-height: 205px;
+    max-width: 155px;
 }
-
 .serviceLinkSpace {
     margin-bottom:10px;
 }
 /* end digital bookplates */
+@media print {
+
+    body {                  
+        margin:5%;    
+        font-size:70%;
+    }
+    prm-snippet {
+        display:none;
+    }
+    prm-search-result-thumbnail-container {
+        display:inline;
+    }
+    prm-full-view-service-container .section-head {
+        display:none;
+    }
+    .layout-row {
+        display:flex;
+    } 
+    prm-login-alma-mashup {
+        display:none;
+    }
+    #fullView .layout-row {
+        margin-bottom: 0px;
+    }
+    iframe.mashup-iframe {
+        margin-top:-25px;
+    }
+    prm-explore-footer {
+        display:none;
+    }
+}
+  
+/* remove icons for my account and sign in */
+prm-library-card-menu .md-button.button-with-icon > prm-icon,
+prm-authentication .md-button.button-with-icon > prm-icon {
+    display: none;
+}
