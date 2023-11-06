@@ -547,6 +547,13 @@ prm-search-result-availability-line .md-button.neutralized-button [class*=may]>s
 prm-search-result-availability-line .md-button.neutralized-button [class*=unknown]>span {
     color:#414141;
 }
+/* for "and other locations" when it appears as 2nd sibling after unavailable AVA */
+prm-search-result-availability-line .md-button.neutralized-button [class*=unavailable] ~ span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=does_not_exist] ~ span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=may] ~ span,
+prm-search-result-availability-line .md-button.neutralized-button [class*=unknown] ~ span {
+    color:#414141;
+}
 prm-search-result-availability-line .md-button.neutralized-button:hover [class*=unavailable],
 prm-search-result-availability-line .md-button.neutralized-button:hover [class*=does_not_exist],
 prm-search-result-availability-line .md-button.neutralized-button:hover [class*=may],
@@ -620,6 +627,48 @@ prm-search-result-availability-line-after a:hover,
 prm-search-result-availability-line-after a:focus {
     box-shadow: inset 0 -3px 0 0 rgba(43, 44, 44, 0.3);
 }
+/* cdi quicklinks */
+prm-quick-link {
+    font-weight: 600;
+}
+prm-quick-link prm-icon {
+    display:none;
+}
+prm-quick-link .quick-links-icons {
+    display:none;
+}
+prm-brief-result-container prm-quick-link a {    
+    background-color: #0579b8;
+    border-radius: 4px;
+    background-image: url('../img/browzine-pdf-download-icon.svg');
+    background-repeat: no-repeat;
+    background-position: bottom 5px left 6px;
+    padding: 3px 15px 3px 25px;
+    box-shadow: none;
+    height:26px;
+}
+prm-brief-result-container prm-quick-link a:hover,
+prm-brief-result-container prm-quick-link a:focus {
+    background-color:#2a5280;
+    box-shadow: none;
+    padding: 3px 15px 3px 25px;
+}
+prm-brief-result-container prm-quick-link .arrow-link:hover [link-arrow],
+prm-brief-result-container prm-quick-link .arrow-link:focus [link-arrow] {
+    display:none;
+}
+prm-brief-result-container prm-quick-link a span {
+    color:white;
+    text-transform: uppercase;
+}
+/* this one is for the full display page */
+prm-full-view prm-quick-link a .quick-link-type {
+    color:#0579b8;
+    font-weight: 400;
+}
+prm-full-view prm-quick-link span[translate="fulldisplay.unpaywall.noLinks"] {
+    display:none;
+}
 /* hathi trurst link, online */
 .hvdHathiViewOnline {
     color:white;
@@ -690,7 +739,9 @@ prm-chapters-results-line button[aria-label*="Chapters of this book"],
     display:none;
 } 
 /* browzine */
-prm-search-result-availability-line a.browzine-direct-to-pdf-link {
+prm-search-result-availability-line a.browzine-direct-to-pdf-link,
+prm-search-result-availability-line a.unpaywall-article-pdf-link,
+prm-search-result-availability-line a.unpaywall-manuscript-article-pdf-link {
     color:white;
     background-color: #0579b8;
     border-radius: 4px;
@@ -700,19 +751,29 @@ prm-search-result-availability-line a.browzine-direct-to-pdf-link {
     background-position: bottom 5px left 6px;
     padding:3px 38px 3px 38px;
 }
-prm-search-result-availability-line a.browzine-direct-to-pdf-link svg {
+prm-search-result-availability-line a.browzine-direct-to-pdf-link svg, 
+prm-search-result-availability-line a.unpaywall-article-pdf-link svg,
+prm-search-result-availability-line a.unpaywall-manuscript-article-pdf-link svg {
     color:white;
 }
-prm-search-result-availability-line a.browzine-direct-to-pdf-link img {
+prm-search-result-availability-line a.browzine-direct-to-pdf-link img,
+prm-search-result-availability-line a.unpaywall-article-pdf-link img,
+prm-search-result-availability-line a.unpaywall-manuscript-article-pdf-link img {
     display:none;
 }
 prm-search-result-availability-line a.browzine-direct-to-pdf-link:hover,
-prm-search-result-availability-line a.browzine-direct-to-pdf-link:focus {
+prm-search-result-availability-line a.browzine-direct-to-pdf-link:focus,
+prm-search-result-availability-line a.unpaywall-article-pdf-link:hover,
+prm-search-result-availability-line a.unpaywall-article-pdf-link:focus,
+prm-search-result-availability-line a.unpaywall-manuscript-article-pdf-link:hover,
+prm-search-result-availability-line a.unpaywall-manuscript-article-pdf-link:focus {
     background-color: #2a5280;
     box-shadow:0 0 0 0px;
     border-bottom: 0px;
 }
-prm-search-result-availability-line a.browzine-direct-to-pdf-link md-icon {
+prm-search-result-availability-line a.browzine-direct-to-pdf-link md-icon,
+prm-search-result-availability-line a.unpaywall-article-pdf-link md-icon,
+prm-search-result-availability-line a.unpaywall-manuscript-article-pdf-link md-icon {
     display:none;
 }
 prm-search-result-availability-line a.browzine-web-link md-icon {
@@ -955,6 +1016,7 @@ input[aria-label="To date"]::-webkit-inner-spin-button,input[aria-label="To date
 }
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary {
     background-color:#187474;
+    color:white;
 }
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary:hover,
 .multiselect-submit .multiselect-submit-inner .md-button.md-primary:focus {
@@ -1554,11 +1616,14 @@ prm-main-menu .my-refworks-ctm {
 /* end */
 
 /* bx */
+prm-recomendations {
+    background-color: #fefffe;
+}
 prm-recomendation-item div > a:focus {
     border:2px solid #c0c0c0;
 }
-/* next line added b/c Feb release changed background of bx section to be unreadable */
-.full-view-aside.flex-xl-20.flex-md-25.flex-lg-25.flex {
+/* next line needed to have background color for bx so it's visible */
+.full-view-aside {
     background-color:#fefffe;
 }
 /* next line is because bottom of tool-bar is too close to first result */
