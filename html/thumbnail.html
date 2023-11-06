@@ -1,6 +1,6 @@
 <md-card class="hv-image-card" tabindex="-1">
     <div class="imageLabel">
-        <div ng-show="vm.localScope.showImageLabel" role="multiple images" class="badge" aria-label="{{vm.dataitem.pnx.display.lds28[0]|countFilter}}}">
+        <div ng-show="vm.localScope.showImageLabel" role="multiple images" class="badge" aria-label="{{vm.dataitem.pnx.display.lds28[0]|countFilter}}" title="{{vm.dataitem.pnx.display.lds28[0]|countFilter}}" alt="{{vm.dataitem.pnx.display.lds28[0]|countFilter}}">
             {{vm.dataitem.pnx.display.lds20[0]|countFilter}}
         </div>
     </div>
@@ -13,7 +13,7 @@
                 <span ng-if="!vm.dataitem.pnx.display.lds28[0]">Image not digitized</span>
             </div>
             <div class="lockIcon" ng-if="vm.localScope.hideLockIcon">
-                <img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Lock icon" aria-label="Lock icon"/>
+                <img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/>
             </div>
         </a>
     </md-card-content>
