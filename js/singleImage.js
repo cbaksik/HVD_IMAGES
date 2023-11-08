@@ -24,6 +24,7 @@ angular.module('viewCustom')
             vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
             vm.isLoggedIn=sv.getLogInID();
             vm.clientIp=sv.getClientIp();
+            vm.iframeHtml='iframe will go here!';
 
             // check if image is not empty and it has width and height and greater than 150, then add css class
             vm.$onChanges=function () {
@@ -37,8 +38,31 @@ angular.module('viewCustom')
                     //console.log('Restrict image: A user is not login or client IP address is not in  the list');
                 }
                 
-                vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false};
+                vm.localScope={'imgClass':'','loading':true,'hideLockIcon':false, 'iframeHtml':''};
                 if(vm.src && vm.showImage) {
+                    vm.items={};
+                    vm.urn = vm.src.split('/').pop();
+                    const restUrl = 'https://embed.lib.harvard.edu/api/nrs'
+                    var params={'urn':vm.urn,'prod':1}
+                    sv.getAjax(restUrl,params,'get')
+                    .then(function (result) {
+                        vm.items=result.data;
+                        vm.iframeHtml = vm.items.html;
+                        const doc = new DOMParser().parseFromString(vm.iframeHtml, 'text/html');
+                        const element = doc.body.children[0];
+                        vm.iframeAttributes = {};
+                        for (var i = 0; i < element.attributes.length; i++) {
+                            var attrib = element.attributes[i];
+                            if (attrib.name == 'src') {
+                                vm.iframeAttributes[attrib.name] = $sce.trustAsResourceUrl(attrib.value);
+                            }
+                            else {
+                                vm.iframeAttributes[attrib.name] = attrib.value;  
+                            }
+                        }                 
+                    },function (err) {
+                        console.log(err);
+                    });
                     const url = sv.getHttps(vm.src) + '?buttons=Y';
                     vm.imageUrl = $sce.trustAsResourceUrl(url);
                 }
