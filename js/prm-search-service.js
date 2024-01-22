@@ -55,8 +55,8 @@
         };
 
         // default page info
-        this.defaultPageSize = 25;
-        serviceObj.page = {'pageSize':this.defaultPageSize,'totalItems':0,'currentPage':1,'query':'','searchString':'','totalPages':0,'offset':0,'userClick':false};
+        serviceObj.defaultPageSize = 25;
+        serviceObj.page = {'pageSize':serviceObj.defaultPageSize,'totalItems':0,'currentPage':1,'query':'','searchString':'','totalPages':0,'offset':0,'userClick':false};
         // getter for page info
         serviceObj.getPage=function () {
            var pageInfo = JSON.parse($window.localStorage.getItem('pageInfo'));
@@ -73,7 +73,7 @@
         // setter for page info
         serviceObj.setPage=function (pageInfo) {
           console.log(`*** *** *** setPage Page info *** *** ***`);
-          pageInfo.pageSize = this.defaultPageSize;
+          pageInfo.pageSize = serviceObj.defaultPageSize;
           console.log(pageInfo);
             // store page info on client browser by using html 5 local storage
             if($window.localStorage.getItem('pageInfo')) {

@@ -45,13 +45,15 @@
         vm.ajaxSearch=function () {
             this.searchInfo=sv.getPage();
             var limit=this.searchInfo.pageSize;
+            console.log(`*** *** *** this.searchInfo *** *** ***`);
+            console.log(this.searchInfo);
             var remainder = parseInt(this.searchInfo.totalItems) - (parseInt(this.searchInfo.currentPage - 1) * parseInt(this.searchInfo.pageSize));
 
             if(remainder < this.searchInfo.pageSize) {
                 limit=remainder;
             }
 
-            var params={'addfields':[],'offset':0,'limit':50,'lang':'en_US','inst':'01HVD','getMore':0,'pcAvailability':true,'q':'','rtaLinks':true,
+            var params={'addfields':[],'offset':0,'limit':parseInt(this.searchInfo.pageSize),'lang':'en_US','inst':'01HVD','getMore':0,'pcAvailability':true,'q':'','rtaLinks':true,
             'sort':'rank','tab':'default_tab','vid':'HVD_IMAGES','scope':'default_scope','qExclude':'','qInclude':'','searchString':'','mode':'','multiFacets':''};
 
 
