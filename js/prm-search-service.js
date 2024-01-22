@@ -55,7 +55,7 @@
         };
 
         // default page info
-        this.defaultPageSize = 10;
+        this.defaultPageSize = 25;
         serviceObj.page = {'pageSize':this.defaultPageSize,'totalItems':0,'currentPage':1,'query':'','searchString':'','totalPages':0,'offset':0,'userClick':false};
         // getter for page info
         serviceObj.getPage=function () {
