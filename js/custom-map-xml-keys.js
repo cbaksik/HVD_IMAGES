@@ -3,6 +3,7 @@
  * This service find out the xml key, sort them, display them in order
  */
 
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -153,3 +154,4 @@
     }]);
 
 })();
+*/

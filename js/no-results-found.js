@@ -2,6 +2,7 @@
  * Created by samsan on 6/22/17.
  */
 
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -26,3 +27,4 @@
     });
 
 })();
+*/

@@ -3,6 +3,7 @@
  * List all custom routers for images component and images details
  */
 
+/*
 (function () {
     angular.module('viewCustom')
         .config(function ($stateProvider) {
@@ -40,3 +41,4 @@
         });
 
 })();
+*/

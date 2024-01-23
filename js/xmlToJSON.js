@@ -18,6 +18,7 @@
  *
  */
  
+/*
 var xmlToJSON = (function () {
 
     this.version = "1.3";
@@ -138,11 +139,11 @@ var xmlToJSON = (function () {
                             }
                         }
                     }
-                } /* nodeType is "CDATASection" (4) */
+                } // nodeType is "CDATASection" (4)
                 else if (oNode.nodeType === 3) {
                     sCollectedTxt += oNode.nodeValue;
-                } /* nodeType is "Text" (3) */
-                else if (oNode.nodeType === 1) { /* nodeType is "Element" (1) */
+                } // nodeType is "Text" (3) 
+                else if (oNode.nodeType === 1) { // nodeType is "Element" (1)
 
                     if (nLength === 0) {
                         vResult = {};
@@ -240,3 +241,4 @@ var xmlToJSON = (function () {
 
 if (typeof module != "undefined" && module !== null && module.exports) module.exports = xmlToJSON;
 else if (typeof define === "function" && define.amd) define(function() {return xmlToJSON});
+*/

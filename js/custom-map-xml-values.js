@@ -1,6 +1,8 @@
 /**
  * Created by samsan on 10/13/17.
  */
+
+/*
 angular.module('viewCustom')
     .service('customMapXmlValues',[function () {
         var serviceObj = {};
@@ -400,3 +402,4 @@ angular.module('viewCustom')
 
         return serviceObj;
     }]);
+*/

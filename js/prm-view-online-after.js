@@ -4,6 +4,7 @@
  * If pnx.display.lds41 exist, it will display scanned key content. 
  */
 
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -114,3 +115,4 @@
     });
 
 })();
+*/

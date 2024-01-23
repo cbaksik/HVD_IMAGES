@@ -2,6 +2,7 @@
  This custom component is used for search result list which display all the images in thumbnail.
  */
 
+ /*
 (function () {
 
     angular.module('viewCustom')
@@ -303,3 +304,4 @@
     });
 
 })();
+*/

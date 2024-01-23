@@ -3,6 +3,7 @@
  * This component add customize logo and Hollis Images text
  */
 
+/*
 (function () {
     angular.module('viewCustom')
     .controller('prmLogoAfterController', [ '$element', function ($element) {
@@ -41,3 +42,5 @@
     });
 
 })();
+
+*/

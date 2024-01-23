@@ -3,6 +3,7 @@
  * This template is for direct access full view display link when a user send email to someone
  */
 
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -91,5 +92,4 @@
     });
 
 })();
-
-
+*/

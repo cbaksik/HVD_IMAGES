@@ -3,6 +3,7 @@
  * Custom print page so it would print all the images, scan contents, etc.
  */
 
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -27,3 +28,4 @@
     });
 
 })();
+*/

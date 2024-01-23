@@ -3,7 +3,7 @@
  * Overwrite the print default . It must turn on print from back end first before it can overwrite.
  */
 
-
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -44,3 +44,4 @@
     });
 
 })();
+*/

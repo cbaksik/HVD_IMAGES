@@ -3,6 +3,7 @@
  * It may not use at all
  */
 
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -74,3 +75,4 @@
     });
 
 })();
+*/
