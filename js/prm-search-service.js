@@ -55,9 +55,13 @@
         };
 
         // default page info
-        serviceObj.page = {'pageSize':50,'totalItems':0,'currentPage':1,'query':'','searchString':'','totalPages':0,'offset':0,'userClick':false};
+        serviceObj.defaultPageSize = 10;
+        serviceObj.page = {'pageSize':serviceObj.defaultPageSize,'totalItems':0,'currentPage':1,'query':'','searchString':'','totalPages':0,'offset':0,'userClick':false};
         // getter for page info
         serviceObj.getPage=function () {
+           var pageInfo = JSON.parse($window.localStorage.getItem('pageInfo'));
+           console.log(`*** *** *** getPage Page info *** *** ***`);
+           console.log(pageInfo);
            // localStorage page info exist, just use the old one
            if($window.localStorage.getItem('pageInfo')) {
                return JSON.parse($window.localStorage.getItem('pageInfo'));
@@ -68,6 +72,9 @@
 
         // setter for page info
         serviceObj.setPage=function (pageInfo) {
+          console.log(`*** *** *** setPage Page info *** *** ***`);
+          pageInfo.pageSize = serviceObj.defaultPageSize;
+          console.log(pageInfo);
             // store page info on client browser by using html 5 local storage
             if($window.localStorage.getItem('pageInfo')) {
                 $window.localStorage.removeItem('pageInfo');

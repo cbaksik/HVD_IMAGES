@@ -4,8 +4,11 @@
  */
 
 
+// override the limit=10 when a user refresh page at search result list
+/**
+ * Removed on 01/19/2024 for troubleshooting performance issues
+ * Custom interceptor
 (function () {
-    // override the limit=10 when a user refresh page at search result list
     angular.module('viewCustom').config(['$httpProvider',function ($httpProvider) {
 
         $httpProvider.interceptors.push(function() {
@@ -67,3 +70,4 @@
 
     }]);
 })();
+*/
