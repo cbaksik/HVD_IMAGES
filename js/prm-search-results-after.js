@@ -2,7 +2,7 @@
  This custom component is used for search result list which display all the images in thumbnail.
  */
 
-/*
+ 
 (function () {
 
     angular.module('viewCustom')
@@ -11,7 +11,7 @@
         // call custom service from the injection
         let sv=prmSearchService;
         this.searchInfo = sv.getPage(); // get page info object
-
+        
         let vm = this;
         let ev='';
         let dialog='';
@@ -25,6 +25,7 @@
         vm.flexSize={'size1':20,'size2':80,'class':'spaceLeft15'};
         // set search result set per page, default 50 items per page
 
+        /*
         // set up page counter
         vm.pageCounter = {'min':0,'max':0};
         // calculate the page counter such as 1-50 of 1,232
@@ -179,6 +180,7 @@
             }
 
         };
+        */
 
         vm.$onChanges=function() {
             if(vm.parentCtrl.isFavorites===false) {
@@ -202,6 +204,7 @@
 
         };
 
+        /*
         vm.$doCheck=function() {
             vm.modalDialogFlag=sv.getDialogFlag();
         };
@@ -290,11 +293,9 @@
                 }
             }
         }
-
+        */
 
     }]);
-
-
 
     angular.module('viewCustom')
     .component('prmSearchResultListAfter', {
@@ -304,4 +305,3 @@
     });
 
 })();
-*/
