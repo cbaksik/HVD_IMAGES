@@ -41,8 +41,9 @@
             }
 
         };
+        */
 
-
+        /*
         // when a user click on next page or select new row from the drop down, it call this search function to get new data
         vm.ajaxSearch=function () {
             this.searchInfo=sv.getPage();
@@ -110,7 +111,9 @@
            )
 
         };
+        */
 
+        /*
         // when a user click on next page or prev page, it call this function.
         this.pageChanged=function (currentPage) {
             // prevent calling ajax twice during refresh the page or click on facets
@@ -131,6 +134,8 @@
             vm.flag=false;
         };
 
+        */
+
         vm.items=[];
 
         vm.$onInit = function () {
@@ -144,10 +149,10 @@
                 var parentNode=$element[0].parentNode.children[0];
                 parentNode.remove();
 
-                this.searchInfo = sv.getPage(); // get page info object
+                //this.searchInfo = sv.getPage(); // get page info object
                 // watch for new data change when a user search
 
-                vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+                /*vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
 
                     if (vm.parentCtrl.$stateParams.offset > 0) {
                         vm.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
@@ -175,7 +180,7 @@
                     sv.setPage(this.searchInfo);
                     vm.searchInProgress = vm.parentCtrl.searchInProgress;
 
-                });
+                });*/
 
             }
 
