@@ -22,8 +22,33 @@
         vm.paginationNumber=6;
         vm.index=0;
         vm.flexSize={'size1':20,'size2':80,'class':'spaceLeft15'};
-        // set search result set per page, default 50 items per page
 
+        vm.$onInit = function () {
+          console.log("vm.$onInit");
+          console.log("vm.parentCtrl");
+          console.log(vm.parentCtrl);
+          console.log("vm.parentCtrl.itemlist");
+          console.log(vm.parentCtrl.itemList);
+          // convert xml data into json data so it knows which image is a restricted image
+          if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
+
+            vm.items = sv.convertData(vm.parentCtrl.searchResults);
+          }
+        }
+
+        vm.ajaxSearch = function () {
+          console.log("vm.ajaxSearch");
+          console.log(vm.parentCtrl.searchResults);
+          vm.items=[];
+
+        };
+
+        this.pageChanged=function (currentPage) {
+          console.log("this.pageChanged");
+          console.log(currentPage);
+        };
+
+        // set search result set per page, default 50 items per page
         /*
         // set up page counter
         vm.pageCounter = {'min':0,'max':0};
@@ -129,14 +154,6 @@
             vm.flag=false;
         };
         */
-
-        vm.items=[];
-        vm.$onInit = function () {
-          // convert xml data into json data so it knows which image is a restricted image
-          if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
-            vm.items = sv.convertData(vm.parentCtrl.searchResults);
-          }
-        }
       
         /*vm.$onInit = function () {
             if(vm.parentCtrl.isFavorites===false) {*/
@@ -191,6 +208,7 @@
         };*/
 
         vm.$onChanges=function() {
+          console.log("vm.$onChanges");
             /*if(vm.parentCtrl.isFavorites===false) {
                 vm.searchData = vm.parentCtrl.searchService.cheetah.searchData;
                 if (vm.parentCtrl.searchString) {
