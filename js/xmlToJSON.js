@@ -17,8 +17,7 @@
  * @author William Summers
  *
  */
- 
-/*
+
 var xmlToJSON = (function () {
 
     this.version = "1.3";
@@ -241,4 +240,3 @@ var xmlToJSON = (function () {
 
 if (typeof module != "undefined" && module !== null && module.exports) module.exports = xmlToJSON;
 else if (typeof define === "function" && define.amd) define(function() {return xmlToJSON});
-*/
