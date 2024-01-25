@@ -21,11 +21,12 @@
     </div>
     <div class="hvfullsize">
      <ul class="hvInline">
-     <li role="thumbnail image" ng-repeat="item in $ctrl.items track by $index"  aria-label="View full image. It has {{item.pnx.display.lds28[0]|countFilter}}">
-
+      <li role="thumbnail image" ng-repeat="item in $ctrl.items track by $index"  aria-label="View full image">
+        <thumbnail dataitem="item" searchdata="$ctrl.searchData" (keypress)="$ctrl.popup2($event, $index)" (click)="$ctrl.popup($event, $index)"></thumbnail>
+      </li>
+     <!--<li role="thumbnail image" ng-repeat="item in $ctrl.items track by $index"  aria-label="View full image. It has {{item.pnx.display.lds28[0]|countFilter}}">
          <thumbnail dataitem="item" searchdata="$ctrl.searchData" (keypress)="$ctrl.popup2($event, $index)" (click)="$ctrl.popup($event, $index)"></thumbnail>
-
-     </li>
+     </li>-->
      </ul>
         <!-- NO result show this message -->
         <no-results-found itemlength="$ctrl.items.length"></no-results-found>

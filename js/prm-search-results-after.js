@@ -9,7 +9,7 @@
 
         // call custom service from the injection
         let sv=prmSearchService;
-        this.searchInfo = sv.getPage(); // get page info object
+        //this.searchInfo = sv.getPage(); // get page info object
 
         let vm = this;
         let ev='';
@@ -131,11 +131,17 @@
         */
 
         vm.items=[];
-
-        /*
         vm.$onInit = function () {
-            if(vm.parentCtrl.isFavorites===false) {
+          // convert xml data into json data so it knows which image is a restricted image
+          if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
+            vm.items = sv.convertData(vm.parentCtrl.searchResults);
+          }
+        }
+      
+        /*vm.$onInit = function () {
+            if(vm.parentCtrl.isFavorites===false) {*/
 
+                /*
                 // remove left margin on result list grid
                 var el = $element[0].parentNode.parentNode.parentNode;
                 el.children[0].remove();
@@ -145,9 +151,10 @@
                 parentNode.remove();
 
                 this.searchInfo = sv.getPage(); // get page info object
-                // watch for new data change when a user search
+                */
 
-                vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+                // watch for new data change when a user search
+                /*vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
 
                     if (vm.parentCtrl.$stateParams.offset > 0) {
                         vm.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
@@ -160,7 +167,8 @@
                     // convert xml data into json data so it knows which image is a restricted image
                     if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
                         vm.items = sv.convertData(vm.parentCtrl.searchResults);
-                    }
+                    }*/
+                    /*
                     // set up pagination
                     this.searchInfo.totalItems = vm.parentCtrl.totalItems;
                     this.searchInfo.totalPages = parseInt(vm.parentCtrl.totalItems / this.searchInfo.pageSize);
@@ -168,26 +176,27 @@
                         this.searchInfo.totalPages++;
                     }
 
-                    this.findPageCounter();
+                    //this.findPageCounter();
 
                     this.searchInfo.query = vm.parentCtrl.$stateParams.query;
                     this.searchInfo.searchString = vm.parentCtrl.searchString;
                     sv.setPage(this.searchInfo);
+                    */
+                   /*
                     vm.searchInProgress = vm.parentCtrl.searchInProgress;
 
                 });
 
             }
-        };
-        */
+        };*/
 
         vm.$onChanges=function() {
-            if(vm.parentCtrl.isFavorites===false) {
+            /*if(vm.parentCtrl.isFavorites===false) {
                 vm.searchData = vm.parentCtrl.searchService.cheetah.searchData;
                 if (vm.parentCtrl.searchString) {
                     vm.searchData.searchString = vm.parentCtrl.searchString;
                 }
-            }
+            }*/
             // for small screen size
             if($mdMedia('xs')) {
                 vm.paginationNumber=2;
@@ -295,8 +304,6 @@
         */
 
     }]);
-
-
 
     angular.module('viewCustom')
     .component('prmSearchResultListAfter', {
