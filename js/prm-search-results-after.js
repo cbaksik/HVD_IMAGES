@@ -185,7 +185,6 @@
             }
 
         };
-        */
 
         vm.$onChanges=function() {
             if(vm.parentCtrl.isFavorites===false) {
