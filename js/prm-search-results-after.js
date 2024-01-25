@@ -2,7 +2,6 @@
  This custom component is used for search result list which display all the images in thumbnail.
  */
 
- 
 (function () {
 
     angular.module('viewCustom')
@@ -11,7 +10,7 @@
         // call custom service from the injection
         let sv=prmSearchService;
         this.searchInfo = sv.getPage(); // get page info object
-        
+
         let vm = this;
         let ev='';
         let dialog='';
@@ -39,7 +38,6 @@
             if(vm.pageCounter.max > this.searchInfo.totalItems) {
                 vm.pageCounter.max = this.searchInfo.totalItems;
             }
-
         };
         */
 
@@ -58,7 +56,6 @@
 
             var params={'addfields':[],'offset':0,'limit':parseInt(this.searchInfo.pageSize),'lang':'en_US','inst':'01HVD','getMore':0,'pcAvailability':true,'q':'','rtaLinks':true,
             'sort':'rank','tab':'default_tab','vid':'HVD_IMAGES','scope':'default_scope','qExclude':'','qInclude':'','searchString':'','mode':'','multiFacets':''};
-
 
             params.limit=limit;
             params.offset = (this.searchInfo.currentPage - 1) * this.searchInfo.pageSize;
@@ -90,7 +87,6 @@
                 params.multiFacets = vm.parentCtrl.searchService.cheetah.searchData.multiFacets.toString();
             }
 
-
             // get the current search rest url
             let url = vm.parentCtrl.briefResultService.restBaseURLs.pnxBaseURL;
             sv.getAjax(url,params,'get')
@@ -109,7 +105,6 @@
                vm.searchInProgress=false;
             }
            )
-
         };
         */
 
@@ -133,11 +128,11 @@
             }
             vm.flag=false;
         };
-
         */
 
         vm.items=[];
 
+        /*
         vm.$onInit = function () {
             if(vm.parentCtrl.isFavorites===false) {
 
@@ -149,10 +144,10 @@
                 var parentNode=$element[0].parentNode.children[0];
                 parentNode.remove();
 
-                //this.searchInfo = sv.getPage(); // get page info object
+                this.searchInfo = sv.getPage(); // get page info object
                 // watch for new data change when a user search
 
-                /*vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+                vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
 
                     if (vm.parentCtrl.$stateParams.offset > 0) {
                         vm.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
@@ -180,11 +175,11 @@
                     sv.setPage(this.searchInfo);
                     vm.searchInProgress = vm.parentCtrl.searchInProgress;
 
-                });*/
+                });
 
             }
-
         };
+        */
 
         vm.$onChanges=function() {
             if(vm.parentCtrl.isFavorites===false) {
@@ -300,6 +295,8 @@
         */
 
     }]);
+
+
 
     angular.module('viewCustom')
     .component('prmSearchResultListAfter', {
