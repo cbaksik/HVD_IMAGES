@@ -6,9 +6,10 @@
 
     angular.module('viewCustom')
     .controller('prmSearchResultListAfterController', ['prmSearchService','$mdDialog','$element','$mdMedia','$state','$timeout', function (prmSearchService, $mdDialog,$element, $mdMedia, $state, $timeout) {
+
         // call custom service from the injection
         let sv=prmSearchService;
-        this.searchInfo = sv.getPage(); // get page info object
+        //this.searchInfo = sv.getPage(); // get page info object
 
         let vm = this;
         let ev='';
@@ -21,46 +22,10 @@
         vm.paginationNumber=6;
         vm.index=0;
         vm.flexSize={'size1':20,'size2':80,'class':'spaceLeft15'};
-
-        vm.$onInit = function () {
-          console.log("vm.$onInit");
-
-          /*console.log("vm.parentCtrl");
-          console.log(vm.parentCtrl);
-          console.log(Object.getOwnPropertyNames(vm.parentCtrl));
-          console.log("vm.parentCtrl.query");
-          console.log(vm.parentCtrl.query);
-          console.log("vm.parentCtrl.itemlist");
-          console.log(vm.parentCtrl.itemlist);
-          console.log(vm.parentCtrl.itemlist.length);
-          console.log("vm.parentCtrl.getItems()");
-          console.log(vm.parentCtrl.getItems());*/    
-          // convert xml data into json data so it knows which image is a restricted image
-          /*if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
-
-            vm.items = sv.convertData(vm.parentCtrl.searchResults);
-          }*/
-
-          vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
-
-            console.log("vm.parentCtrl.searchResults");
-            console.log(vm.parentCtrl.searchResults);
-
-            // convert xml data into json data so it knows which image is a restricted image
-            //if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
-            if (vm.parentCtrl.searchResults && vm.parentCtrl.searchResults.length > 0) {
-              vm.items = sv.convertData(vm.parentCtrl.searchResults);
-              console.log("vm.items");
-              console.log(vm.items);
-              console.log("vm.parentCtrl.searchService.cheetah.searchData");
-              console.log(vm.parentCtrl.searchService.cheetah.searchData);
-            }
-
-          });
-
-        }
-
+        // Enable top pagination TBD?
+        vm.enableTopPagination = true;
         // set search result set per page, default 50 items per page
+
         /*
         // set up page counter
         vm.pageCounter = {'min':0,'max':0};
@@ -83,8 +48,6 @@
         vm.ajaxSearch=function () {
             this.searchInfo=sv.getPage();
             var limit=this.searchInfo.pageSize;
-            console.log(`*** *** *** this.searchInfo *** *** ***`);
-            console.log(this.searchInfo);
             var remainder = parseInt(this.searchInfo.totalItems) - (parseInt(this.searchInfo.currentPage - 1) * parseInt(this.searchInfo.pageSize));
 
             if(remainder < this.searchInfo.pageSize) {
@@ -93,6 +56,7 @@
 
             var params={'addfields':[],'offset':0,'limit':parseInt(this.searchInfo.pageSize),'lang':'en_US','inst':'01HVD','getMore':0,'pcAvailability':true,'q':'','rtaLinks':true,
             'sort':'rank','tab':'default_tab','vid':'HVD_IMAGES','scope':'default_scope','qExclude':'','qInclude':'','searchString':'','mode':'','multiFacets':''};
+
 
             params.limit=limit;
             params.offset = (this.searchInfo.currentPage - 1) * this.searchInfo.pageSize;
@@ -124,6 +88,7 @@
                 params.multiFacets = vm.parentCtrl.searchService.cheetah.searchData.multiFacets.toString();
             }
 
+
             // get the current search rest url
             let url = vm.parentCtrl.briefResultService.restBaseURLs.pnxBaseURL;
             sv.getAjax(url,params,'get')
@@ -142,6 +107,7 @@
                vm.searchInProgress=false;
             }
            )
+
         };
         */
 
@@ -161,16 +127,17 @@
                     vm.ajaxSearch();
                 }
                 // calculate the min and max of items
-                this.findPageCounter();
+                //this.findPageCounter();
             }
             vm.flag=false;
         };
         */
-      
-        /*vm.$onInit = function () {
-            if(vm.parentCtrl.isFavorites===false) {*/
 
-                /*
+        vm.items=[];
+
+        vm.$onInit = function () {
+            if(vm.parentCtrl.isFavorites===false) {
+
                 // remove left margin on result list grid
                 var el = $element[0].parentNode.parentNode.parentNode;
                 el.children[0].remove();
@@ -179,12 +146,12 @@
                 var parentNode=$element[0].parentNode.children[0];
                 parentNode.remove();
 
-                this.searchInfo = sv.getPage(); // get page info object
-                */
-
+                //this.searchInfo = sv.getPage(); // get page info object
                 // watch for new data change when a user search
-                /*vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
 
+                vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+
+                    /*
                     if (vm.parentCtrl.$stateParams.offset > 0) {
                         vm.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
                         this.searchInfo.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
@@ -192,11 +159,13 @@
                         vm.currentPage = 1;
                         this.searchInfo.currentPage = 1;
                     }
+                    */
+    
                     vm.flag = true;
                     // convert xml data into json data so it knows which image is a restricted image
                     if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
                         vm.items = sv.convertData(vm.parentCtrl.searchResults);
-                    }*/
+                    }
                     /*
                     // set up pagination
                     this.searchInfo.totalItems = vm.parentCtrl.totalItems;
@@ -205,22 +174,22 @@
                         this.searchInfo.totalPages++;
                     }
 
-                    //this.findPageCounter();
+                    this.findPageCounter();
 
                     this.searchInfo.query = vm.parentCtrl.$stateParams.query;
                     this.searchInfo.searchString = vm.parentCtrl.searchString;
-                    sv.setPage(this.searchInfo);
                     */
-                   /*
+                    //sv.setPage(this.searchInfo);
                     vm.searchInProgress = vm.parentCtrl.searchInProgress;
 
                 });
 
             }
-        };*/
 
+        };
+
+        /*
         vm.$onChanges=function() {
-          console.log("vm.$onChanges");
             if(vm.parentCtrl.isFavorites===false) {
                 vm.searchData = vm.parentCtrl.searchService.cheetah.searchData;
                 if (vm.parentCtrl.searchString) {
@@ -241,6 +210,7 @@
             sv.setData(vm.parentCtrl);
 
         };
+        */
 
         /*
         vm.$doCheck=function() {
@@ -333,7 +303,10 @@
         }
         */
 
+
     }]);
+
+
 
     angular.module('viewCustom')
     .component('prmSearchResultListAfter', {
