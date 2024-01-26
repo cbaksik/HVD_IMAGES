@@ -5,10 +5,11 @@
 (function () {
 
     angular.module('viewCustom')
-    .controller('prmSearchResultListAfterController', ['prmSearchService','$mdDialog','$element','$mdMedia','$state','$timeout', function (prmSearchService, $mdDialog,$element, $mdMedia, $state, $timeout) {
+    //.controller('prmSearchResultListAfterController', ['prmSearchService','$mdDialog','$element','$mdMedia','$state','$timeout', function (prmSearchService, $mdDialog,$element, $mdMedia, $state, $timeout) {
+    .controller('prmSearchResultListAfterController', ['$window', '$mdDialog','$element','$mdMedia','$state','$timeout', function ($window, $mdDialog, $element, $mdMedia, $state, $timeout) {
 
         // call custom service from the injection
-        let sv=prmSearchService;
+        //let sv=prmSearchService;
         //this.searchInfo = sv.getPage(); // get page info object
 
         let vm = this;
@@ -23,17 +24,53 @@
         vm.index=0;
         vm.flexSize={'size1':20,'size2':80,'class':'spaceLeft15'};
 
+        vm.getPage = function() {
+          var pageInfo = JSON.parse($window.localStorage.getItem('pageInfo'));
+          console.log(`*** *** *** getPage Page info *** *** ***`);
+          console.log(pageInfo);
+          // localStorage page info exist, just use the old one
+          if($window.localStorage.getItem('pageInfo')) {
+              return JSON.parse($window.localStorage.getItem('pageInfo'));
+          }  else {
+              return pageInfo;
+          }
+        }
+        vm.getPage();
+
         vm.$onInit = function () {
           console.log("vm.$onInit");
-          console.log("vm.parentCtrl");
+
+          /*console.log("vm.parentCtrl");
           console.log(vm.parentCtrl);
+          console.log(Object.getOwnPropertyNames(vm.parentCtrl));
+          console.log("vm.parentCtrl.query");
+          console.log(vm.parentCtrl.query);
           console.log("vm.parentCtrl.itemlist");
-          console.log(vm.parentCtrl.itemList);
+          console.log(vm.parentCtrl.itemlist);
+          console.log(vm.parentCtrl.itemlist.length);
+          console.log("vm.parentCtrl.getItems()");
+          console.log(vm.parentCtrl.getItems());*/    
           // convert xml data into json data so it knows which image is a restricted image
-          if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
+          /*if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
 
             vm.items = sv.convertData(vm.parentCtrl.searchResults);
-          }
+          }*/
+
+
+          vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+
+            console.log("vm.parentCtrl.searchResults");
+            console.log(vm.parentCtrl.searchResults);
+
+            /*
+            // convert xml data into json data so it knows which image is a restricted image
+            if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
+                vm.items = sv.convertData(vm.parentCtrl.searchResults);
+            }
+            */
+
+          });
+
         }
 
         vm.ajaxSearch = function () {
@@ -226,10 +263,19 @@
             }
 
             // set data to pass into favorite list controller
-            sv.setData(vm.parentCtrl);
+            //sv.setData(vm.parentCtrl);
 
         };
 
+        vm.$onInView=function() {
+          console.log("vm.$onInView");
+          console.log("vm.parentCtrl");
+          console.log(vm.parentCtrl);
+          console.log("vm.parentCtrl.getItems()");
+          console.log(vm.parentCtrl.getItems());       
+          console.log("vm.parentCtrl.itemlist");
+          console.log(vm.parentCtrl.itemlist);
+        }
         /*
         vm.$doCheck=function() {
             vm.modalDialogFlag=sv.getDialogFlag();
