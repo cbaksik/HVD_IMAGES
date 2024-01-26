@@ -52,6 +52,8 @@
               vm.items = sv.convertData(vm.parentCtrl.searchResults);
               console.log("vm.items");
               console.log(vm.items);
+              console.log("vm.parentCtrl.searchService.cheetah.searchData");
+              console.log(vm.parentCtrl.searchService.cheetah.searchData);
             }
 
           });
@@ -219,12 +221,12 @@
 
         vm.$onChanges=function() {
           console.log("vm.$onChanges");
-            /*if(vm.parentCtrl.isFavorites===false) {
+            if(vm.parentCtrl.isFavorites===false) {
                 vm.searchData = vm.parentCtrl.searchService.cheetah.searchData;
                 if (vm.parentCtrl.searchString) {
                     vm.searchData.searchString = vm.parentCtrl.searchString;
                 }
-            }*/
+            }
             // for small screen size
             if($mdMedia('xs')) {
                 vm.paginationNumber=2;
@@ -236,7 +238,7 @@
             }
 
             // set data to pass into favorite list controller
-            //sv.setData(vm.parentCtrl);
+            sv.setData(vm.parentCtrl);
 
         };
 
