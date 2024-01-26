@@ -22,10 +22,8 @@
         vm.paginationNumber=6;
         vm.index=0;
         vm.flexSize={'size1':20,'size2':80,'class':'spaceLeft15'};
-        // Enable top pagination TBD?
-        vm.enableTopPagination = true;
+        
         // set search result set per page, default 50 items per page
-
         /*
         // set up page counter
         vm.pageCounter = {'min':0,'max':0};
@@ -139,17 +137,25 @@
             if(vm.parentCtrl.isFavorites===false) {
 
                 // remove left margin on result list grid
+                /*
                 var el = $element[0].parentNode.parentNode.parentNode;
                 el.children[0].remove();
 
                 // remove prm-result-list display item if the favorite page is false
                 var parentNode=$element[0].parentNode.children[0];
                 parentNode.remove();
+                */
 
                 //this.searchInfo = sv.getPage(); // get page info object
                 // watch for new data change when a user search
 
                 vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+
+                    // Remove OTB search results
+                    var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
+                    console.log("searchResultsContainer");
+                    console.log(searchResultsContainer);
+                    searchResultsContainer.remove();
 
                     /*
                     if (vm.parentCtrl.$stateParams.offset > 0) {
@@ -161,11 +167,13 @@
                     }
                     */
     
-                    vm.flag = true;
+                    //vm.flag = true;
                     // convert xml data into json data so it knows which image is a restricted image
+                    
                     if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
                         vm.items = sv.convertData(vm.parentCtrl.searchResults);
                     }
+                    
                     /*
                     // set up pagination
                     this.searchInfo.totalItems = vm.parentCtrl.totalItems;
