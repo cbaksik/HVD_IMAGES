@@ -4,6 +4,7 @@
  * It use to show a single image on the page. If the image does not exist, it use icon_image.png
  */
 
+/*
 angular.module('viewCustom')
     .component('singleImage', {
         templateUrl:'/primo-explore/custom/HVD_IMAGES/html/singleImage.html',
@@ -100,3 +101,4 @@ angular.module('viewCustom')
 
         }]
     });
+*/

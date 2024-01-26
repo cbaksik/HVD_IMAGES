@@ -2,6 +2,7 @@
  This custom component is used for search result list which display all the images in thumbnail.
  */
 
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -9,7 +10,7 @@
 
         // call custom service from the injection
         let sv=prmSearchService;
-        //this.searchInfo = sv.getPage(); // get page info object
+        this.searchInfo = sv.getPage(); // get page info object
 
         let vm = this;
         let ev='';
@@ -22,9 +23,8 @@
         vm.paginationNumber=6;
         vm.index=0;
         vm.flexSize={'size1':20,'size2':80,'class':'spaceLeft15'};
-        
         // set search result set per page, default 50 items per page
-        /*
+
         // set up page counter
         vm.pageCounter = {'min':0,'max':0};
         // calculate the page counter such as 1-50 of 1,232
@@ -38,10 +38,9 @@
             if(vm.pageCounter.max > this.searchInfo.totalItems) {
                 vm.pageCounter.max = this.searchInfo.totalItems;
             }
-        };
-        */
 
-        /*
+        };
+
         // when a user click on next page or select new row from the drop down, it call this search function to get new data
         vm.ajaxSearch=function () {
             this.searchInfo=sv.getPage();
@@ -107,9 +106,7 @@
            )
 
         };
-        */
 
-        /*
         // when a user click on next page or prev page, it call this function.
         this.pageChanged=function (currentPage) {
             // prevent calling ajax twice during refresh the page or click on facets
@@ -125,11 +122,10 @@
                     vm.ajaxSearch();
                 }
                 // calculate the min and max of items
-                //this.findPageCounter();
+                this.findPageCounter();
             }
             vm.flag=false;
         };
-        */
 
         vm.items=[];
 
@@ -137,18 +133,16 @@
             if(vm.parentCtrl.isFavorites===false) {
 
                 // remove left margin on result list grid
-                /*
                 var el = $element[0].parentNode.parentNode.parentNode;
                 el.children[0].remove();
 
                 // remove prm-result-list display item if the favorite page is false
                 var parentNode=$element[0].parentNode.children[0];
                 parentNode.remove();
-                */
 
-                //this.searchInfo = sv.getPage(); // get page info object
+                this.searchInfo = sv.getPage(); // get page info object
+
                 // watch for new data change when a user search
-
                 vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
 
                     // Remove OTB search results
@@ -156,8 +150,7 @@
                     console.log("searchResultsContainer");
                     console.log(searchResultsContainer);
                     searchResultsContainer.remove();
-
-                    /*
+                  
                     if (vm.parentCtrl.$stateParams.offset > 0) {
                         vm.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
                         this.searchInfo.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
@@ -165,16 +158,11 @@
                         vm.currentPage = 1;
                         this.searchInfo.currentPage = 1;
                     }
-                    */
-    
-                    //vm.flag = true;
+                    vm.flag = true;
                     // convert xml data into json data so it knows which image is a restricted image
-                    
                     if (vm.parentCtrl.isFavorites === false && vm.parentCtrl.searchResults) {
                         vm.items = sv.convertData(vm.parentCtrl.searchResults);
                     }
-                    
-                    /*
                     // set up pagination
                     this.searchInfo.totalItems = vm.parentCtrl.totalItems;
                     this.searchInfo.totalPages = parseInt(vm.parentCtrl.totalItems / this.searchInfo.pageSize);
@@ -186,8 +174,7 @@
 
                     this.searchInfo.query = vm.parentCtrl.$stateParams.query;
                     this.searchInfo.searchString = vm.parentCtrl.searchString;
-                    */
-                    //sv.setPage(this.searchInfo);
+                    sv.setPage(this.searchInfo);
                     vm.searchInProgress = vm.parentCtrl.searchInProgress;
 
                 });
@@ -196,7 +183,6 @@
 
         };
 
-        /*
         vm.$onChanges=function() {
             if(vm.parentCtrl.isFavorites===false) {
                 vm.searchData = vm.parentCtrl.searchService.cheetah.searchData;
@@ -218,9 +204,7 @@
             sv.setData(vm.parentCtrl);
 
         };
-        */
 
-        /*
         vm.$doCheck=function() {
             vm.modalDialogFlag=sv.getDialogFlag();
         };
@@ -309,12 +293,8 @@
                 }
             }
         }
-        */
-
 
     }]);
-
-
 
     angular.module('viewCustom')
     .component('prmSearchResultListAfter', {
@@ -324,3 +304,4 @@
     });
 
 })();
+*/

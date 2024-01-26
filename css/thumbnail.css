@@ -1,4 +1,4 @@
-
+/*
 .hvfullsize {
     width:100%;
     height: auto;
@@ -196,7 +196,7 @@ a.thumbnail > img:focus {
 .hideNoPhoto {
     display:none;
 }
-
+*/
 /* .nophoto:hover {
     border:1px solid #ff0000;
 }
@@ -204,7 +204,7 @@ a.thumbnail > img:focus {
 .nophoto:focus {
     border:1px solid #ff0000;
 } */
-
+/*
 .noCursor {
     cursor: default;
 }
@@ -257,3 +257,4 @@ prm-view-online-after md-grid-list > md-grid-tile {
     .hvInline > li {display:inline-block; word-break:break-all; text-align: left; cursor: pointer;
         margin-bottom:5px; margin-right:10px; width: auto; vertical-align: top; padding:0px;}
 }
+*/
