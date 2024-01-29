@@ -280,28 +280,35 @@ Media query for even smaller screens, like mobile devices
 */
 
 .results-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
 }
   
 .list-item-wrapper {
   flex: 0 0 33.33% !important;
   max-width: 33.33% !important;
-  box-sizing: border-box;
-  padding-right: 10px;
+  box-sizing: border-box !important;
+  padding-right: 10px !important;
 }
   
 @media (max-width: 1200px) {
   .list-item-wrapper {
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
   }
 }
 
 @media (max-width: 600px) {
   .list-item-wrapper {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
+}
+
+/* Next steps: remove searchResultsContainer layout="column" and class .layout-column */
+/* Override class .layout-column 
+May be better to use DOM manipulation to remove the class from the #searchResultsContainer */
+#searchResultsContainer.layout-column {
+  flex-direction: row;
 }

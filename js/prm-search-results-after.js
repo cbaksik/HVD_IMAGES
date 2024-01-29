@@ -305,3 +305,71 @@
 
 })();
 */
+
+(function () {
+
+  angular.module('viewCustom')
+  .controller('prmSearchResultListAfterController', ['$mdDialog','$element','$mdMedia','$state','$timeout', function ($mdDialog,$element, $mdMedia, $state, $timeout) {
+    console.log("prmSearchResultListAfterController");
+    let vm = this;
+    vm.$onInit = function () {
+      if(vm.parentCtrl.isFavorites===false) {
+        // Remove left margin on result list grid
+        var el = $element[0].parentNode.parentNode.parentNode;
+        el.children[0].remove();
+
+        // Watch for new data change when a user search
+        vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+
+          // Use $timeout to execute code after the DOM has been updated
+          $timeout(function() {
+            // Update OTB search results
+            var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
+            var children = searchResultsContainer[0].children;
+            for(var i = 0; i < children.length; i++) {
+              // do something with each child node
+              console.log("children[i]");
+              console.log(children[i]);
+              var listItemWrapper = children[i].children;
+              console.log("listItemWrapper");
+              console.log(listItemWrapper);
+              var prmBriefResultContainer = listItemWrapper[0];
+              console.log("prmBriefResultContainer");
+              console.log(prmBriefResultContainer);
+              var listItemPrimaryContent = prmBriefResultContainer.children[0];
+              console.log("listItemPrimaryContent");
+              console.log(listItemPrimaryContent);
+              console.log("listItemPrimaryContent.children");
+              console.log(listItemPrimaryContent.children);
+              console.log("listItemPrimaryContent.children[2]");
+              console.log(listItemPrimaryContent.children[2]);
+              var resultItemText = listItemPrimaryContent.children[2];
+              if (resultItemText) {
+                console.log("resultItemText");
+                console.log(resultItemText);
+                console.log("resultItemText.children");
+                console.log(resultItemText.children);
+                var searchResultAvailabilityLineWrapper = resultItemText.children[3];
+                console.log("searchResultAvailabilityLineWrapper");
+                console.log(searchResultAvailabilityLineWrapper);
+                if (searchResultAvailabilityLineWrapper) {
+                  searchResultAvailabilityLineWrapper.remove();
+                }
+              }
+            }
+          }, 1000);
+        });
+
+      }
+    }
+
+  }]);
+
+  angular.module('viewCustom')
+  .component('prmSearchResultListAfter', {
+      bindings: {parentCtrl: '<'},
+      controller: 'prmSearchResultListAfterController',
+      //templateUrl: '/primo-explore/custom/HVD_IMAGES/html/prm-search-results.html'
+  });
+
+})();
