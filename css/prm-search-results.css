@@ -279,6 +279,7 @@ Media query for even smaller screens, like mobile devices
 }
 */
 
+/* Search results */
 .results-container {
   display: flex !important;
   flex-wrap: wrap !important;
@@ -306,10 +307,7 @@ Media query for even smaller screens, like mobile devices
   }
 }
 
-/* Next steps: remove searchResultsContainer layout="column" and class .layout-column */
-/* Override class .layout-column 
-May be better to use DOM manipulation to remove the class from the #searchResultsContainer */
-#searchResultsContainer.layout-column {
+#searchResultsContainer {
   flex-direction: row;
 }
 

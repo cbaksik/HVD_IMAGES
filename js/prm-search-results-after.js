@@ -325,27 +325,19 @@
           $timeout(function() {
             // Update OTB search results
             var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
+            // Remove layout column class from the search results container
+            searchResultsContainer.removeClass('.layout-column');
+            // Remove layout="column" attribute from the search results container
+            searchResultsContainer.removeAttr('layout');
+            // Add layout row class to the search results container
+            //searchResultsContainer.addClass('.layout-row');
 
-
+            /* Update html to remove elements */
+            /*
             var children = searchResultsContainer[0].children;
             for(var i = 0; i < children.length; i++) {
               console.log("children[i]");
               console.log(children[i]);
-              /*var prmBriefResultContainer = angular.element(children[i]).find('prm-brief-result-container');
-              console.log("prmBriefResultContainer");
-              console.log(prmBriefResultContainer);*/
-
-              /*
-              var prmBriefResultContainers = angular.element(children[i]).find('prm-brief-result-container');
-              console.log("prmBriefResultContainers");
-              console.log(prmBriefResultContainers);
-              
-              angular.forEach(prmBriefResultContainers, function(container) {
-                var listItemPrimaryContent = angular.element(container).find('.list-item-primary-content');
-                console.log("listItemPrimaryContent");
-                console.log(listItemPrimaryContent);
-              });
-              */
 
               var prmBriefResultContainer = angular.element(children[i]).find('prm-brief-result-container');
               console.log("prmBriefResultContainer");
@@ -361,20 +353,8 @@
               var resultItemText = listItemPrimaryContent.children();
               console.log("resultItemText");
               console.log(resultItemText);
-
-              /*
-              var searchResultAvailabilityLineWrapper = resultItemText.children();
-              //var searchResultAvailabilityLineWrapper = angular.element(resultItemText).find('.search-result-availability-line-wrapper')
-              console.log("searchResultAvailabilityLineWrapper");
-              console.log(searchResultAvailabilityLineWrapper);
-              //searchResultAvailabilityLineWrapper.remove();
-
-              var prmSearchResultAvailabilityLine = angular.element(resultItemText).find('prmSearchResultAvailabilityLine');
-              console.log("prmSearchResultAvailabilityLine");
-              console.log(prmSearchResultAvailabilityLine);
-              */
-              
             }
+            */
           }, 1000);
         });
 
