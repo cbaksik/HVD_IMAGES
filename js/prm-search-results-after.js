@@ -325,37 +325,55 @@
           $timeout(function() {
             // Update OTB search results
             var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
+
+
             var children = searchResultsContainer[0].children;
             for(var i = 0; i < children.length; i++) {
-              // do something with each child node
               console.log("children[i]");
               console.log(children[i]);
-              var listItemWrapper = children[i].children;
-              console.log("listItemWrapper");
-              console.log(listItemWrapper);
-              var prmBriefResultContainer = listItemWrapper[0];
+              /*var prmBriefResultContainer = angular.element(children[i]).find('prm-brief-result-container');
+              console.log("prmBriefResultContainer");
+              console.log(prmBriefResultContainer);*/
+
+              /*
+              var prmBriefResultContainers = angular.element(children[i]).find('prm-brief-result-container');
+              console.log("prmBriefResultContainers");
+              console.log(prmBriefResultContainers);
+              
+              angular.forEach(prmBriefResultContainers, function(container) {
+                var listItemPrimaryContent = angular.element(container).find('.list-item-primary-content');
+                console.log("listItemPrimaryContent");
+                console.log(listItemPrimaryContent);
+              });
+              */
+
+              var prmBriefResultContainer = angular.element(children[i]).find('prm-brief-result-container');
               console.log("prmBriefResultContainer");
               console.log(prmBriefResultContainer);
-              var listItemPrimaryContent = prmBriefResultContainer.children[0];
+              console.log("prmBriefResultContainer.children()");
+              console.log(prmBriefResultContainer.children());
+              var prmBriefResultContainerChildren = prmBriefResultContainer.children();
+
+              var listItemPrimaryContent = prmBriefResultContainerChildren.children();
               console.log("listItemPrimaryContent");
               console.log(listItemPrimaryContent);
-              console.log("listItemPrimaryContent.children");
-              console.log(listItemPrimaryContent.children);
-              console.log("listItemPrimaryContent.children[2]");
-              console.log(listItemPrimaryContent.children[2]);
-              var resultItemText = listItemPrimaryContent.children[2];
-              if (resultItemText) {
-                console.log("resultItemText");
-                console.log(resultItemText);
-                console.log("resultItemText.children");
-                console.log(resultItemText.children);
-                var searchResultAvailabilityLineWrapper = resultItemText.children[3];
-                console.log("searchResultAvailabilityLineWrapper");
-                console.log(searchResultAvailabilityLineWrapper);
-                if (searchResultAvailabilityLineWrapper) {
-                  searchResultAvailabilityLineWrapper.remove();
-                }
-              }
+
+              var resultItemText = listItemPrimaryContent.children();
+              console.log("resultItemText");
+              console.log(resultItemText);
+
+              /*
+              var searchResultAvailabilityLineWrapper = resultItemText.children();
+              //var searchResultAvailabilityLineWrapper = angular.element(resultItemText).find('.search-result-availability-line-wrapper')
+              console.log("searchResultAvailabilityLineWrapper");
+              console.log(searchResultAvailabilityLineWrapper);
+              //searchResultAvailabilityLineWrapper.remove();
+
+              var prmSearchResultAvailabilityLine = angular.element(resultItemText).find('prmSearchResultAvailabilityLine');
+              console.log("prmSearchResultAvailabilityLine");
+              console.log(prmSearchResultAvailabilityLine);
+              */
+              
             }
           }, 1000);
         });

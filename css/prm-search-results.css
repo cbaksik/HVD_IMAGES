@@ -312,3 +312,8 @@ May be better to use DOM manipulation to remove the class from the #searchResult
 #searchResultsContainer.layout-column {
   flex-direction: row;
 }
+
+/* Remove Online Access button */
+.search-result-availability-line-wrapper {
+  display: none;
+}
