@@ -1,8 +1,4 @@
 /*
-#header {
-
-}
-
 #header .metadataHeader {
     display: inline-block;
     font-size:120%;
@@ -14,7 +10,6 @@
     font-weight: normal;
     text-transform: uppercase;
 }
-
 
 #header .banner {
     background:#000000;
@@ -33,3 +28,12 @@ prm-user-area-expandable .md-button {
     font-size:1em;
 }
 */
+
+/* Header nav bar */
+.top-nav-bar {
+  background-color: #1E1E1E !important; /* Harvard Library branding color */
+}
+
+prm-search-bar {
+  background-color: #414141 !important; /* Harvard Library branding color */
+}
