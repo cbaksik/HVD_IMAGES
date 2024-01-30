@@ -311,7 +311,19 @@ Media query for even smaller screens, like mobile devices
   flex-direction: row;
 }
 
+prm-brief-result-container .result-item-image {
+  /*width: 100% !important;
+  height: auto !important;*/
+  flex: 0 0 auto !important;
+}
+
 /* Remove Online Access button */
 .search-result-availability-line-wrapper {
   display: none;
+}
+
+/* Remove gray background from search results */
+.list-item-wrapper {
+  background-color: transparent !important;
+  border: 1px solid #F3F3F3 !important;
 }
