@@ -3,7 +3,7 @@
  * This custom service use to inject to the controller.
  */
 
-/*
+
 (function () {
 
     angular.module('viewCustom')
@@ -315,4 +315,3 @@
 
     }]);
 })();
-*/

@@ -327,3 +327,8 @@ prm-brief-result-container .result-item-image {
   background-color: transparent !important;
   border: 1px solid #F3F3F3 !important;
 }
+
+/* Remove item actions buttons at top right */
+.result-item-actions {
+  display: none;
+}

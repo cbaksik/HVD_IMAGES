@@ -2,7 +2,7 @@
  * Created by samsan on 7/18/17.
  * This is a service component and use to store data, get data, ajax call, compare any logic.
  */
-/*
+
 angular.module('viewCustom')
     .service('customService',['$http','$sce','$window',function ($http, $sce,$window) {
         var serviceObj={};
@@ -201,7 +201,7 @@ angular.module('viewCustom')
                                     } else if(itemStatusNameList.length > 0) {
                                         for(var k=0; k < itemStatusNameList.length; k++) {
                                             var statusName=itemStatusNameList[k];
-                                            statusName=statusName.replace(/\*//*g,'');
+                                            statusName=statusName.replace(/\*/g,'');
                                             var itemstatusname=item.itemstatusname;
                                             if(itemstatusname.includes(statusName) && processingStatusList.indexOf(item.processingstatus) !== -1) {
                                                     requestItem.flag = true;
@@ -221,7 +221,7 @@ angular.module('viewCustom')
                                         // remove asterisk and find word in the array list
                                         for(var k=0; k < itemStatusNameList.length; k++) {
                                             var statusName=itemStatusNameList[k];
-                                            statusName=statusName.replace(/\*//*g,'');
+                                            statusName=statusName.replace(/\*/g,'');
                                             var itemstatusname=item.itemstatusname;
                                             if(itemstatusname.includes(statusName) && processingStatusList.indexOf(item.processingstatus) !== -1) {
                                                 requestItem.flag = true;
@@ -271,4 +271,3 @@ angular.module('viewCustom')
 
         return serviceObj;
     }]);
-*/

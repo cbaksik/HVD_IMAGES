@@ -2,7 +2,6 @@
  * Created by samsan on 3/20/18.
  */
 
-/*
 (function () {
 
     // custom filter to remove $$U infront of url in pnx.links
@@ -73,4 +72,3 @@
     }]);
 
 })();
-*/

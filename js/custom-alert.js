@@ -3,7 +3,7 @@
  * This custom alert component is used for home page on the right side splash
  * If you need to turn off or on, just set status in json file to on or off
  */
-/*
+
 (function () {
     angular.module('viewCustom')
         .controller('customAlertCtrl',['prmSearchService','$scope',function (prmSearchService, $scope) {
@@ -38,4 +38,3 @@
             templateUrl:'/primo-explore/custom/HVD_IMAGES/html/custom-alert.html'
         });
 })();
-*/

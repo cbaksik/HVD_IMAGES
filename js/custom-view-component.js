@@ -3,7 +3,6 @@
  * This component is for a single image full display when a user click on thumbnail from a full display page
  */
 
-/*
 (function () {
 
     angular.module('viewCustom')
@@ -170,7 +169,7 @@
                     }
                     text = texttype;
                 } 
-                else { *//*
+                else { */
                     var data=vm.componentData[key];
                     text = cMapValue.getValue(data,key);
                 //}
@@ -283,5 +282,6 @@
         'templateUrl':'/primo-explore/custom/HVD_IMAGES/html/custom-view-component.html'
     });
 
+
+
 })();
-*/

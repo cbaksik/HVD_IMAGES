@@ -309,7 +309,7 @@
 (function () {
 
   angular.module('viewCustom')
-  .controller('prmSearchResultListAfterController', ['$mdDialog','$element','$mdMedia','$state','$timeout', function ($mdDialog,$element, $mdMedia, $state, $timeout) {
+  .controller('prmSearchResultListAfterController', ['prmSearchService', '$mdDialog','$element','$mdMedia','$state','$timeout', function (prmSearchService, $mdDialog, $element, $mdMedia, $state, $timeout) {
     console.log("prmSearchResultListAfterController");
     let vm = this;
     vm.$onInit = function () {

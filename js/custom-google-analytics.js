@@ -1,4 +1,3 @@
-/*
 (function () {
     // Add external script tags
     function addExternalScript(externalCode, scriptType='script', target='head'){
@@ -45,4 +44,3 @@
     addInlineScript(gtmHeadCode);
     addInlineScript(gtmBodyCode, 'noscript', 'body');
 })();
-*/

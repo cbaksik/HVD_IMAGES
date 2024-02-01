@@ -1,4 +1,3 @@
-/*
 (function () {
     angular.module('viewCustom')
     .service('customConfigEnv',[()=>{
@@ -16,4 +15,4 @@
         return services;
     }]);
 })();
-*/
+

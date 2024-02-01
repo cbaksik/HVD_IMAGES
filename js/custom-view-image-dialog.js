@@ -3,7 +3,6 @@
  * A modal dialog pop up the image when a user click on thumbnail image in view full detail page
  */
 
-/*
 (function () {
 
     angular.module('viewCustom')
@@ -20,4 +19,4 @@
     }]);
 
 })();
-*/
+

@@ -4,7 +4,6 @@
  * It use to show a single image on the page. If the image does not exist, it use icon_image.png
  */
 
-/*
 (function () {
 
     angular.module('viewCustom')
@@ -84,4 +83,4 @@
     });
 
 })();
-*/
+
