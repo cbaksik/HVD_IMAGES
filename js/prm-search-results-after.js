@@ -1,3 +1,75 @@
+/**
+ * Updated January 2024
+ * Minimalist custom component for search results
+ * A reduced version of the earlier customization (commented out at the bottom)
+ */
+
+(function () {
+
+  angular.module('viewCustom')
+  .controller('prmSearchResultListAfterController', ['prmSearchService', '$mdDialog','$element','$mdMedia','$state','$timeout', function (prmSearchService, $mdDialog, $element, $mdMedia, $state, $timeout) {
+    console.log("prmSearchResultListAfterController");
+    let vm = this;
+    vm.$onInit = function () {
+      if(vm.parentCtrl.isFavorites===false) {
+        // Remove left margin on result list grid
+        var el = $element[0].parentNode.parentNode.parentNode;
+        el.children[0].remove();
+
+        // Watch for new data change when a user search
+        vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+
+          // Use $timeout to execute code after the DOM has been updated
+          $timeout(function() {
+            // Update OTB search results
+            var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
+            // Remove layout column class from the search results container
+            searchResultsContainer.removeClass('.layout-column');
+            // Remove layout="column" attribute from the search results container
+            searchResultsContainer.removeAttr('layout');
+            // Add layout row class to the search results container
+            //searchResultsContainer.addClass('.layout-row');
+
+            /* Update html to remove elements */
+            /*
+            var children = searchResultsContainer[0].children;
+            for(var i = 0; i < children.length; i++) {
+              console.log("children[i]");
+              console.log(children[i]);
+
+              var prmBriefResultContainer = angular.element(children[i]).find('prm-brief-result-container');
+              console.log("prmBriefResultContainer");
+              console.log(prmBriefResultContainer);
+              console.log("prmBriefResultContainer.children()");
+              console.log(prmBriefResultContainer.children());
+              var prmBriefResultContainerChildren = prmBriefResultContainer.children();
+
+              var listItemPrimaryContent = prmBriefResultContainerChildren.children();
+              console.log("listItemPrimaryContent");
+              console.log(listItemPrimaryContent);
+
+              var resultItemText = listItemPrimaryContent.children();
+              console.log("resultItemText");
+              console.log(resultItemText);
+            }
+            */
+          }, 1000);
+        });
+
+      }
+    }
+
+  }]);
+
+  angular.module('viewCustom')
+  .component('prmSearchResultListAfter', {
+      bindings: {parentCtrl: '<'},
+      controller: 'prmSearchResultListAfterController',
+      //templateUrl: '/primo-explore/custom/HVD_IMAGES/html/prm-search-results.html'
+  });
+
+})();
+
 /* Author: Sam San
  This custom component is used for search result list which display all the images in thumbnail.
  */
@@ -305,69 +377,3 @@
 
 })();
 */
-
-(function () {
-
-  angular.module('viewCustom')
-  .controller('prmSearchResultListAfterController', ['prmSearchService', '$mdDialog','$element','$mdMedia','$state','$timeout', function (prmSearchService, $mdDialog, $element, $mdMedia, $state, $timeout) {
-    console.log("prmSearchResultListAfterController");
-    let vm = this;
-    vm.$onInit = function () {
-      if(vm.parentCtrl.isFavorites===false) {
-        // Remove left margin on result list grid
-        var el = $element[0].parentNode.parentNode.parentNode;
-        el.children[0].remove();
-
-        // Watch for new data change when a user search
-        vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
-
-          // Use $timeout to execute code after the DOM has been updated
-          $timeout(function() {
-            // Update OTB search results
-            var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
-            // Remove layout column class from the search results container
-            searchResultsContainer.removeClass('.layout-column');
-            // Remove layout="column" attribute from the search results container
-            searchResultsContainer.removeAttr('layout');
-            // Add layout row class to the search results container
-            //searchResultsContainer.addClass('.layout-row');
-
-            /* Update html to remove elements */
-            /*
-            var children = searchResultsContainer[0].children;
-            for(var i = 0; i < children.length; i++) {
-              console.log("children[i]");
-              console.log(children[i]);
-
-              var prmBriefResultContainer = angular.element(children[i]).find('prm-brief-result-container');
-              console.log("prmBriefResultContainer");
-              console.log(prmBriefResultContainer);
-              console.log("prmBriefResultContainer.children()");
-              console.log(prmBriefResultContainer.children());
-              var prmBriefResultContainerChildren = prmBriefResultContainer.children();
-
-              var listItemPrimaryContent = prmBriefResultContainerChildren.children();
-              console.log("listItemPrimaryContent");
-              console.log(listItemPrimaryContent);
-
-              var resultItemText = listItemPrimaryContent.children();
-              console.log("resultItemText");
-              console.log(resultItemText);
-            }
-            */
-          }, 1000);
-        });
-
-      }
-    }
-
-  }]);
-
-  angular.module('viewCustom')
-  .component('prmSearchResultListAfter', {
-      bindings: {parentCtrl: '<'},
-      controller: 'prmSearchResultListAfterController',
-      //templateUrl: '/primo-explore/custom/HVD_IMAGES/html/prm-search-results.html'
-  });
-
-})();

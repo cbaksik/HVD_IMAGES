@@ -3,7 +3,6 @@
  * Access search box json data. Then change the number item per page. See prm-search-service.js file
  */
 
-/*
 (function () {
 
     angular.module('viewCustom')
@@ -34,8 +33,6 @@
 
     }]);
 
-
-
     angular.module('viewCustom')
     .component('prmSearchBarAfter', {
         bindings: {parentCtrl: '<'},
@@ -43,6 +40,4 @@
         'template':`<div id="searchResultList"></div>`
     });
 
-
 })();
-*/
