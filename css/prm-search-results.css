@@ -1,4 +1,59 @@
-/*
+/* Search results */
+.results-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+}
+  
+.list-item-wrapper {
+  flex: 0 0 33.33% !important;
+  max-width: 33.33% !important;
+  box-sizing: border-box !important;
+  padding-right: 10px !important;
+}
+  
+@media (max-width: 1200px) {
+  .list-item-wrapper {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .list-item-wrapper {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+#searchResultsContainer {
+  flex-direction: row;
+}
+
+prm-brief-result-container .result-item-image {
+  /*width: 100% !important;
+  height: auto !important;*/
+  flex: 0 0 auto !important;
+}
+
+/* Remove Online Access button */
+.search-result-availability-line-wrapper {
+  display: none;
+}
+
+/* Remove gray background from search results */
+.list-item-wrapper {
+  background-color: transparent !important;
+  border: 1px solid #F3F3F3 !important;
+}
+
+/* Remove item actions buttons at top right */
+.result-item-actions {
+  display: none;
+}
+
+
+/* Previous custom styles removed January 2024
 .hvfullsize {
   width: 100%;
   height: auto;
@@ -279,56 +334,3 @@ Media query for even smaller screens, like mobile devices
 }
 */
 
-/* Search results */
-.results-container {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: flex-start !important;
-}
-  
-.list-item-wrapper {
-  flex: 0 0 33.33% !important;
-  max-width: 33.33% !important;
-  box-sizing: border-box !important;
-  padding-right: 10px !important;
-}
-  
-@media (max-width: 1200px) {
-  .list-item-wrapper {
-    flex: 0 0 50% !important;
-    max-width: 50% !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .list-item-wrapper {
-    flex: 0 0 100% !important;
-    max-width: 100% !important;
-  }
-}
-
-#searchResultsContainer {
-  flex-direction: row;
-}
-
-prm-brief-result-container .result-item-image {
-  /*width: 100% !important;
-  height: auto !important;*/
-  flex: 0 0 auto !important;
-}
-
-/* Remove Online Access button */
-.search-result-availability-line-wrapper {
-  display: none;
-}
-
-/* Remove gray background from search results */
-.list-item-wrapper {
-  background-color: transparent !important;
-  border: 1px solid #F3F3F3 !important;
-}
-
-/* Remove item actions buttons at top right */
-.result-item-actions {
-  display: none;
-}
