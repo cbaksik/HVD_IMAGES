@@ -2,6 +2,7 @@
  * Created by samsan on 6/30/17.
  */
 
+/*
 (function () {
     angular.module('viewCustom')
     .controller('prmBriefResultContainerAfterController', [function () {
@@ -20,3 +21,4 @@
     });
 
 })();
+*/

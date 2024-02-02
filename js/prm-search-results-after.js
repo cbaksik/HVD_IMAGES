@@ -30,29 +30,6 @@
             // Add layout row class to the search results container
             //searchResultsContainer.addClass('.layout-row');
 
-            /* Update html to remove elements */
-            /*
-            var children = searchResultsContainer[0].children;
-            for(var i = 0; i < children.length; i++) {
-              console.log("children[i]");
-              console.log(children[i]);
-
-              var prmBriefResultContainer = angular.element(children[i]).find('prm-brief-result-container');
-              console.log("prmBriefResultContainer");
-              console.log(prmBriefResultContainer);
-              console.log("prmBriefResultContainer.children()");
-              console.log(prmBriefResultContainer.children());
-              var prmBriefResultContainerChildren = prmBriefResultContainer.children();
-
-              var listItemPrimaryContent = prmBriefResultContainerChildren.children();
-              console.log("listItemPrimaryContent");
-              console.log(listItemPrimaryContent);
-
-              var resultItemText = listItemPrimaryContent.children();
-              console.log("resultItemText");
-              console.log(resultItemText);
-            }
-            */
           }, 1000);
         });
 

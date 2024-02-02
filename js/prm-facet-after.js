@@ -2,6 +2,7 @@
  * Created by samsan on 5/30/17.
  */
 
+/*
 (function () {
     angular.module('viewCustom')
     .controller('prmFacetAfterController', ['prmSearchService','$location', function (prmSearchService,$location) {
@@ -33,4 +34,4 @@
     });
 
 })();
-
+*/
