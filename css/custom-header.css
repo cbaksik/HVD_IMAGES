@@ -1,7 +1,4 @@
-#header {
-
-}
-
+/*
 #header .metadataHeader {
     display: inline-block;
     font-size:120%;
@@ -13,7 +10,6 @@
     font-weight: normal;
     text-transform: uppercase;
 }
-
 
 #header .banner {
     background:#000000;
@@ -31,11 +27,30 @@ prm-user-area-expandable .md-button {
     font-weight:600;
     font-size:1em;
 }
+*/
 
+/* Header nav bar */
+.top-nav-bar {
+  background-color: #1E1E1E !important; /* Harvard Library branding color */
+}
 
-
-
-
-
-
-
+prm-search-bar {
+  background-color: #414141 !important; /* Harvard Library branding color */
+}
+custom-header .banner {
+  background-color: #1E1E1E !important; 
+  height:60px;
+}
+custom-header .banner .logo {
+  height: 100%;
+  padding: .85em;
+}
+custom-header .banner .imageLogo a {
+  font-family: "Trueno", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+  /* letter-spacing: 2.4px; */
+  color:white;
+  cursor:pointer;
+  }

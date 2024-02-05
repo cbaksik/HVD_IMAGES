@@ -3,7 +3,6 @@
  * A custom modal dialog when a user click on thumbnail on search result list page
  */
 
-
 (function () {
 
     angular.module('viewCustom')

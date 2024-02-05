@@ -3,7 +3,6 @@
  * This header will use for image component page and image detail page
  */
 
-
 (function () {
 
     angular.module('viewCustom')

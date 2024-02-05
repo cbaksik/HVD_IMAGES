@@ -1,4 +1,69 @@
+/* Search results */
+.results-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: flex-start !important;
+}
+  
+.list-item-wrapper {
+  flex: 0 0 33.33% !important;
+  max-width: 33.33% !important;
+  box-sizing: border-box !important;
+  padding-right: 10px !important;
+}
+  
+@media (max-width: 1200px) {
+  .list-item-wrapper {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
 
+@media (max-width: 600px) {
+  .list-item-wrapper {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+#searchResultsContainer {
+  flex-direction: row;
+}
+
+prm-brief-result-container .result-item-image {
+  /*width: 100% !important;
+  height: auto !important;*/
+  flex: 0 0 auto !important;
+}
+
+/* hide medtia type label 'image' */
+prm-brief-result-container .media-content-type {
+  display:none;
+}
+
+/* bold number of images */
+prm-brief-result-container span[data-field-selector*="lds28"] {
+  font-weight:bold;
+}
+
+/* Remove Online Access button */
+.search-result-availability-line-wrapper {
+  display: none;
+}
+
+/* Remove gray background from search results */
+.list-item-wrapper {
+  background-color: transparent !important;
+  border: 1px solid #F3F3F3 !important;
+}
+
+/* Remove item actions buttons at top right */
+.result-item-actions {
+  display: none;
+}
+
+
+/* Previous custom styles removed January 2024
 .hvfullsize {
   width: 100%;
   height: auto;
@@ -241,4 +306,41 @@ prm-topbar {
 prm-favorites {
   background:#ffffff;
 }
+*/
+
+/* Apply flexbox layout to the container */
+/*
+.results-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-item-wrapper {
+  display: flex;
+  flex: 1 0 calc(33.33% - 20px);
+  margin: 10px;
+}
+*/
+
+/* Adjust width of each item in the grid 
+prm-brief-result-container {
+  display: flex;
+  flex: 1 0 calc(33.33% - 20px);
+  margin: 10px;
+}
+
+Media query for smaller screens
+@media screen and (max-width: 768px) {
+  prm-brief-result-container {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+Media query for even smaller screens, like mobile devices 
+@media screen and (max-width: 480px) {
+  prm-brief-result-container {
+    flex-basis: calc(100% - 20px);
+  }
+}
+*/
 

@@ -69,12 +69,10 @@
                 }
             };
             
-
             $element.bind('contextmenu',function (e) {
                 e.preventDefault();
                 return false;
             });
-
 
         }]
     });

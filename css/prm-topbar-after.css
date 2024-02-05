@@ -1,3 +1,4 @@
+/*
 prm-alert-bar {
     display: none !important;
 }
@@ -31,8 +32,10 @@ prm-search-bar md-card {
     width:33px;
     height:auto;
 }
+*/
 
 /* magnify glass search in search box */
+/*
 div.search-actions > .md-button.button-confirm {
     color:#a51c30;
 }
@@ -54,3 +57,4 @@ div.search-actions > .md-button.button-confirm:hover {
     }
 
 }
+*/

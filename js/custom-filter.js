@@ -2,7 +2,6 @@
  * Created by samsan on 3/20/18.
  */
 
-
 (function () {
 
     // custom filter to remove $$U infront of url in pnx.links
@@ -21,7 +20,6 @@
         }
 
     });
-
 
     // extract [6 images] from pnx.display.lds28 field
     angular.module('viewCustom').filter('countFilter',function () {
@@ -63,7 +61,6 @@
 
     });
 
-
     // truncate word to limit 60 characters
     angular.module('viewCustom').filter('mapXmlFilter',['customMapXmlKeys',function (customMapXmlKeys) {
         var cMap=customMapXmlKeys;
@@ -73,6 +70,5 @@
         }
 
     }]);
-
 
 })();

@@ -1,7 +1,57 @@
+/**
+ * Updated January 2024
+ * Minimalist custom component for search results
+ * A reduced version of the earlier customization (commented out at the bottom)
+ */
+
+(function () {
+
+  angular.module('viewCustom')
+  .controller('prmSearchResultListAfterController', ['prmSearchService', '$mdDialog','$element','$mdMedia','$state','$timeout', function (prmSearchService, $mdDialog, $element, $mdMedia, $state, $timeout) {
+    console.log("prmSearchResultListAfterController");
+    let vm = this;
+    vm.$onInit = function () {
+      if(vm.parentCtrl.isFavorites===false) {
+        // Remove left margin on result list grid
+        var el = $element[0].parentNode.parentNode.parentNode;
+        el.children[0].remove();
+
+        // Watch for new data change when a user search
+        vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
+
+          // Use $timeout to execute code after the DOM has been updated
+          $timeout(function() {
+            // Update OTB search results
+            var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
+            // Remove layout column class from the search results container
+            searchResultsContainer.removeClass('.layout-column');
+            // Remove layout="column" attribute from the search results container
+            searchResultsContainer.removeAttr('layout');
+            // Add layout row class to the search results container
+            //searchResultsContainer.addClass('.layout-row');
+
+          }, 1000);
+        });
+
+      }
+    }
+
+  }]);
+
+  angular.module('viewCustom')
+  .component('prmSearchResultListAfter', {
+      bindings: {parentCtrl: '<'},
+      controller: 'prmSearchResultListAfterController',
+      //templateUrl: '/primo-explore/custom/HVD_IMAGES/html/prm-search-results.html'
+  });
+
+})();
+
 /* Author: Sam San
  This custom component is used for search result list which display all the images in thumbnail.
  */
 
+/*
 (function () {
 
     angular.module('viewCustom')
@@ -40,13 +90,10 @@
 
         };
 
-
         // when a user click on next page or select new row from the drop down, it call this search function to get new data
         vm.ajaxSearch=function () {
             this.searchInfo=sv.getPage();
             var limit=this.searchInfo.pageSize;
-            console.log(`*** *** *** this.searchInfo *** *** ***`);
-            console.log(this.searchInfo);
             var remainder = parseInt(this.searchInfo.totalItems) - (parseInt(this.searchInfo.currentPage - 1) * parseInt(this.searchInfo.pageSize));
 
             if(remainder < this.searchInfo.pageSize) {
@@ -143,10 +190,16 @@
                 parentNode.remove();
 
                 this.searchInfo = sv.getPage(); // get page info object
-                // watch for new data change when a user search
 
+                // watch for new data change when a user search
                 vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
 
+                    // Remove OTB search results
+                    var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
+                    console.log("searchResultsContainer");
+                    console.log(searchResultsContainer);
+                    searchResultsContainer.remove();
+                  
                     if (vm.parentCtrl.$stateParams.offset > 0) {
                         vm.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
                         this.searchInfo.currentPage = parseInt(vm.parentCtrl.$stateParams.offset / this.searchInfo.pageSize) + 1;
@@ -290,10 +343,7 @@
             }
         }
 
-
     }]);
-
-
 
     angular.module('viewCustom')
     .component('prmSearchResultListAfter', {
@@ -303,3 +353,4 @@
     });
 
 })();
+*/

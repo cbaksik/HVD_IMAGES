@@ -2,6 +2,7 @@
  * Created by samsan on 9/18/17.
  */
 
+/*
 angular.module('viewCustom')
     .controller('prmPermalinkAfterCtrl',['$scope','$sce','$element',function ($scope,$sce,$element) {
         var vm=this;
@@ -54,3 +55,4 @@ angular.module('viewCustom')
         controllerAs:'vm',
         templateUrl:'/primo-explore/custom/HVD_IMAGES/html/prm-permalink-after.html'
     });
+*/

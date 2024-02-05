@@ -21,11 +21,7 @@
             sv.setPage(pageObj);
         }
 
-
-
     }]);
-
-
 
     angular.module('viewCustom')
     .component('prmBreadcrumbsAfter', {

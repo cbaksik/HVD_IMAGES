@@ -3,7 +3,6 @@
  * This for printing page when a user click on print icon
  */
 
-
 (function () {
 
     angular.module('viewCustom')
@@ -69,3 +68,4 @@
     });
 
 })();
+
