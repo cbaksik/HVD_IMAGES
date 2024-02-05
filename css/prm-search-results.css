@@ -36,6 +36,16 @@ prm-brief-result-container .result-item-image {
   flex: 0 0 auto !important;
 }
 
+/* hide medtia type label 'image' */
+prm-brief-result-container .media-content-type {
+  display:none;
+}
+
+/* bold number of images */
+prm-brief-result-container span[data-field-selector*="lds28"] {
+  font-weight:bold;
+}
+
 /* Remove Online Access button */
 .search-result-availability-line-wrapper {
   display: none;

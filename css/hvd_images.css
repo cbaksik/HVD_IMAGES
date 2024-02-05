@@ -32,6 +32,10 @@ div.hollis-logo a {
 div.hollis-logo a:hover {
 	box-shadow: inset 0 -1px 0 0 #fff;
 }
+.hollisImage {
+    width:200px;
+    height: auto;
+}
 /* home page body */
 /*#primoExploreRoot body {background: url(/primo-explore/custom/HVD_IMAGES/img/home_feature.png) no-repeat center center fixed;
 -webkit-background-size: cover;
