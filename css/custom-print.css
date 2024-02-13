@@ -8,10 +8,6 @@
     display: none;
 }
 
-#printView #customTopMenu {
-    display: none;
-}
-
 #printView prm-search-bar {
     display: none;
 }
@@ -79,10 +75,6 @@
     }
 
     #closebtn {
-        display: none;
-    }
-
-    #customTopMenu {
         display: none;
     }
 

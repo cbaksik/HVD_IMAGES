@@ -24,23 +24,7 @@
                 )
         };
 
-
         vm.$onInit=function() {
-            // hide primo tab menu
-            vm.parentCtrl.showMainMenu=false;
-            // create new div for the top white menu
-            let primoExplore = document.getElementsByTagName('primo-explore')[0];
-            let div=document.createElement('div');
-            div.setAttribute('id','customTopMenu');
-            div.setAttribute('class','topMenu');
-            // create custom top white bar
-            let customTop = document.createElement('custom-top-menu');
-            div.appendChild(customTop);
-            if(primoExplore.children[0].className !== 'topMenu') {
-                $compile(div)($scope);
-                primoExplore.prepend(div);
-            }
-
             vm.getUrl();
 
         };
