@@ -229,6 +229,9 @@ prm-view-online-after md-grid-list > md-grid-tile {
     background-color: inherit;
 }
 
+prm-search-result-thumbnail-container img {
+    width: auto;
+}
 
 @media only screen and (max-width: 800px) {
     .hvPanel {
