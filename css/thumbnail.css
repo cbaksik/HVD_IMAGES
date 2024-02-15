@@ -229,6 +229,9 @@ prm-view-online-after md-grid-list > md-grid-tile {
     background-color: inherit;
 }
 
+prm-brief-result-container {
+    min-height: 100px;
+}
 
 @media only screen and (max-width: 800px) {
     .hvPanel {
