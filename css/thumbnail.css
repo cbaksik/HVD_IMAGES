@@ -236,7 +236,7 @@ prm-brief-result .item-title span {
   overflow: hidden;
 }
 
-prm-search-result-thumbnail-container img {
+prm-search prm-search-result-thumbnail-container img {
     width: auto;
 }
 
