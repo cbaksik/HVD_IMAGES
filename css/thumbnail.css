@@ -236,6 +236,10 @@ prm-brief-result .item-title span {
   overflow: hidden;
 }
 
+prm-search-result-thumbnail-container img {
+    width: auto;
+}
+
 prm-brief-result-container {
     min-height: 100px;
 }
