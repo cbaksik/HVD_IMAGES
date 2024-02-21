@@ -236,13 +236,14 @@ prm-brief-result .item-title span {
   overflow: hidden;
 }
 
-prm-search-result-thumbnail-container img {
+prm-search prm-search-result-thumbnail-container img {
     width: auto;
 }
 
 prm-brief-result-container {
     min-height: 100px;
 }
+
 
 @media only screen and (max-width: 800px) {
     .hvPanel {
