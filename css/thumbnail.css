@@ -244,7 +244,6 @@ prm-brief-result-container {
     min-height: 100px;
 }
 
-
 @media only screen and (max-width: 800px) {
     .hvPanel {
         padding-bottom:70px;
