@@ -229,6 +229,13 @@ prm-view-online-after md-grid-list > md-grid-tile {
     background-color: inherit;
 }
 
+prm-brief-result .item-title span {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
 prm-search-result-thumbnail-container img {
     width: auto;
 }
