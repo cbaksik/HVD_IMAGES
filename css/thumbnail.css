@@ -229,6 +229,10 @@ prm-view-online-after md-grid-list > md-grid-tile {
     background-color: inherit;
 }
 
+prm-brief-result .item-title {
+    max-width: 100%;
+}
+
 prm-brief-result .item-title span {
   -webkit-box-orient: vertical;
   display: -webkit-box;

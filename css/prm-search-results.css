@@ -9,17 +9,17 @@
   flex: 0 0 33.33% !important;
   max-width: 33.33% !important;
   box-sizing: border-box !important;
-  padding-right: 10px !important;
+  /* padding-right: 10px !important; */
 }
-  
-@media (max-width: 1200px) {
+
+@media (max-width: 1450px) {
   .list-item-wrapper {
     flex: 0 0 50% !important;
     max-width: 50% !important;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .list-item-wrapper {
     flex: 0 0 100% !important;
     max-width: 100% !important;
@@ -34,6 +34,13 @@ prm-brief-result-container .result-item-image {
   /*width: 100% !important;
   height: auto !important;*/
   flex: 0 0 auto !important;
+}
+
+prm-brief-result-container .result-item-text {
+  padding-right:0;
+}
+.__xs prm-brief-result-container .result-item-text {
+  padding-left: .35em;
 }
 
 /* hide medtia type label 'image' */
