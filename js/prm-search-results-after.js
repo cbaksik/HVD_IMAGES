@@ -12,6 +12,7 @@
     let vm = this;
     vm.$onInit = function () {
       if(vm.parentCtrl.isFavorites===false) {
+        console.log(vm.parentCtrl);
         // Remove left margin on result list grid
         var el = $element[0].parentNode.parentNode.parentNode;
         el.children[0].remove();
@@ -29,6 +30,10 @@
             searchResultsContainer.removeAttr('layout');
             // Add layout row class to the search results container
             //searchResultsContainer.addClass('.layout-row');
+
+            // Add padlock icon for restricted items          
+            var lockIcon = '<div class="lockIcon" ng-if="vm.localScope.hideLockIcon" tabindex="-1"><img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/></div>';
+            searchResultsContainer.after(lockIcon);
 
           }, 1000);
         });
