@@ -41,10 +41,12 @@ prm-brief-result-container .result-item-text {
 }
 .__xs prm-brief-result-container .result-item-text {
   padding-left: .35em;
+  margin-top: 0;
 }
 
-/* hide medtia type label 'image' */
-prm-brief-result-container .media-content-type {
+/* hide media type label 'image' */
+prm-brief-result-container .media-content-type,
+.__xs prm-brief-result-container .layout-column > .media-content-type {
   display:none;
 }
 
