@@ -19,9 +19,23 @@
 
         // Watch for new data change when a user search
         vm.parentCtrl.$scope.$watch(() => vm.parentCtrl.searchResults, (newVal, oldVal) => {
-
+           
           // Use $timeout to execute code after the DOM has been updated
           $timeout(function() {
+            // Search for restricted items and add padlock to the search result
+            newVal.forEach((value, index) => {
+                var htmlString = value.pnx.addata.mis1[0];
+                const parser = new DOMParser();
+                const itemHtml = parser.parseFromString(htmlString, 'text/html');
+                var imageHtml = itemHtml.images[0];
+                if (imageHtml) {
+                    if (imageHtml.attributes.restrictedimage.value == 'true') {
+                        var restrictedItem = angular.element(document.getElementsByClassName('media-thumbnail')[index]);
+                        var padlockIcon = '<div class="lockIcon" tabindex="-1"><img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/></div>';
+                        restrictedItem.after(padlockIcon);
+                    }
+                }
+            });
             // Update OTB search results
             var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
             // Remove layout column class from the search results container
