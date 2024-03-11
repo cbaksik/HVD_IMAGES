@@ -29,8 +29,9 @@
                 var imageHtml = itemHtml.images[0];
                 if (imageHtml) {
                     if (imageHtml.attributes.restrictedimage.value == 'true') {
-                        var restrictedItem = angular.element(document.getElementsByClassName('result-item-primary-content')[index]);
-                        restrictedItem.append('<p style="color:#ff0000">RESTRICTED ITEM!</p>');
+                        var restrictedItem = angular.element(document.getElementsByClassName('media-thumbnail')[index]);
+                        var padlockIcon = '<div class="lockIcon" tabindex="-1"><img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/></div>';
+                        restrictedItem.after(padlockIcon);
                     }
                 }
             });
