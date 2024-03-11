@@ -23,6 +23,45 @@
           // Use $timeout to execute code after the DOM has been updated
           $timeout(function() {
             // Search for restricted items and add padlock to the search result
+            findRestricted(newVal);
+            // Update OTB search results
+            var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
+            // Remove layout column class from the search results container
+            searchResultsContainer.removeClass('.layout-column');
+            // Remove layout="column" attribute from the search results container
+            searchResultsContainer.removeAttr('layout');
+            // Add layout row class to the search results container
+            //searchResultsContainer.addClass('.layout-row');
+
+            // Observe all images in the search results to add additional padlocks
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px',
+                threshold: 0
+            };
+            // Create the intersection observer
+            const observer = new IntersectionObserver(function(entries, observer) {
+            // Search for restricted items and add padlock to the search result
+            findRestricted(newVal);
+            }, observerOptions);
+            // Observe all img tags with the 'data-src' attribute
+            document.querySelectorAll('img').forEach(function(img) {
+                observer.observe(img);
+            });
+            // Load an image and unobserve it
+            function load(img, observer) {
+                if (observer) {
+                    img.addEventListener('load', function() { 
+                        observer.unobserve(img);
+                    });
+                }
+            }
+
+          }, 1000);
+        });
+
+        // Reads the data from the search values to find restricted items.
+        function findRestricted(newVal) {
             newVal.forEach((value, index) => {
                 var htmlString = value.pnx.addata.mis1[0];
                 const parser = new DOMParser();
@@ -36,21 +75,7 @@
                     }
                 }
             });
-            // Update OTB search results
-            var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
-            // Remove layout column class from the search results container
-            searchResultsContainer.removeClass('.layout-column');
-            // Remove layout="column" attribute from the search results container
-            searchResultsContainer.removeAttr('layout');
-            // Add layout row class to the search results container
-            //searchResultsContainer.addClass('.layout-row');
-
-            // Add padlock icon for restricted items          
-            var lockIcon = '<div class="lockIcon" ng-if="vm.localScope.hideLockIcon" tabindex="-1"><img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/></div>';
-            searchResultsContainer.after(lockIcon);
-
-          }, 1000);
-        });
+        }
 
       }
     }
