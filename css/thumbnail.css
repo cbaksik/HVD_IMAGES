@@ -127,6 +127,10 @@
     height:25px;
 }
 
+.result-item-text + .lockIcon {
+    margin-top: 78px;
+}
+
 .lockIcon > img {
     width:25px;
     height:auto;

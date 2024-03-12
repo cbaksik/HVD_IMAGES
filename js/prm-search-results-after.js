@@ -30,9 +30,11 @@
                 var imageHtml = itemHtml.images[0];
                 if (imageHtml) {
                     if (imageHtml.attributes.restrictedimage.value == 'true') {
-                        var restrictedItem = angular.element(document.getElementsByClassName('media-thumbnail')[index]);
+                        var restrictedItem = angular.element(document.getElementsByClassName('result-item-primary-content')[index]);
                         var padlockIcon = '<div class="lockIcon" tabindex="-1"><img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/></div>';
-                        restrictedItem.after(padlockIcon);
+                        restrictedItem.append(padlockIcon);
+                        var restrictedItem2 = angular.element(document.getElementsByClassName('result-item-primary-content')[index]);
+                        restrictedItem2.append('<p style="color:#ff0000">RESTRICTED ITEM!</p>');
                     }
                 }
             });
@@ -44,10 +46,6 @@
             searchResultsContainer.removeAttr('layout');
             // Add layout row class to the search results container
             //searchResultsContainer.addClass('.layout-row');
-
-            // Add padlock icon for restricted items          
-            var lockIcon = '<div class="lockIcon" ng-if="vm.localScope.hideLockIcon" tabindex="-1"><img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/></div>';
-            searchResultsContainer.after(lockIcon);
 
           }, 1000);
         });
