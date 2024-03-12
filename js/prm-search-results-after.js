@@ -12,7 +12,7 @@
     let vm = this;
     vm.$onInit = function () {
       if(vm.parentCtrl.isFavorites===false) {
-        console.log(vm.parentCtrl);
+
         // Remove left margin on result list grid
         var el = $element[0].parentNode.parentNode.parentNode;
         el.children[0].remove();
@@ -22,20 +22,6 @@
            
           // Use $timeout to execute code after the DOM has been updated
           $timeout(function() {
-            // Search for restricted items and add padlock to the search result
-            newVal.forEach((value, index) => {
-                var htmlString = value.pnx.addata.mis1[0];
-                const parser = new DOMParser();
-                const itemHtml = parser.parseFromString(htmlString, 'text/html');
-                var imageHtml = itemHtml.images[0];
-                if (imageHtml) {
-                    if (imageHtml.attributes.restrictedimage.value == 'true') {
-                        var restrictedItem = angular.element(document.getElementsByClassName('media-thumbnail')[index]);
-                        var padlockIcon = '<div class="lockIcon" tabindex="-1"><img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/></div>';
-                        restrictedItem.after(padlockIcon);
-                    }
-                }
-            });
             // Update OTB search results
             var searchResultsContainer = angular.element(document.getElementById('searchResultsContainer'));
             // Remove layout column class from the search results container
@@ -44,11 +30,7 @@
             searchResultsContainer.removeAttr('layout');
             // Add layout row class to the search results container
             //searchResultsContainer.addClass('.layout-row');
-
-            // Add padlock icon for restricted items          
-            var lockIcon = '<div class="lockIcon" ng-if="vm.localScope.hideLockIcon" tabindex="-1"><img src="custom/HVD_IMAGES/img/icon_lock25.png" class="md-avatar" alt="Restricted to HarvardKey" aria-label="Restricted to HarvardKey" title="Restricted to HarvardKey"/></div>';
-            searchResultsContainer.after(lockIcon);
-
+            
           }, 1000);
         });
 
