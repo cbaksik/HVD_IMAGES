@@ -126,9 +126,6 @@
     width:25px;
     height:25px;
 }
-.media-thumbnail + .lockIcon {
-    margin-top: -15px;
-}
 
 .lockIcon > img {
     width:25px;
