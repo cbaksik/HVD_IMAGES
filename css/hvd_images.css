@@ -285,3 +285,7 @@ prm-search-result-availability-line {
     display: none;
 }
 
+/* account dropdown menu alignment */
+#menu_container_2 {
+    top: 60px !important;
+}

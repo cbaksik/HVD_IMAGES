@@ -127,6 +127,10 @@
     height:25px;
 }
 
+.result-item-text + .lockIcon {
+    margin-top: 78px;
+}
+
 .lockIcon > img {
     width:25px;
     height:auto;
@@ -229,6 +233,10 @@ prm-view-online-after md-grid-list > md-grid-tile {
     background-color: inherit;
 }
 
+prm-brief-result .item-title {
+    max-width: 100%;
+}
+
 prm-brief-result .item-title span {
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -236,6 +244,9 @@ prm-brief-result .item-title span {
   overflow: hidden;
 }
 
+prm-search-result-thumbnail-container {
+    min-width: 70px;
+}
 prm-search prm-search-result-thumbnail-container img {
     width: auto;
 }
