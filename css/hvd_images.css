@@ -36,6 +36,9 @@ div.hollis-logo a:hover {
     width:200px;
     height: auto;
 }
+prm-logo-after .boxHollis a:hover {
+    box-shadow: inset 0 -1px 0 0 #fff;
+}
 /* home page body */
 /*#primoExploreRoot body {background: url(/primo-explore/custom/HVD_IMAGES/img/home_feature.png) no-repeat center center fixed;
 -webkit-background-size: cover;
@@ -51,7 +54,7 @@ div.hollis-logo a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  top: 13.6em;
+  top: 9.6em;
   position: fixed;  
 }
 #hvd_home_content > div.flex-60 {
@@ -70,7 +73,7 @@ div.hollis-logo a:hover {
 	color:#6fe2f8;
 }
 @media only screen and (max-width: 960px) {
-	#hvd_home_content {top: 12.4em;}
+	#hvd_home_content {top: 9.4em;}
 	#hvd_home_content > div.flex-60 {
 		min-width: 65%;	 	
 	}	
